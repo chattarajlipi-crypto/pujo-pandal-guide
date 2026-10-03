@@ -1,0 +1,7 @@
+{
+  "name": "pujo-pandal-guide",
+  "version": "1.0.0",
+  "private": true,
+  "description": "Durga Puja pandal guide for West Bengal",
+  "engines": { "node": ">=18" }
+}
