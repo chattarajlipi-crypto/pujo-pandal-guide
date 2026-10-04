@@ -1,271 +1,1512 @@
 <!doctype html>
-<html lang="en">
+<html lang="bn" data-theme="light">
 <head>
 <meta charset="utf-8">
-<meta name="viewport" content="width=device-width, initial-scale=1">
-<title>Pujo Pandal Guide</title>
-<meta name="description" content="Find Durga Puja pandals in West Bengal with the nearest metro, train station and bus stop, plus short directions.">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<meta name="theme-color" content="#B3262E">
+<title>পুজো পথ · Pujo Path | Kolkata Durga Puja Pandal & Transit Guide</title>
+<meta name="description" content="Kolkata Durga Puja Pandal & Street Transit Guide. Find top pandals in North, Central, South Kolkata & Dum Dum, Metro Exit Gates, Train & Bus routes, walking directions, and Google Maps.">
+
+<!-- Fonts -->
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Hind+Siliguri:wght@400;500;600&family=Tiro+Bangla&display=swap">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Hind+Siliguri:wght@400;500;600;700&family=Tiro+Bangla:ital@0;1&family=Outfit:wght@400;500;600;700&family=Noto+Sans+Devanagari:wght@400;500;600&display=swap">
+
 <style>
-/* Layout: a laal-paar (red-bordered white saree) header, search + area chips, then a grid of pandal cards.
-   Each card reads top to bottom: name, theme, metro / rail / bus, how to reach, directions. */
+/* ==========================================================================
+   PUJO PATH - PRODUCTION DESIGN SYSTEM & TYPOGRAPHY ENGINE
+   ========================================================================== */
 :root {
-  --bg: #FBF9F9;
-  --card: #FFFFFF;
-  --fg: #251A1D;
-  --muted: #6A5C60;
-  --line: #E9DEE0;
-  --red: #B0112A;
-  --red-soft: #F9E8EB;
+  /* Primary Bengali Festive Palette */
+  --sindoor-red: #B3262E;
+  --sindoor-red-hover: #911B21;
+  --alta-maroon: #6F1820;
+  --kashish-gold: #C79A45;
+  --kashish-gold-soft: #F9F4EB;
+  --ivory-bg: #FAF6F0;
+  --card-bg: #FFFFFF;
+  --text-main: #1F191B;
+  --text-muted: #66575B;
+  --border-line: #E8DDDC;
+  --border-accent: #E2CEB0;
+  --red-soft: #FAF0F1;
   --on-red: #FFFFFF;
-  --metro: #1F58B8;
-  --rail: #26704A;
-  --bus: #9A5B00;
-  --focus: #1F58B8;
-  --font-display: "Tiro Bangla", "Noto Serif Bengali", Georgia, serif;
-  --font-body: "Hind Siliguri", "Noto Sans Bengali", system-ui, -apple-system, "Segoe UI", sans-serif;
+  
+  /* Category Tag Colors */
+  --tag-heritage-bg: #FFF8EB;
+  --tag-heritage-fg: #9C6700;
+  --tag-theme-bg: #F4E8FB;
+  --tag-theme-fg: #6B21A8;
+  --tag-popular-bg: #E8F5E9;
+  --tag-popular-fg: #1B5E20;
+
+  /* Transit Tag Colors */
+  --metro-blue: #154EC1;
+  --metro-bg: #EEF4FF;
+  --rail-green: #1B7A43;
+  --rail-bg: #EDF7F1;
+  --bus-amber: #A35A00;
+  --bus-bg: #FFF7EB;
+
+  --focus-ring: #B3262E;
+
+  /* Typography */
+  --font-bengali-heading: "Tiro Bangla", "Noto Serif Bengali", Georgia, serif;
+  --font-bengali-body: "Hind Siliguri", "Noto Sans Bengali", sans-serif;
+  --font-english: "Outfit", system-ui, -apple-system, sans-serif;
+  --font-hindi: "Noto Sans Devanagari", "Hind Siliguri", sans-serif;
+  
+  --font-heading: var(--font-bengali-heading);
+  --font-body: var(--font-bengali-body);
+
+  --shadow-sm: 0 2px 8px rgba(111, 24, 32, 0.05);
+  --shadow-md: 0 6px 20px rgba(111, 24, 32, 0.09);
+  --shadow-lg: 0 16px 44px rgba(111, 24, 32, 0.15);
+
+  --radius-sm: 8px;
+  --radius-md: 12px;
+  --radius-lg: 18px;
+  --radius-pill: 999px;
 }
+
 @media (prefers-color-scheme: dark) {
   :root:not([data-theme="light"]) {
-    --bg: #171115; --card: #21191D; --fg: #F5ECEE; --muted: #B6A6AB; --line: #3A2D32;
-    --red: #FF7388; --red-soft: #3A1D25; --on-red: #1A0C10;
-    --metro: #7FAEFF; --rail: #6FD09A; --bus: #F0B352; --focus: #9DBEFF;
+    --ivory-bg: #141012;
+    --card-bg: #1D171A;
+    --text-main: #F7EFEF;
+    --text-muted: #C2B3B8;
+    --border-line: #382C31;
+    --border-accent: #523E2B;
+    --sindoor-red: #E63946;
+    --sindoor-red-hover: #F0525F;
+    --alta-maroon: #85222B;
+    --red-soft: #381B20;
+    --on-red: #FFFFFF;
+    --metro-blue: #72A4FF;
+    --metro-bg: #1A2A47;
+    --rail-green: #5CD694;
+    --rail-bg: #163324;
+    --bus-amber: #FFB74D;
+    --bus-bg: #3B2B16;
     color-scheme: dark;
   }
 }
+
 :root[data-theme="dark"] {
-  --bg: #171115; --card: #21191D; --fg: #F5ECEE; --muted: #B6A6AB; --line: #3A2D32;
-  --red: #FF7388; --red-soft: #3A1D25; --on-red: #1A0C10;
-  --metro: #7FAEFF; --rail: #6FD09A; --bus: #F0B352; --focus: #9DBEFF;
+  --ivory-bg: #141012;
+  --card-bg: #1D171A;
+  --text-main: #F7EFEF;
+  --text-muted: #C2B3B8;
+  --border-line: #382C31;
+  --border-accent: #523E2B;
+  --sindoor-red: #E63946;
+  --sindoor-red-hover: #F0525F;
+  --alta-maroon: #85222B;
+  --red-soft: #381B20;
+  --on-red: #FFFFFF;
+  --metro-blue: #72A4FF;
+  --metro-bg: #1A2A47;
+  --rail-green: #5CD694;
+  --rail-bg: #163324;
+  --bus-amber: #FFB74D;
+  --bus-bg: #3B2B16;
   color-scheme: dark;
 }
+
+body.lang-en { --font-heading: var(--font-english); --font-body: var(--font-english); }
+body.lang-hi { --font-heading: var(--font-hindi); --font-body: var(--font-hindi); }
+body.lang-bn { --font-heading: var(--font-bengali-heading); --font-body: var(--font-bengali-body); }
+
 * { box-sizing: border-box; }
-html, body { margin: 0; }
-body { background: var(--bg); color: var(--fg); font-family: var(--font-body); font-size: 16px; line-height: 1.5; }
-a { color: inherit; }
-:focus-visible { outline: 3px solid var(--focus); outline-offset: 2px; }
+html { scroll-behavior: smooth; }
+body {
+  margin: 0;
+  background: var(--ivory-bg);
+  color: var(--text-main);
+  font-family: var(--font-body);
+  font-size: 16px;
+  line-height: 1.6;
+  -webkit-font-smoothing: antialiased;
+  padding-bottom: env(safe-area-inset-bottom);
+}
 
-.border { height: 16px; background: linear-gradient(var(--red) 0 8px, transparent 8px 11px, var(--red) 11px 13px, transparent 13px); }
-.wrap { max-width: 1100px; margin: 0 auto; padding-inline: 16px; padding-block: 0 48px; }
+h1, h2, h3, h4 { font-family: var(--font-heading); color: var(--text-main); line-height: 1.3; margin: 0; }
+a { color: inherit; text-decoration: none; }
+button { font-family: inherit; }
+:focus-visible { outline: 3px solid var(--focus-ring); outline-offset: 3px; }
 
-header.top { padding-block: 28px 20px; display: grid; gap: 8px; }
-.eyebrow { font-family: var(--font-display); color: var(--red); font-size: 1.1rem; margin: 0; }
-h1 { font-family: var(--font-display); font-weight: 400; font-size: clamp(2rem, 6vw, 3.2rem); line-height: 1.1; margin: 0; text-wrap: balance; }
-.lede { max-width: 62ch; color: var(--muted); margin: 4px 0 0; }
+/* Laal-Paar Saree Border Motif */
+.laal-paar-border {
+  height: 12px;
+  width: 100%;
+  background-color: var(--sindoor-red);
+  background-image: repeating-linear-gradient(
+    45deg,
+    var(--alta-maroon) 0,
+    var(--alta-maroon) 6px,
+    var(--sindoor-red) 6px,
+    var(--sindoor-red) 12px,
+    var(--kashish-gold) 12px,
+    var(--kashish-gold) 14px,
+    var(--sindoor-red) 14px,
+    var(--sindoor-red) 20px
+  );
+}
 
-.tools { display: grid; gap: 12px; padding-block: 8px 20px; }
-.search { width: 100%; font: inherit; color: var(--fg); background: var(--card); border: 1.5px solid var(--line); border-radius: 6px; padding: 12px 14px; }
-.search::placeholder { color: var(--muted); }
-.chips { display: flex; flex-wrap: wrap; gap: 8px; }
-.chip { font: inherit; font-size: 0.9rem; color: var(--fg); background: var(--card); border: 1.5px solid var(--line); border-radius: 999px; padding: 6px 14px; cursor: pointer; }
-.chip[aria-pressed="true"] { background: var(--red); border-color: var(--red); color: var(--on-red); font-weight: 600; }
-.count { color: var(--muted); font-size: 0.9rem; margin: 0; }
+.wrap { max-width: 1180px; margin: 0 auto; padding-inline: 20px; }
 
-.grid { display: grid; gap: 16px; grid-template-columns: repeat(auto-fill, minmax(min(100%, 330px), 1fr)); }
-.pandal { background: var(--card); border: 1px solid var(--line); border-radius: 8px; padding: 18px; display: flex; flex-direction: column; gap: 10px; min-width: 0; }
-.pandal h3 { font-family: var(--font-display); font-weight: 400; font-size: 1.35rem; line-height: 1.2; margin: 0; overflow-wrap: anywhere; }
-.row1 { display: flex; justify-content: space-between; gap: 10px; align-items: flex-start; flex-wrap: wrap; }
-.tag { font-size: 0.75rem; letter-spacing: 0.06em; text-transform: uppercase; color: var(--red); background: var(--red-soft); padding: 2px 8px; border-radius: 4px; white-space: nowrap; }
-.tag.community { color: var(--fg); background: transparent; border: 1px dashed var(--muted); }
-.place { margin: 0; color: var(--muted); font-size: 0.92rem; overflow-wrap: anywhere; }
-.theme { margin: 0; overflow-wrap: anywhere; }
-.k { font-weight: 600; }
-.transit { margin: 0; display: grid; gap: 6px; border-block: 1px solid var(--line); padding-block: 10px; }
-.transit div { display: grid; grid-template-columns: 3.6rem 1fr; gap: 8px; align-items: baseline; }
-.transit dt { font-size: 0.72rem; font-weight: 600; letter-spacing: 0.08em; text-transform: uppercase; }
-.transit dd { margin: 0; min-width: 0; overflow-wrap: anywhere; font-size: 0.95rem; }
-.t-metro dt { color: var(--metro); } .t-rail dt { color: var(--rail); } .t-bus dt { color: var(--bus); }
-.reach { margin: 0; font-size: 0.95rem; overflow-wrap: anywhere; }
-.actions { margin-top: auto; display: flex; gap: 10px; align-items: center; flex-wrap: wrap; padding-top: 4px; }
-.btn { font: inherit; font-weight: 600; display: inline-block; text-decoration: none; background: var(--red); color: var(--on-red); border: 0; border-radius: 6px; padding: 9px 16px; cursor: pointer; }
-.btn.ghost { background: transparent; color: var(--fg); border: 1.5px solid var(--line); font-weight: 500; }
-.btn[disabled] { opacity: 0.55; cursor: not-allowed; }
-.empty { grid-column: 1 / -1; border: 1.5px dashed var(--line); border-radius: 8px; padding: 28px 18px; color: var(--muted); text-align: center; }
+/* ==========================================================================
+   HEADER & STICKY NAVIGATION
+   ========================================================================== */
+header.site-header {
+  position: sticky;
+  top: 0;
+  z-index: 100;
+  background: rgba(250, 246, 240, 0.95);
+  backdrop-filter: blur(14px);
+  -webkit-backdrop-filter: blur(14px);
+  border-bottom: 1px solid var(--border-line);
+  transition: box-shadow 0.25s ease;
+}
+header.site-header.scrolled {
+  box-shadow: var(--shadow-md);
+}
+:root[data-theme="dark"] header.site-header { background: rgba(20, 16, 18, 0.95); }
 
-.add { margin-top: 40px; background: var(--card); border: 1px solid var(--line); border-radius: 8px; padding: clamp(16px, 4vw, 28px); }
-.add h2 { font-family: var(--font-display); font-weight: 400; font-size: 1.7rem; margin: 0 0 4px; }
-.add > p { margin: 0 0 16px; color: var(--muted); max-width: 62ch; }
-form { display: grid; gap: 14px; grid-template-columns: repeat(auto-fit, minmax(min(100%, 260px), 1fr)); }
-.field { display: grid; gap: 4px; min-width: 0; }
-.field.wide { grid-column: 1 / -1; }
-label { font-size: 0.85rem; font-weight: 600; }
-input, select, textarea { font: inherit; color: var(--fg); background: var(--bg); border: 1.5px solid var(--line); border-radius: 6px; padding: 10px 12px; width: 100%; min-width: 0; }
-textarea { resize: vertical; min-height: 76px; }
-.status { margin: 0; min-height: 1.5em; font-size: 0.95rem; }
-.status.err { color: var(--red); }
-.note { margin-top: 28px; font-size: 0.88rem; color: var(--muted); max-width: 70ch; }
-@media (prefers-reduced-motion: no-preference) { .chip, .btn { transition: background-color 0.15s, border-color 0.15s; } }
+.header-inner {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  height: 68px;
+  gap: 16px;
+}
+
+.brand-logo {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  font-family: var(--font-bengali-heading);
+  font-size: 1.35rem;
+  font-weight: 700;
+  color: var(--sindoor-red);
+}
+
+.brand-badge-icon {
+  width: 38px;
+  height: 38px;
+  background: linear-gradient(135deg, var(--sindoor-red), var(--alta-maroon));
+  color: #FFF;
+  border-radius: var(--radius-sm);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  box-shadow: 0 2px 8px rgba(179, 38, 46, 0.25);
+  flex-shrink: 0;
+}
+.brand-badge-icon svg { width: 22px; height: 22px; fill: currentColor; }
+
+.nav-links-desktop {
+  display: flex;
+  align-items: center;
+  gap: 22px;
+  list-style: none;
+  margin: 0; padding: 0;
+}
+.nav-item-link {
+  font-size: 0.95rem;
+  font-weight: 600;
+  color: var(--text-muted);
+  transition: color 0.2s ease;
+  padding: 8px 4px;
+}
+.nav-item-link:hover { color: var(--sindoor-red); }
+
+/* Language Segmented Bar */
+.lang-selector-bar {
+  display: inline-flex;
+  background: var(--card-bg);
+  border: 1px solid var(--border-line);
+  border-radius: var(--radius-pill);
+  padding: 3px;
+  box-shadow: var(--shadow-sm);
+}
+.lang-btn {
+  background: transparent;
+  border: 0;
+  border-radius: var(--radius-pill);
+  padding: 7px 15px;
+  min-height: 36px;
+  font-size: 0.85rem;
+  font-weight: 600;
+  color: var(--text-muted);
+  cursor: pointer;
+  transition: all 0.2s ease;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+}
+.lang-btn.active {
+  background: var(--sindoor-red);
+  color: #FFFFFF;
+}
+
+/* ==========================================================================
+   HERO / HOME SECTION
+   ========================================================================== */
+.hero-section {
+  position: relative;
+  padding-block: 40px 36px;
+  background: radial-gradient(circle at 85% 15%, rgba(199, 154, 69, 0.12) 0%, transparent 55%),
+              radial-gradient(circle at 10% 85%, rgba(179, 38, 46, 0.08) 0%, transparent 50%);
+  border-bottom: 1px solid var(--border-line);
+  overflow: hidden;
+}
+
+.hero-content { max-width: 820px; }
+
+.hero-pill-tag {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  background: var(--red-soft);
+  color: var(--sindoor-red);
+  border: 1px solid rgba(179, 38, 46, 0.22);
+  padding: 6px 14px;
+  border-radius: var(--radius-pill);
+  font-size: 0.86rem;
+  font-weight: 600;
+  margin-bottom: 16px;
+}
+.hero-pulse-dot {
+  width: 8px; height: 8px;
+  background: var(--sindoor-red);
+  border-radius: 50%;
+  animation: pulse-dot 2s infinite;
+}
+@keyframes pulse-dot {
+  0% { transform: scale(0.9); opacity: 0.8; }
+  50% { transform: scale(1.25); opacity: 1; }
+  100% { transform: scale(0.9); opacity: 0.8; }
+}
+
+.hero-heading {
+  font-size: clamp(2.3rem, 5vw, 3.6rem);
+  font-weight: 700;
+  letter-spacing: -0.02em;
+  margin-bottom: 12px;
+}
+.hero-heading span.accent { color: var(--sindoor-red); }
+
+.hero-lead {
+  font-size: clamp(1.05rem, 2vw, 1.25rem);
+  color: var(--text-muted);
+  margin-bottom: 28px;
+  max-width: 640px;
+}
+
+.hero-actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 12px;
+  margin-bottom: 28px;
+}
+
+/* Primary & Secondary Action Buttons (Min Touch Target 44px) */
+.btn-primary {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  background: var(--sindoor-red);
+  color: var(--on-red);
+  font-size: 0.98rem;
+  font-weight: 600;
+  padding: 12px 22px;
+  min-height: 46px;
+  border-radius: var(--radius-md);
+  border: none;
+  cursor: pointer;
+  box-shadow: 0 4px 14px rgba(179, 38, 46, 0.25);
+  transition: all 0.2s ease;
+}
+.btn-primary:hover {
+  background: var(--sindoor-red-hover);
+  transform: translateY(-2px);
+  box-shadow: 0 6px 18px rgba(179, 38, 46, 0.35);
+}
+
+.btn-secondary {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  background: var(--card-bg);
+  color: var(--text-main);
+  font-size: 0.98rem;
+  font-weight: 600;
+  padding: 12px 20px;
+  min-height: 46px;
+  border-radius: var(--radius-md);
+  border: 1.5px solid var(--border-line);
+  cursor: pointer;
+  box-shadow: var(--shadow-sm);
+  transition: all 0.2s ease;
+}
+.btn-secondary:hover {
+  border-color: var(--sindoor-red);
+  color: var(--sindoor-red);
+  transform: translateY(-2px);
+}
+
+/* Street Search Box & Quick Preset Pills */
+.search-container { max-width: 720px; }
+.search-bar-wrap { position: relative; display: flex; align-items: center; }
+.search-icon-svg {
+  position: absolute; left: 18px; width: 20px; height: 20px;
+  color: var(--text-muted); pointer-events: none;
+}
+.search-input-field {
+  width: 100%;
+  font-family: inherit;
+  font-size: 1rem;
+  color: var(--text-main);
+  background: var(--card-bg);
+  border: 2px solid var(--border-line);
+  border-radius: var(--radius-lg);
+  padding: 16px 48px 16px 48px;
+  min-height: 54px;
+  box-shadow: var(--shadow-md);
+  transition: border-color 0.2s ease, box-shadow 0.2s ease;
+}
+.search-input-field:focus {
+  border-color: var(--sindoor-red);
+  box-shadow: 0 0 0 4px rgba(179, 38, 46, 0.12);
+  outline: none;
+}
+.search-clear-btn {
+  position: absolute;
+  right: 12px;
+  background: transparent;
+  border: 0;
+  color: var(--text-muted);
+  font-size: 1.4rem;
+  cursor: pointer;
+  padding: 8px 12px;
+  min-width: 44px; min-height: 44px;
+  display: none;
+  align-items: center; justify-content: center;
+}
+.search-clear-btn.show { display: flex; }
+
+.quick-filter-pills {
+  display: flex; flex-wrap: wrap; gap: 8px; margin-top: 14px;
+}
+.quick-pill {
+  background: var(--card-bg);
+  border: 1px solid var(--border-line);
+  border-radius: var(--radius-pill);
+  padding: 6px 14px;
+  min-height: 38px;
+  font-size: 0.84rem; font-weight: 600;
+  color: var(--text-muted);
+  cursor: pointer;
+  transition: all 0.2s ease;
+  display: inline-flex; align-items: center;
+}
+.quick-pill:hover { border-color: var(--sindoor-red); color: var(--sindoor-red); }
+
+/* ==========================================================================
+   AREA EXPLORATION SECTION
+   ========================================================================== */
+.area-section { padding-block: 44px 28px; }
+.section-title-wrap { margin-bottom: 22px; }
+.section-main-title { font-size: 1.7rem; font-weight: 700; margin-bottom: 6px; }
+.section-sub-title { color: var(--text-muted); font-size: 0.95rem; }
+
+.area-cards-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(210px, 1fr));
+  gap: 16px;
+}
+
+.area-zone-card {
+  background: var(--card-bg);
+  border: 1px solid var(--border-line);
+  border-radius: var(--radius-md);
+  padding: 20px;
+  cursor: pointer;
+  transition: all 0.22s ease;
+  position: relative;
+  box-shadow: var(--shadow-sm);
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  min-height: 124px;
+}
+.area-zone-card::before {
+  content: "";
+  position: absolute;
+  top: 0; left: 0; right: 0;
+  height: 4px;
+  background: var(--kashish-gold);
+  border-radius: var(--radius-md) var(--radius-md) 0 0;
+  opacity: 0.8;
+  transition: background 0.2s ease;
+}
+.area-zone-card:hover {
+  transform: translateY(-3px);
+  border-color: var(--sindoor-red);
+  box-shadow: var(--shadow-md);
+}
+.area-zone-card:hover::before { background: var(--sindoor-red); }
+
+.area-name { font-size: 1.15rem; font-weight: 700; margin-bottom: 4px; }
+.area-spots-hint { font-size: 0.78rem; font-weight: 700; color: var(--sindoor-red); margin-bottom: 6px; text-transform: uppercase; letter-spacing: 0.04em; }
+.area-desc { font-size: 0.88rem; color: var(--text-muted); margin: 0; line-height: 1.4; }
+
+/* ==========================================================================
+   EXPLORE PANDALS & CARDS GRID
+   ========================================================================== */
+.explore-section { padding-block: 20px 60px; scroll-margin-top: 76px; }
+
+.filter-toolbar {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  gap: 14px;
+  margin-bottom: 24px;
+  padding-bottom: 14px;
+  border-bottom: 1px solid var(--border-line);
+}
+
+.chips-container { display: flex; flex-wrap: wrap; gap: 8px; }
+.chip-filter-btn {
+  background: var(--card-bg);
+  border: 1.5px solid var(--border-line);
+  border-radius: var(--radius-pill);
+  padding: 8px 16px;
+  min-height: 40px;
+  font-size: 0.88rem; font-weight: 600;
+  color: var(--text-main);
+  cursor: pointer;
+  transition: all 0.2s ease;
+  display: inline-flex; align-items: center;
+}
+.chip-filter-btn:hover { border-color: var(--sindoor-red); color: var(--sindoor-red); }
+.chip-filter-btn[aria-pressed="true"] {
+  background: var(--sindoor-red);
+  border-color: var(--sindoor-red);
+  color: #FFFFFF;
+}
+
+.count-indicator { font-size: 0.92rem; font-weight: 600; color: var(--text-muted); }
+
+/* Pandal Card Layout */
+.pandal-grid-container {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(min(100%, 340px), 1fr));
+  gap: 20px;
+}
+
+.pandal-card {
+  background: var(--card-bg);
+  border: 1.5px solid var(--border-line);
+  border-radius: var(--radius-md);
+  padding: 22px;
+  display: flex; flex-direction: column; gap: 14px;
+  position: relative;
+  box-shadow: var(--shadow-sm);
+  transition: transform 0.2s ease, border-color 0.2s ease, box-shadow 0.2s ease;
+}
+.pandal-card:hover {
+  transform: translateY(-4px);
+  border-color: rgba(179, 38, 46, 0.45);
+  box-shadow: var(--shadow-md);
+}
+
+.pandal-card.card-heritage { border-left: 4px solid var(--tag-heritage-fg); }
+.pandal-card.card-theme { border-left: 4px solid var(--tag-theme-fg); }
+
+.card-header-row {
+  display: flex; align-items: flex-start; justify-content: space-between; gap: 10px;
+}
+.card-title-text { font-size: 1.28rem; font-weight: 700; color: var(--text-main); line-height: 1.3; }
+
+.category-tag-badge {
+  font-size: 0.72rem; font-weight: 700; letter-spacing: 0.04em;
+  text-transform: uppercase; padding: 4px 10px; border-radius: var(--radius-pill);
+  white-space: nowrap; flex-shrink: 0;
+}
+.category-tag-badge.heritage { background: var(--tag-heritage-bg); color: var(--tag-heritage-fg); }
+.category-tag-badge.theme { background: var(--tag-theme-bg); color: var(--tag-theme-fg); }
+.category-tag-badge.popular { background: var(--tag-popular-bg); color: var(--tag-popular-fg); }
+.category-tag-badge.community { background: var(--kashish-gold-soft); color: var(--kashish-gold); border: 1px solid var(--kashish-gold); }
+
+.card-locality-text { font-size: 0.92rem; color: var(--text-muted); margin: -4px 0 0; }
+
+.distance-badge-pill {
+  display: inline-flex; align-items: center; gap: 4px;
+  font-size: 0.8rem; font-weight: 700;
+  color: var(--sindoor-red); background: var(--red-soft);
+  padding: 3px 8px; border-radius: var(--radius-sm); margin-left: 6px;
+}
+
+.card-theme-box {
+  background: var(--ivory-bg);
+  border-left: 3px solid var(--sindoor-red);
+  padding: 8px 12px;
+  border-radius: 0 var(--radius-sm) var(--radius-sm) 0;
+  font-size: 0.88rem; color: var(--text-main); margin: 0;
+}
+.card-theme-box strong { color: var(--sindoor-red); }
+
+.street-transit-list {
+  display: grid; gap: 8px; padding-block: 10px;
+  border-block: 1px dashed var(--border-line);
+}
+
+.transit-row-item {
+  display: grid; grid-template-columns: 88px 1fr; align-items: center; gap: 8px; font-size: 0.88rem;
+}
+.transit-badge {
+  display: inline-flex; align-items: center; justify-content: center; gap: 4px;
+  font-weight: 700; font-size: 0.72rem; text-transform: uppercase; letter-spacing: 0.04em;
+  padding: 3px 6px; border-radius: 4px;
+}
+.transit-badge.metro { color: var(--metro-blue); background: var(--metro-bg); }
+.transit-badge.rail { color: var(--rail-green); background: var(--rail-bg); }
+.transit-badge.bus { color: var(--bus-amber); background: var(--bus-bg); }
+.transit-val-text { color: var(--text-main); white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
+
+.card-action-bar {
+  margin-top: auto; display: flex; align-items: center; gap: 10px; padding-top: 4px;
+}
+
+.btn-card-maps {
+  flex: 1;
+  display: inline-flex; align-items: center; justify-content: center; gap: 6px;
+  background: var(--sindoor-red); color: #FFFFFF;
+  font-size: 0.88rem; font-weight: 600;
+  padding: 10px 14px; min-height: 44px;
+  border-radius: var(--radius-sm); transition: background 0.2s ease;
+}
+.btn-card-maps:hover { background: var(--sindoor-red-hover); }
+
+.btn-card-route {
+  display: inline-flex; align-items: center; justify-content: center;
+  background: transparent; color: var(--text-main);
+  border: 1.5px solid var(--border-line);
+  font-size: 0.88rem; font-weight: 600;
+  padding: 10px 14px; min-height: 44px;
+  border-radius: var(--radius-sm); cursor: pointer; transition: all 0.2s ease;
+}
+.btn-card-route:hover { border-color: var(--text-main); background: var(--ivory-bg); }
+
+/* Empty Search State */
+.empty-results-box {
+  grid-column: 1 / -1;
+  background: var(--card-bg);
+  border: 2px dashed var(--border-line);
+  border-radius: var(--radius-lg);
+  padding: 44px 20px; text-align: center;
+  max-width: 580px; margin: 16px auto;
+}
+.empty-state-svg { width: 44px; height: 44px; color: var(--sindoor-red); margin-bottom: 12px; }
+.empty-state-title { font-size: 1.35rem; font-weight: 700; margin-bottom: 6px; }
+.empty-state-desc { color: var(--text-muted); margin-bottom: 20px; font-size: 0.94rem; }
+
+/* ==========================================================================
+   STREET ROUTE MODAL / MOBILE BOTTOM-SHEET
+   ========================================================================== */
+.modal-backdrop {
+  position: fixed; inset: 0; z-index: 200;
+  background: rgba(18, 14, 16, 0.68);
+  backdrop-filter: blur(5px);
+  display: flex; align-items: flex-end; justify-content: center;
+  opacity: 0; pointer-events: none; transition: opacity 0.25s ease;
+}
+@media (min-width: 640px) {
+  .modal-backdrop { align-items: center; padding: 20px; }
+}
+.modal-backdrop.open { opacity: 1; pointer-events: auto; }
+
+.modal-sheet-panel {
+  background: var(--card-bg);
+  width: 100%; max-width: 560px; max-height: 88vh;
+  overflow-y: auto;
+  border-radius: var(--radius-lg) var(--radius-lg) 0 0;
+  padding: 24px 22px 30px;
+  box-shadow: var(--shadow-lg);
+  transform: translateY(100%);
+  transition: transform 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+  position: relative;
+}
+@media (min-width: 640px) {
+  .modal-sheet-panel { border-radius: var(--radius-lg); transform: scale(0.96) translateY(12px); }
+}
+.modal-backdrop.open .modal-sheet-panel { transform: translateY(0) scale(1); }
+
+.modal-drag-indicator {
+  width: 38px; height: 4px; background: var(--border-line); border-radius: 2px; margin: 0 auto 14px;
+}
+@media (min-width: 640px) { .modal-drag-indicator { display: none; } }
+
+.modal-close-btn {
+  position: absolute; top: 18px; right: 18px;
+  background: var(--ivory-bg); border: 1px solid var(--border-line);
+  border-radius: 50%; width: 38px; height: 38px;
+  display: flex; align-items: center; justify-content: center;
+  cursor: pointer; color: var(--text-main); font-size: 1.2rem;
+}
+
+.modal-pandal-title { font-size: 1.5rem; font-weight: 700; margin-bottom: 2px; }
+.modal-pandal-subtitle { color: var(--text-muted); font-size: 0.92rem; margin-bottom: 18px; }
+
+.modal-detail-stack { display: flex; flex-direction: column; gap: 16px; }
+
+.route-step-box {
+  background: var(--ivory-bg); border: 1px solid var(--border-line);
+  border-radius: var(--radius-md); padding: 16px;
+}
+.route-step-label {
+  font-size: 0.78rem; font-weight: 700; text-transform: uppercase;
+  letter-spacing: 0.05em; color: var(--sindoor-red); margin-bottom: 8px;
+}
+
+.modal-transit-grid { display: grid; gap: 10px; }
+.modal-transit-row { display: flex; align-items: flex-start; gap: 12px; }
+.modal-transit-icon {
+  width: 36px; height: 36px; border-radius: var(--radius-sm);
+  display: flex; align-items: center; justify-content: center;
+  font-size: 1.1rem; flex-shrink: 0;
+}
+.modal-transit-icon.metro { background: var(--metro-bg); color: var(--metro-blue); }
+.modal-transit-icon.rail { background: var(--rail-bg); color: var(--rail-green); }
+.modal-transit-icon.bus { background: var(--bus-bg); color: var(--bus-amber); }
+
+.modal-action-row { display: flex; gap: 10px; margin-top: 8px; }
+
+/* ==========================================================================
+   ADD A PANDAL COMMUNITY SECTION
+   ========================================================================== */
+.add-pandal-card {
+  padding-block: 40px;
+  background: var(--card-bg);
+  border: 1px solid var(--border-line);
+  border-radius: var(--radius-lg);
+  margin-block: 40px 50px;
+  box-shadow: var(--shadow-sm);
+  scroll-margin-top: 76px;
+}
+.add-card-inner { padding-inline: 22px; }
+
+.form-fields-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(min(100%, 250px), 1fr));
+  gap: 16px;
+  margin-top: 22px;
+}
+.form-field-group { display: flex; flex-direction: column; gap: 6px; }
+.form-field-group.full-width { grid-column: 1 / -1; }
+.form-field-label { font-size: 0.88rem; font-weight: 600; }
+
+.form-input-ctrl, .form-select-ctrl, .form-textarea-ctrl {
+  width: 100%; font-family: inherit; font-size: 0.95rem; color: var(--text-main);
+  background: var(--ivory-bg); border: 1.5px solid var(--border-line);
+  border-radius: var(--radius-sm); padding: 12px 14px; min-height: 46px;
+  transition: border-color 0.2s ease;
+}
+.form-input-ctrl:focus, .form-select-ctrl:focus, .form-textarea-ctrl:focus {
+  border-color: var(--sindoor-red); outline: none; background: var(--card-bg);
+}
+.form-textarea-ctrl { resize: vertical; min-height: 84px; }
+
+.status-feedback-msg { margin-top: 10px; font-size: 0.92rem; font-weight: 600; min-height: 1.4em; }
+.status-feedback-msg.err { color: var(--sindoor-red); }
+.status-feedback-msg.success { color: var(--rail-green); }
+
+.puja-advisory-box {
+  margin-top: 36px; padding: 16px; background: var(--ivory-bg);
+  border-radius: var(--radius-md); border: 1px solid var(--border-line);
+  font-size: 0.88rem; color: var(--text-muted);
+}
+
+/* ==========================================================================
+   FOOTER
+   ========================================================================== */
+footer.site-footer {
+  background: var(--card-bg);
+  border-top: 1px solid var(--border-line);
+  padding-block: 40px 24px;
+}
+.footer-top-row { display: flex; flex-wrap: wrap; justify-content: space-between; gap: 28px; margin-bottom: 28px; }
+.footer-brand-col { max-width: 320px; }
+.footer-brand-desc { color: var(--text-muted); font-size: 0.88rem; margin-top: 8px; }
+
+.footer-nav-links { display: flex; gap: 24px; list-style: none; padding: 0; margin: 0; }
+.footer-nav-links a { color: var(--text-muted); font-size: 0.9rem; font-weight: 500; }
+.footer-nav-links a:hover { color: var(--sindoor-red); }
+
+.footer-bottom-row {
+  padding-top: 20px; border-top: 1px solid var(--border-line);
+  display: flex; flex-wrap: wrap; align-items: center; justify-content: space-between; gap: 14px;
+  font-size: 0.84rem; color: var(--text-muted);
+}
+
+@media (max-width: 768px) {
+  .nav-links-desktop { display: none; }
+  .hero-section { padding-block: 28px 24px; }
+  .area-cards-grid { grid-template-columns: repeat(auto-fill, minmax(150px, 1fr)); }
+  .pandal-grid-container { grid-template-columns: 1fr; }
+  .footer-top-row { flex-direction: column; }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  *, ::before, ::after { animation: none !important; transition: none !important; scroll-behavior: auto !important; }
+}
 </style>
-
 </head>
-<body>
-<div class="border" aria-hidden="true"></div>
-<div class="wrap">
-  <header class="top">
-    <p class="eyebrow">দুর্গাপূজা · প্যান্ডেল গাইড</p>
-    <h1>Pujo Pandal Guide</h1>
-    <p class="lede">Find a Durga Puja pandal in West Bengal, see the nearest metro, train station and bus stop, and get a short route to walk in. Anyone can add a pandal below.</p>
-  </header>
+<body class="lang-bn">
 
-  <section class="tools" aria-label="Find a pandal">
-    <input id="q" class="search" type="search" placeholder="Search by pandal, area, metro, station or bus stop" autocomplete="off" aria-label="Search pandals">
-    <div class="chips" id="chips" role="group" aria-label="Filter by area"></div>
-    <p class="count" id="count" aria-live="polite"></p>
+<!-- Authentic Laal-Paar Border Header Motif -->
+<div class="laal-paar-border" aria-hidden="true"></div>
+
+<!-- STICKY SITE HEADER -->
+<header class="site-header" id="site-header">
+  <div class="wrap">
+    <div class="header-inner">
+      <a href="#" class="brand-logo" aria-label="Pujo Path Home">
+        <div class="brand-badge-icon">
+          <!-- Traditional Shankh / Street Sign Icon -->
+          <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm1 17.93c-3.95-.49-7-3.85-7-7.93 0-.62.08-1.21.21-1.79L9 15v1c0 1.1.9 2 2 2v1.93zm6.9-2.54c-.26-.81-1-1.39-1.9-1.39h-1v-3c0-.55-.45-1-1-1H8v-2h2c.55 0 1-.45 1-1V7h2c1.1 0 2-.9 2-2v-.41c2.93 1.19 5 4.06 5 7.41 0 2.08-.8 3.97-2.1 5.39z"/></svg>
+        </div>
+        <span id="nav-brand-title">পুজো পথ</span>
+      </a>
+
+      <nav aria-label="Main Navigation">
+        <ul class="nav-links-desktop">
+          <li><a href="#hero" class="nav-item-link" id="nav-home">হোম</a></li>
+          <li><a href="#explore" class="nav-item-link" id="nav-explore">প্যান্ডেলসমূহ</a></li>
+          <li><a href="#areas" class="nav-item-link" id="nav-areas">অঞ্চলসমূহ</a></li>
+          <li><a href="#add" class="nav-item-link" id="nav-add">প্যান্ডেল যুক্ত করুন</a></li>
+        </ul>
+      </nav>
+
+      <!-- Language Selector Switcher Bar -->
+      <div class="lang-selector-bar" role="group" aria-label="Select Language">
+        <button class="lang-btn active" data-lang="bn" onclick="switchLanguage('bn')" aria-label="Switch language to Bengali">বাংলা</button>
+        <button class="lang-btn" data-lang="en" onclick="switchLanguage('en')" aria-label="Switch language to English">English</button>
+        <button class="lang-btn" data-lang="hi" onclick="switchLanguage('hi')" aria-label="Switch language to Hindi">हिन्दी</button>
+      </div>
+    </div>
+  </div>
+</header>
+
+<main id="hero">
+  <!-- HERO SECTION -->
+  <section class="hero-section">
+    <div class="wrap">
+      <div class="hero-content">
+        <div class="hero-pill-tag">
+          <span class="hero-pulse-dot"></span>
+          <span id="hero-badge-text">১৫+ সেরা পুজো প্যান্ডেল • উত্তর থেকে দক্ষিণ কলকাতা</span>
+        </div>
+
+        <h1 class="hero-heading" id="hero-heading">
+          কলকাতার পুজো। <span class="accent">একটি সম্পূর্ণ পথপ্রদর্শক।</span>
+        </h1>
+
+        <p class="hero-lead" id="hero-subheading">
+          শহরের সেরা পুজো প্যান্ডেলে পৌঁছনোর সহজ গাইড। মেট্রো স্টেশন, এক্সিট গেট ও বাস রুট জেনে নিন রাস্তায় দাঁড়িয়েই।
+        </p>
+
+        <div class="hero-actions">
+          <a href="#explore" class="btn-primary" id="btn-explore-cta">
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" aria-hidden="true"><circle cx="11" cy="11" r="8"/><path d="m21 21-4.3-4.3"/></svg>
+            <span id="btn-text-explore">প্যান্ডেল খুঁজুন</span>
+          </a>
+
+          <button type="button" class="btn-secondary" id="btn-near-me" onclick="handleNearMe()">
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" aria-hidden="true"><path d="M12 2a8 8 0 0 0-8 8c0 5.25 8 12 8 12s8-6.75 8-12a8 8 0 0 0-8-8z"/><circle cx="12" cy="10" r="3"/></svg>
+            <span id="btn-text-nearme">আমার কাছের প্যান্ডেল</span>
+          </button>
+        </div>
+
+        <!-- Main Street Search Box & Quick Pills -->
+        <div class="search-container">
+          <div class="search-bar-wrap">
+            <svg class="search-icon-svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><circle cx="11" cy="11" r="8"/><path d="m21 21-4.3-4.3"/></svg>
+            <input id="q" class="search-input-field" type="search" placeholder="প্যান্ডেল, এলাকা, মেট্রো, স্টেশন বা বাস স্টপ দিয়ে খুঁজুন..." autocomplete="off" aria-label="Search Pandals">
+            <button type="button" class="search-clear-btn" id="search-clear" onclick="clearSearch()" aria-label="Clear Search Query">&times;</button>
+          </div>
+
+          <div class="quick-filter-pills" id="quick-pills">
+            <button type="button" class="quick-pill" onclick="quickFilter('Shobhabazar')">🚇 শোভাবাজার মেট্রো</button>
+            <button type="button" class="quick-pill" onclick="quickFilter('Kalighat')">🚇 কালীঘাট মেট্রো</button>
+            <button type="button" class="quick-pill" onclick="quickFilter('Heritage')">🏛️ সাবেকি ও রাজবাড়ি পুজো</button>
+            <button type="button" class="quick-pill" onclick="quickFilter('Theme')">🎨 সেরা থিম পুজো</button>
+          </div>
+        </div>
+      </div>
+    </div>
   </section>
 
-  <main class="grid" id="list"></main>
+  <!-- AREA NAVIGATION CARDS -->
+  <section class="area-section" id="areas">
+    <div class="wrap">
+      <div class="section-title-wrap">
+        <h2 class="section-main-title" id="areas-title">কলকাতা ও আশেপাশের পুজো অঞ্চল</h2>
+        <p class="section-sub-title" id="areas-subtitle">পছন্দের এলাকা বেছে নিয়ে সরাসরি প্যান্ডেলের তালিকা দেখুন</p>
+      </div>
 
-  <section class="add" id="add" aria-labelledby="addh">
-    <h2 id="addh">Add a pandal</h2>
-    <p id="addnote">Know a pandal that is missing? Add its name, area and how to get there. It appears in the list for everyone.</p>
-    <form id="form" autocomplete="off">
-      <div class="field"><label for="f-name">Pandal name *</label><input id="f-name" required maxlength="80" placeholder="e.g. Kumartuli Park Sarbojanin"></div>
-      <div class="field"><label for="f-area">Area</label>
-        <select id="f-area">
-          <option>North Kolkata</option><option>Central Kolkata</option><option>South Kolkata</option>
-          <option>Dum Dum &amp; Lake Town</option><option>Districts</option>
-        </select></div>
-      <div class="field wide"><label for="f-place">Locality, district or landmark *</label><input id="f-place" required maxlength="120" placeholder="e.g. Barasat, North 24 Parganas, near the old bus stand"></div>
-      <div class="field wide"><label for="f-theme">Theme or what it is known for</label><input id="f-theme" maxlength="140" placeholder="e.g. Theme this year: handloom of Bengal"></div>
-      <div class="field"><label for="f-metro">Nearest metro station</label><input id="f-metro" maxlength="80" placeholder="e.g. Kalighat (Blue Line)"></div>
-      <div class="field"><label for="f-rail">Nearest train station</label><input id="f-rail" maxlength="80" placeholder="e.g. Ballygunge Junction"></div>
-      <div class="field wide"><label for="f-bus">Nearest bus stop</label><input id="f-bus" maxlength="80" placeholder="e.g. Gariahat crossing"></div>
-      <div class="field wide"><label for="f-reach">How to reach, in one or two lines</label><textarea id="f-reach" maxlength="240" placeholder="e.g. Get off at the station, take Exit 2, walk 10 minutes along the main road."></textarea></div>
-      <div class="field wide" style="position:absolute;left:-9999px" aria-hidden="true"><label for="f-web">Website</label><input id="f-web" tabindex="-1" autocomplete="off"></div>
-      <div class="field wide"><button class="btn" id="submit" type="submit">Add pandal</button></div>
-      <p class="status wide field" id="status" role="status" aria-live="polite"></p>
-    </form>
+      <div class="area-cards-grid">
+        <div class="area-zone-card" onclick="filterByArea('North Kolkata')">
+          <span class="area-spots-hint">উত্তর কলকাতা</span>
+          <h3 class="area-name" id="area-card-north">বাগবাজার • কুমারটুলি • শোভাবাজার</h3>
+          <p class="area-desc" id="area-desc-north">ঐতিহ্য, সাবেকি রূপ ও বিখ্যাত পারা পুজো</p>
+        </div>
+
+        <div class="area-zone-card" onclick="filterByArea('Central Kolkata')">
+          <span class="area-spots-hint">মধ্য কলকাতা</span>
+          <h3 class="area-name" id="area-card-central">কলেজ স্কয়ার • শিয়ালদহ • লেবুতলা</h3>
+          <p class="area-desc" id="area-desc-central">শহরের প্রাণকেন্দ্র ও চমৎকার আলোর সজ্জা</p>
+        </div>
+
+        <div class="area-zone-card" onclick="filterByArea('South Kolkata')">
+          <span class="area-spots-hint">দক্ষিণ কলকাতা</span>
+          <h3 class="area-name" id="area-card-south">গড়িয়াহাট • বালিগঞ্জ • কালীঘাট</h3>
+          <p class="area-desc" id="area-desc-south">আধুনিক থিম ও জনসমুদ্রের পুজো</p>
+        </div>
+
+        <div class="area-zone-card" onclick="filterByArea('Dum Dum & Lake Town')">
+          <span class="area-spots-hint">উত্তর-পূর্ব কলকাতা</span>
+          <h3 class="area-name" id="area-card-dumdum">লেক টাউন • শ্রীভূমি • দমদম পার্ক</h3>
+          <p class="area-desc" id="area-desc-dumdum">চোখধাঁধানো রূপকার ও জমকালো প্যান্ডেল</p>
+        </div>
+
+        <div class="area-zone-card" onclick="filterByArea('Districts')">
+          <span class="area-spots-hint">জেলাসমূহ</span>
+          <h3 class="area-name" id="area-card-districts">হাওড়া • ২৪ পরগনা • জেলা পুজো</h3>
+          <p class="area-desc" id="area-desc-districts">বাংলার ঐতিহ্যবাহী পুজো ও লোকশিল্প</p>
+        </div>
+      </div>
+    </div>
   </section>
 
-  <p class="note">Walking times and stops are approximate. Roads close and buses are diverted around big pandals during Puja, and Kolkata Metro usually adds late-night services, so confirm timings on the day. Themes change every year; the starter list says what each pandal is known for, and visitors can add this year's theme.</p>
+  <!-- EXPLORE PANDALS LIST -->
+  <section class="explore-section" id="explore">
+    <div class="wrap">
+      <div class="filter-toolbar">
+        <div class="chips-container" id="chips" role="group" aria-label="Filter by area"></div>
+        <p class="count-indicator" id="count" aria-live="polite"></p>
+      </div>
+
+      <div class="pandal-grid-container" id="list"></div>
+    </div>
+  </section>
+
+  <!-- ADD A PANDAL COMMUNITY SECTION -->
+  <section class="add-pandal-card wrap" id="add">
+    <div class="add-card-inner">
+      <h2 class="section-main-title" id="add-heading">নতুন কোনো প্যান্ডেল যুক্ত করতে চান?</h2>
+      <p class="section-sub-title" id="add-subheading">অন্যান্য দর্শনার্থীদের সুবিধার জন্য প্যান্ডেলের নাম ও যাতায়াতের পথ শেয়ার করুন।</p>
+
+      <form id="form" autocomplete="off">
+        <div class="form-fields-grid">
+          <div class="form-field-group">
+            <label class="form-field-label" for="f-name" id="lbl-name">প্যান্ডেলের নাম *</label>
+            <input id="f-name" class="form-input-ctrl" required maxlength="80" placeholder="যেমন: কুমারটুলি পার্ক সর্বজনীন">
+          </div>
+
+          <div class="form-field-group">
+            <label class="form-field-label" for="f-area" id="lbl-area">অঞ্চল</label>
+            <select id="f-area" class="form-select-ctrl">
+              <option value="North Kolkata">North Kolkata</option>
+              <option value="Central Kolkata">Central Kolkata</option>
+              <option value="South Kolkata">South Kolkata</option>
+              <option value="Dum Dum & Lake Town">Dum Dum &amp; Lake Town</option>
+              <option value="Districts">Districts</option>
+            </select>
+          </div>
+
+          <div class="form-field-group full-width">
+            <label class="form-field-label" for="f-place" id="lbl-place">এলাকা / ল্যান্ডমার্ক *</label>
+            <input id="f-place" class="form-input-ctrl" required maxlength="120" placeholder="যেমন: কুমারটুলি, অহিরীটোলার কাছে">
+          </div>
+
+          <div class="form-field-group full-width">
+            <label class="form-field-label" for="f-theme" id="lbl-theme">থিম বা বিশেষ আকর্ষণ</label>
+            <input id="f-theme" class="form-input-ctrl" maxlength="140" placeholder="যেমন: বাংলার হস্তশিল্পের ঐতিহ্যবাহী সজ্জা">
+          </div>
+
+          <div class="form-field-group">
+            <label class="form-field-label" for="f-metro" id="lbl-metro">নিকটবর্তী মেট্রো স্টেশন</label>
+            <input id="f-metro" class="form-input-ctrl" maxlength="80" placeholder="যেমন: শোভাবাজার সুতানুটি (ব্লু লাইন)">
+          </div>
+
+          <div class="form-field-group">
+            <label class="form-field-label" for="f-rail" id="lbl-rail">নিকটবর্তী ট্রেন স্টেশন</label>
+            <input id="f-rail" class="form-input-ctrl" maxlength="80" placeholder="যেমন: বাগবাজার (সার্কুলার রেল)">
+          </div>
+
+          <div class="form-field-group full-width">
+            <label class="form-field-label" for="f-bus" id="lbl-bus">নিকটবর্তী বাস স্টপ</label>
+            <input id="f-bus" class="form-input-ctrl" maxlength="80" placeholder="যেমন: শোভাবাজার মোড়">
+          </div>
+
+          <div class="form-field-group full-width">
+            <label class="form-field-label" for="f-reach" id="lbl-reach">পৌঁছানোর সহজ রুট (সংক্ষেপে)</label>
+            <textarea id="f-reach" class="form-textarea-ctrl" maxlength="240" placeholder="যেমন: শোভাবাজার মেট্রোতে নেমে ২ নম্বর গেট দিয়ে বের হন, রবীন্দ্র সরণি ধরে হেঁটে ১০ মিনিট।"></textarea>
+          </div>
+
+          <div class="form-field-group full-width" style="position:absolute;left:-9999px" aria-hidden="true">
+            <label for="f-web">Website</label>
+            <input id="f-web" tabindex="-1" autocomplete="off">
+          </div>
+
+          <div class="form-field-group full-width">
+            <button class="btn-primary" id="submit" type="submit">
+              <span id="btn-submit-text">প্যান্ডেল যোগ করুন</span>
+            </button>
+          </div>
+        </div>
+        <p class="status-feedback-msg" id="status" role="status" aria-live="polite"></p>
+      </form>
+
+      <div class="puja-advisory-box" id="disclaimer-text">
+        💡 <strong>জরুরি নির্দেশিকা:</strong> পুজোর দিনগুলিতে উত্তর ও দক্ষিণ কলকাতার প্রধান রাস্তাগুলিতে যান চলাচল নিয়ন্ত্রণ করা হয়। তাই মেট্রো ব্যবহার করা সবচেয়ে সুবিধাজনক।
+      </div>
+    </div>
+  </section>
+</main>
+
+<!-- STREET ROUTE MODAL / MOBILE BOTTOM-SHEET -->
+<div class="modal-backdrop" id="modal-backdrop" role="dialog" aria-modal="true" aria-labelledby="modal-title" onclick="closeModalOnBackdrop(event)">
+  <div class="modal-sheet-panel" id="modal-sheet">
+    <div class="modal-drag-indicator"></div>
+    <button class="modal-close-btn" onclick="closeModal()" aria-label="Close Modal">&times;</button>
+    
+    <h3 class="modal-pandal-title" id="modal-title">Pandal Name</h3>
+    <p class="modal-pandal-subtitle" id="modal-subtitle">Area · Locality</p>
+
+    <div class="modal-detail-stack" id="modal-body">
+      <!-- Injected via JS -->
+    </div>
+  </div>
 </div>
+
+<!-- SITE FOOTER -->
+<footer class="site-footer">
+  <div class="laal-paar-border" aria-hidden="true" style="margin-bottom: 28px;"></div>
+  <div class="wrap">
+    <div class="footer-top-row">
+      <div class="footer-brand-col">
+        <div class="brand-logo" style="margin-bottom: 6px;">
+          <div class="brand-badge-icon">
+            <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm1 17.93c-3.95-.49-7-3.85-7-7.93 0-.62.08-1.21.21-1.79L9 15v1c0 1.1.9 2 2 2v1.93zm6.9-2.54c-.26-.81-1-1.39-1.9-1.39h-1v-3c0-.55-.45-1-1-1H8v-2h2c.55 0 1-.45 1-1V7h2c1.1 0 2-.9 2-2v-.41c2.93 1.19 5 4.06 5 7.41 0 2.08-.8 3.97-2.1 5.39z"/></svg>
+          </div>
+          <span>পুজো পথ · Pujo Path</span>
+        </div>
+        <p class="footer-brand-desc" id="footer-desc">কলকাতার দুর্গোৎসবের সেরা প্যান্ডেল ও পৌঁছনোর নির্ভুল পথপ্রদর্শক।</p>
+      </div>
+
+      <ul class="footer-nav-links">
+        <li><a href="#hero" id="fl-home">হোম</a></li>
+        <li><a href="#explore" id="fl-explore">প্যান্ডেলসমূহ</a></li>
+        <li><a href="#areas" id="fl-areas">অঞ্চলসমূহ</a></li>
+        <li><a href="#add" id="fl-add">যোগ করুন</a></li>
+      </ul>
+    </div>
+
+    <div class="footer-bottom-row">
+      <span id="footer-copy">© 2026 পুজো পথ (Pujo Path). Made with ❤️ for Kolkata Puja-goers.</span>
+      <span id="footer-tagline">শুভ শারদীয়া!</span>
+    </div>
+  </div>
+</footer>
 
 <script>
 (function () {
+  /* TRANSLATIONS DICTIONARY */
+  var TRANSLATIONS = {
+    bn: {
+      brandTitle: "পুজো পথ",
+      navHome: "হোম",
+      navExplore: "প্যান্ডেলসমূহ",
+      navAreas: "অঞ্চলসমূহ",
+      navAdd: "প্যান্ডেল যুক্ত করুন",
+      heroBadgeText: "{count}+ সেরা পুজো প্যান্ডেল • উত্তর থেকে দক্ষিণ কলকাতা",
+      heroHeading: "কলকাতার পুজো। <span class='accent'>একটি সম্পূর্ণ পথপ্রদর্শক।</span>",
+      heroSubheading: "শহরের সেরা পুজো প্যান্ডেলে পৌঁছনোর সহজ গাইড। মেট্রো স্টেশন, এক্সিট গেট ও বাস রুট জেনে নিন রাস্তায় দাঁড়িয়েই।",
+      btnExplore: "প্যান্ডেল খুঁজুন",
+      btnNearMe: "আমার কাছের প্যান্ডেল",
+      searchPlaceholder: "প্যান্ডেল, এলাকা, মেট্রো, স্টেশন বা বাস স্টপ দিয়ে খুঁজুন...",
+      areasTitle: "কলকাতা ও আশেপাশের পুজো অঞ্চল",
+      areasSubtitle: "পছন্দের এলাকা বেছে নিয়ে সরাসরি প্যান্ডেলের তালিকা দেখুন",
+      areaNorth: "উত্তর কলকাতা",
+      areaNorthDesc: "ঐতিহ্য, সাবেকি রূপ ও বিখ্যাত পারা পুজো",
+      areaCentral: "মধ্য কলকাতা",
+      areaCentralDesc: "শহরের প্রাণকেন্দ্র ও চমৎকার আলোর সজ্জা",
+      areaSouth: "দক্ষিণ কলকাতা",
+      areaSouthDesc: "আধুনিক থিম ও জনসমুদ্রের পুজো",
+      areaDumdum: "দমদম ও লেক টাউন",
+      areaDumdumDesc: "চোখধাঁধানো রূপকার ও জমকালো প্যান্ডেল",
+      areaDistricts: "জেলাসমূহ",
+      areaDistrictsDesc: "বাংলার ঐতিহ্যবাহী পুজো ও লোকশিল্প",
+      chipAll: "সব প্যান্ডেল",
+      chipVisitor: "দর্শনার্থীদের যুক্ত করা",
+      countSingle: "১টি প্যান্ডেল পাওয়া গেছে",
+      countPlural: "{n}টি প্যান্ডেল পাওয়া গেছে",
+      themeLabel: "থিম ও বিশেষ আকর্ষণ",
+      metroLabel: "মেট্রো",
+      railLabel: "ট্রেন",
+      busLabel: "বাস",
+      walkLabel: "হাঁটার রুট",
+      btnDirections: "গুগল ম্যাপে পথ দেখুন",
+      btnDetails: "রাস্তার পূর্ণাঙ্গ গাইড",
+      btnRemove: "মুছে ফেলুন",
+      btnConfirmRemove: "আবার ট্যাপ করুন",
+      emptyTitle: "প্যান্ডেল খুঁজে পাওয়া যায়নি",
+      emptyText: "মেট্রো স্টেশন বা এলাকার নাম দিয়ে চেষ্টা করুন, অথবা নিচের ফর্মে নতুন প্যান্ডেল যুক্ত করুন।",
+      btnAddSuggest: "প্যান্ডেল যুক্ত করুন",
+      addHeading: "নতুন কোনো প্যান্ডেল যুক্ত করতে চান?",
+      addSubheading: "অন্যান্য দর্শনার্থীদের সুবিধার জন্য প্যান্ডেলের নাম ও যাতায়াতের পথ শেয়ার করুন।",
+      lblName: "প্যান্ডেলের নাম *",
+      lblArea: "অঞ্চল",
+      lblPlace: "এলাকা / ল্যান্ডমার্ক *",
+      lblTheme: "থিম বা বিশেষ আকর্ষণ",
+      lblMetro: "নিকটবর্তী মেট্রো স্টেশন",
+      lblRail: "নিকটবর্তী ট্রেন স্টেশন",
+      lblBus: "নিকটবর্তী বাস স্টপ",
+      lblReach: "পৌঁছানোর সহজ রুট (সংক্ষেপে)",
+      btnSubmitText: "প্যান্ডেল যোগ করুন",
+      disclaimerText: "💡 <strong>জরুরি নির্দেশিকা:</strong> পুজোর দিনগুলিতে উত্তর ও দক্ষিণ কলকাতার প্রধান রাস্তাগুলিতে যান চলাচল নিয়ন্ত্রণ করা হয়। তাই মেট্রো ব্যবহার করা সবচেয়ে সুবিধাজনক।",
+      footerDesc: "কলকাতার দুর্গোৎসবের সেরা প্যান্ডেল ও পৌঁছনোর নির্ভুল পথপ্রদর্শক।",
+      visitorAdded: "দর্শনার্থীর সংযোজন",
+      notAdded: "তথ্য যুক্ত করা হয়নি",
+      nearMeDenied: "অবস্থানের অনুমতি পাওয়া যায়নি। আপনি তালিকা থেকে অঞ্চল বেছে নিতে পারেন।",
+      tagHeritage: "🏛️ সাবেকি পুজো",
+      tagTheme: "🎨 থিম পুজো",
+      tagPopular: "⭐ জনপ্রিয়",
+      modalHeadingHowToReach: "পৌঁছনোর নির্দেশিকা",
+      btnCopyDirections: "রুট কপি করুন 📋"
+    },
+    en: {
+      brandTitle: "Pujo Path",
+      navHome: "Home",
+      navExplore: "Pandals",
+      navAreas: "Areas",
+      navAdd: "Add Pandal",
+      heroBadgeText: "{count}+ Popular Pandals • North to South Kolkata",
+      heroHeading: "Kolkata's Puja. <span class='accent'>One Street Guide.</span>",
+      heroSubheading: "Find pandals instantly. Know exact Metro exit gates, train junctions, and street walking routes.",
+      btnExplore: "Explore Pandals",
+      btnNearMe: "Find Near Me",
+      searchPlaceholder: "Search by pandal, area, metro, station or bus stop...",
+      areasTitle: "Puja Zones of Kolkata",
+      areasSubtitle: "Select a zone to filter pandals instantly",
+      areaNorth: "North Kolkata",
+      areaNorthDesc: "Heritage, traditional rituals & iconic para pujas",
+      areaCentral: "Central Kolkata",
+      areaCentralDesc: "Heart of the city & magnificent light displays",
+      areaSouth: "South Kolkata",
+      areaSouthDesc: "Modern artistic themes & massive celebrations",
+      areaDumdum: "Dum Dum & Lake Town",
+      areaDumdumDesc: "Grand architectural replicas & neighbourhood pujas",
+      areaDistricts: "Districts",
+      areaDistrictsDesc: "Traditional heritage pujas across Bengal",
+      chipAll: "All Pandals",
+      chipVisitor: "Visitor Added",
+      countSingle: "1 pandal found",
+      countPlural: "{n} pandals found",
+      themeLabel: "Theme & Story",
+      metroLabel: "Metro",
+      railLabel: "Train",
+      busLabel: "Bus",
+      walkLabel: "Walk Time",
+      btnDirections: "Google Maps",
+      btnDetails: "Street Guide",
+      btnRemove: "Remove",
+      btnConfirmRemove: "Tap again to remove",
+      emptyTitle: "No pandals found",
+      emptyText: "Try searching by station name or area, or help fellow Puja-goers by adding it below.",
+      btnAddSuggest: "Suggest a Pandal",
+      addHeading: "Know a pandal we're missing?",
+      addSubheading: "Help fellow Puja-goers discover it by adding its route details below.",
+      lblName: "Pandal name *",
+      lblArea: "Area",
+      lblPlace: "Locality, landmark or district *",
+      lblTheme: "Theme or what it is known for",
+      lblMetro: "Nearest metro station",
+      lblRail: "Nearest train station",
+      lblBus: "Nearest bus stop",
+      lblReach: "How to reach (in 1-2 lines)",
+      btnSubmitText: "Add Pandal",
+      disclaimerText: "💡 <strong>Travel Advisory:</strong> Roads around major pandals are restricted to pedestrians during Puja peak hours. Kolkata Metro runs overnight trains.",
+      footerDesc: "Your trusted Kolkata Durga Puja pandal & transit guide.",
+      visitorAdded: "Visitor Contributed",
+      notAdded: "Not added yet",
+      nearMeDenied: "Location permission denied. Please select your area manually.",
+      tagHeritage: "🏛️ Heritage",
+      tagTheme: "🎨 Theme",
+      tagPopular: "⭐ Popular",
+      modalHeadingHowToReach: "How to Get There",
+      btnCopyDirections: "Copy Route 📋"
+    },
+    hi: {
+      brandTitle: "पूजा पथ",
+      navHome: "होम",
+      navExplore: "पंडाल",
+      navAreas: "क्षेत्र",
+      navAdd: "पंडाल जोड़ें",
+      heroBadgeText: "{count}+ प्रसिद्ध पूजा पंडाल • उत्तर से दक्षिण कोलकाता",
+      heroHeading: "कोलकाता की पूजा। <span class='accent'>सटीक मार्गदर्शक।</span>",
+      heroSubheading: "पंडाल खोजें। निकटतम मेट्रो, एग्जिट गेट और बस मार्ग जानें।",
+      btnExplore: "पंडाल खोजें",
+      btnNearMe: "मेरे पास के पंडाल",
+      searchPlaceholder: "पंडाल, क्षेत्र, मेट्रो, स्टेशन या बस स्टॉप से खोजें...",
+      areasTitle: "कोलकाता के प्रमुख पूजा क्षेत्र",
+      areasSubtitle: "पसंदीदा क्षेत्र चुनकर सीधे पंडाल सूची देखें",
+      areaNorth: "उत्तर कोलकाता",
+      areaNorthDesc: "पारंपरिक विरासत और प्रसिद्ध पारंपरिक पूजा",
+      areaCentral: "मध्य कोलकाता",
+      areaCentralDesc: "शहर का दिल और अद्भुत रोशनी की सजावट",
+      areaSouth: "दक्षिण कोलकाता",
+      areaSouthDesc: "आधुनिक थीम और विशाल जनसमूह",
+      areaDumdum: "दमदम और लेक टाउन",
+      areaDumdumDesc: "भव्य थीम और दर्शनीय पंडाल",
+      areaDistricts: "ज़िले",
+      areaDistrictsDesc: "बंगाल की पारंपरिक पूजा और लोक कला",
+      chipAll: "सभी पंडाल",
+      chipVisitor: "दर्शकों द्वारा जोड़े गए",
+      countSingle: "1 पंडाल मिला",
+      countPlural: "{n} पंडाल मिले",
+      themeLabel: "थीम और आकर्षण",
+      metroLabel: "मेट्रो",
+      railLabel: "ट्रेन",
+      busLabel: "बस",
+      walkLabel: "पैदल समय",
+      btnDirections: "गूगल मैप्स",
+      btnDetails: "रास्ता गाइड",
+      btnRemove: "हटाएं",
+      btnConfirmRemove: "पुष्टि के लिए पुनः दबाएं",
+      emptyTitle: "कोई पंडाल नहीं मिला",
+      emptyText: "स्टेशन का नाम या क्षेत्र खोजें, या नीचे दिए गए फॉर्म में नया पंडाल जोड़ें।",
+      btnAddSuggest: "पंडाल का सुझाव दें",
+      addHeading: "क्या कोई पंडाल छूट गया है?",
+      addSubheading: "अन्य श्रद्धालुओं की सहायता के लिए पंडाल की जानकारी साझा करें।",
+      lblName: "पंडाल का नाम *",
+      lblArea: "क्षेत्र",
+      lblPlace: "स्थान / लैंडमार्क *",
+      lblTheme: "थीम या मुख्य आकर्षण",
+      lblMetro: "निकटतम मेट्रो स्टेशन",
+      lblRail: "निकटतम ट्रेन स्टेशन",
+      lblBus: "निकটतम बस स्टॉप",
+      lblReach: "पहुंचने का आसान रास्ता",
+      btnSubmitText: "पंडाल जोड़ें",
+      disclaimerText: "💡 <strong>महत्वपूर्ण:</strong> पूजा के दिनों में प्रमुख सड़कों पर यातायात नियंत्रित रहता है। मेट्रो सबसे सुविधाजनक है।",
+      footerDesc: "कोलकाता दुर्गा पूजा का सटीक मार्गदर्शक एवं पंडाल गाइड।",
+      visitorAdded: "दर्शक द्वारा जोड़ा गया",
+      notAdded: "जानकारी उपलब्ध नहीं",
+      nearMeDenied: "लोकेशन अनुमति नहीं मिली। कृपया सूची से अपना क्षेत्र चुनें।",
+      tagHeritage: "🏛️ पारंपरिक",
+      tagTheme: "🎨 थीम",
+      tagPopular: "⭐ प्रसिद्ध",
+      modalHeadingHowToReach: "पहुंचने का मार्ग",
+      btnCopyDirections: "मार्ग कॉपी करें 📋"
+    }
+  };
+
+  /* ENRICHED STARTER DATASET */
   var STARTER = [
-    { id: "g1", name: "Kumartuli Park Sarbojanin", area: "North Kolkata", place: "Kumartuli, near Ahiritola",
-      theme: "Sits in the idol-makers' neighbourhood; known for large themed decor.",
-      metro: "Shobhabazar Sutanuti (Blue Line)", rail: "Bagbazar (Circular Railway)", bus: "Shobhabazar / Bagbazar",
-      reach: "Metro to Shobhabazar Sutanuti, exit towards Rabindra Sarani, walk about 10 minutes through the Kumartuli lanes." },
-    { id: "g2", name: "Baghbazar Sarbojanin", area: "North Kolkata", place: "Baghbazar, near Baghbazar Ghat",
-      theme: "One of the best-known old community pujas; traditional idol and classic decor.",
-      metro: "Shobhabazar Sutanuti (Blue Line)", rail: "Bagbazar (Circular Railway)", bus: "Bagbazar",
-      reach: "Metro to Shobhabazar Sutanuti, then a 10-minute walk north-west towards Bagbazar." },
-    { id: "g3", name: "Sovabazar Rajbari", area: "North Kolkata", place: "Sovabazar, Raja Nabakrishna Street",
-      theme: "Historic household puja from the 18th century, with heritage rituals.",
-      metro: "Shobhabazar Sutanuti (Blue Line)", rail: "Sealdah (about 3 km)", bus: "Sovabazar crossing",
-      reach: "Metro to Shobhabazar Sutanuti and walk about 5 minutes; the rajbari is on the lanes off Raja Nabakrishna Street." },
-    { id: "g4", name: "Ahiritola Sarbojanin", area: "North Kolkata", place: "Ahiritola, near Nimtala",
-      theme: "Old north Kolkata para puja with traditional styling.",
-      metro: "Girish Park (Blue Line)", rail: "Bagbazar (Circular Railway)", bus: "Ahiritola / Nimtala",
-      reach: "Metro to Girish Park, walk towards the river side for around 15 minutes, or take a local bus to Nimtala." },
-    { id: "g5", name: "Hatibagan Nabin Pally", area: "North Kolkata", place: "Hatibagan, Bidhan Sarani",
-      theme: "Known for elaborate themes and very heavy crowds.",
-      metro: "Shyambazar (Blue Line)", rail: "Sealdah (about 4 km)", bus: "Hatibagan",
-      reach: "Metro to Shyambazar, then a short walk or auto south along Bidhan Sarani to Hatibagan." },
-    { id: "g6", name: "College Square", area: "Central Kolkata", place: "College Street, near the university",
-      theme: "Big themed pandal beside the College Street book market.",
-      metro: "Mahatma Gandhi Road (Blue Line)", rail: "Sealdah (about 1.5 km)", bus: "College Street / Mahatma Gandhi Road",
-      reach: "Metro to Mahatma Gandhi Road, then walk about 10 minutes along College Street to the square." },
-    { id: "g7", name: "Santosh Mitra Square", area: "Central Kolkata", place: "Lebutala, near Sealdah",
-      theme: "Famous for towering, ambitious themes and big inaugurations.",
-      metro: "Sealdah (Green Line)", rail: "Sealdah", bus: "Sealdah / Rajabazar",
-      reach: "Get off at Sealdah station and walk about 10 minutes towards Lebutala Park." },
-    { id: "g8", name: "Maddox Square", area: "South Kolkata", place: "Ballygunge, near Gariahat",
-      theme: "Well-known south Kolkata community puja with a big evening crowd.",
-      metro: "Kalighat (Blue Line, about 2 km)", rail: "Ballygunge Junction", bus: "Ballygunge Phari",
-      reach: "Train to Ballygunge Junction and walk about 15 minutes, or take a taxi from Kalighat metro." },
-    { id: "g9", name: "Singhi Park", area: "South Kolkata", place: "Ballygunge",
-      theme: "Recognised for grand idols and creative decor in Ballygunge.",
-      metro: "Kalighat (Blue Line, about 3 km)", rail: "Ballygunge Junction", bus: "Gariahat",
-      reach: "Train to Ballygunge Junction and walk about 15 minutes towards Gariahat Road." },
-    { id: "g10", name: "Ekdalia Evergreen", area: "South Kolkata", place: "Ekdalia, near Gariahat",
-      theme: "Known for creative themes and lighting.",
-      metro: "Kalighat (Blue Line, about 3 km)", rail: "Ballygunge Junction", bus: "Gariahat / Ekdalia",
-      reach: "Bus or taxi to Gariahat crossing, then walk about 10 minutes into Ekdalia." },
-    { id: "g11", name: "Mudiali Club", area: "South Kolkata", place: "Mudiali, near Kalighat",
-      theme: "Theme-driven pandal near the Kalighat temple area.",
-      metro: "Kalighat (Blue Line)", rail: "Not close; use the metro", bus: "Kalighat",
-      reach: "Metro to Kalighat, exit towards Kalighat Road, then walk about 10 minutes." },
-    { id: "g12", name: "Bhowanipore 75 Pally", area: "South Kolkata", place: "Bhowanipore",
-      theme: "Known for elaborate themes and decoration.",
-      metro: "Netaji Bhavan (Blue Line)", rail: "Not close; use the metro", bus: "Bhowanipore crossing",
-      reach: "Metro to Netaji Bhavan and walk about 10 minutes, or get off any bus at Bhowanipore crossing." },
-    { id: "g13", name: "Tridhara Sammilani", area: "South Kolkata", place: "Sarat Bose Road",
-      theme: "Known for large-budget themes and crowds on Sarat Bose Road.",
-      metro: "Jatin Das Park (Blue Line)", rail: "Not close; use the metro", bus: "Sarat Bose Road / Hazra",
-      reach: "Metro to Jatin Das Park and walk about 10 minutes along Sarat Bose Road." },
-    { id: "g14", name: "Dum Dum Park Bharat Chakra", area: "Dum Dum & Lake Town", place: "Dum Dum Park",
-      theme: "Famed for elaborate themes and big footfall in the north-east.",
-      metro: "Dum Dum (Blue Line, about 3 km)", rail: "Dum Dum Junction", bus: "Dum Dum Park",
-      reach: "Metro or train to Dum Dum, then take an auto or bus towards Dum Dum Park." },
-    { id: "g15", name: "Sreebhumi Sporting Club", area: "Dum Dum & Lake Town", place: "Lake Town, near VIP Road",
-      theme: "Known for ambitious themes, including large-scale replicas.",
-      metro: "Dum Dum (Blue Line, about 3 km)", rail: "Dum Dum Junction", bus: "Lake Town / VIP Road",
-      reach: "Metro to Dum Dum, then an auto or bus along VIP Road to Lake Town." }
+    { id: "g1", type: "theme", name: "Kumartuli Park Sarbojanin", area: "North Kolkata", place: "Kumartuli, near Ahiritola", lat: 22.5996, lng: 88.3614,
+      theme: "Sits in the idol-makers' neighbourhood; known for large artistic themed decor.",
+      metro: "Shobhabazar Sutanuti (Blue Line)", exitGate: "Exit Gate 2 (Rabindra Sarani)", rail: "Bagbazar (Circular Railway)", bus: "Shobhabazar / Bagbazar", walkMins: 10,
+      reach: "Metro to Shobhabazar Sutanuti station, take Exit 2 towards Rabindra Sarani, walk about 10 minutes through Kumartuli idol-makers lanes." },
+    { id: "g2", type: "heritage", name: "Baghbazar Sarbojanin", area: "North Kolkata", place: "Baghbazar, near Baghbazar Ghat", lat: 22.6027, lng: 88.3663,
+      theme: "Centenary-old traditional puja; iconic classic idol, dhunuchi naach and heritage decor.",
+      metro: "Shobhabazar Sutanuti (Blue Line)", exitGate: "Exit Gate 1 (Bidhan Sarani)", rail: "Bagbazar (Circular Railway)", bus: "Bagbazar Bus Stand", walkMins: 10,
+      reach: "Metro to Shobhabazar Sutanuti, take Exit 1 and walk 10 minutes north-west along Bidhan Sarani towards Baghbazar Ghat." },
+    { id: "g3", type: "heritage", name: "Sovabazar Rajbari", area: "North Kolkata", place: "Sovabazar, Raja Nabakrishna Street", lat: 22.5956, lng: 88.3621,
+      theme: "Historic household puja established in 1757 by Maharaja Nabakrishna Deb.",
+      metro: "Shobhabazar Sutanuti (Blue Line)", exitGate: "Exit Gate 2", rail: "Sealdah (~3 km)", bus: "Sovabazar Crossing", walkMins: 5,
+      reach: "Metro to Shobhabazar Sutanuti, take Exit 2 and walk 5 minutes down Raja Nabakrishna Street lane to the Rajbari courtyard." },
+    { id: "g4", type: "heritage", name: "Ahiritola Sarbojanin", area: "North Kolkata", place: "Ahiritola, near Nimtala Ghat", lat: 22.5937, lng: 88.3551,
+      theme: "Classic North Kolkata para puja famed for traditional idols and cultural heritage.",
+      metro: "Girish Park (Blue Line)", exitGate: "Exit Gate 3", rail: "Bagbazar (Circular Railway)", bus: "Ahiritola / Nimtala", walkMins: 12,
+      reach: "Metro to Girish Park station, take Exit 3 and walk 12 minutes west towards Strand Road / Nimtala Ghat." },
+    { id: "g5", type: "theme", name: "Hatibagan Nabin Pally", area: "North Kolkata", place: "Hatibagan, Bidhan Sarani", lat: 22.5958, lng: 88.3703,
+      theme: "Famed for elaborate conceptual themes and high festive footfall.",
+      metro: "Shyambazar (Blue Line)", exitGate: "Exit Gate 2 (Five Point)", rail: "Sealdah (~4 km)", bus: "Hatibagan Crossing", walkMins: 6,
+      reach: "Metro to Shyambazar station, take Exit 2 (Five Point Crossing) and walk 6 minutes south along Bidhan Sarani." },
+    { id: "g6", type: "popular", name: "College Square", area: "Central Kolkata", place: "College Street, near University", lat: 22.5739, lng: 88.3644,
+      theme: "Massive illuminated pandal reflecting over the central College Square lake.",
+      metro: "Mahatma Gandhi Road (Blue Line)", exitGate: "Exit Gate 1", rail: "Sealdah (~1.5 km)", bus: "College Street / MG Road", walkMins: 8,
+      reach: "Metro to Mahatma Gandhi Road, Exit 1, walk 8 minutes down College Street towards Calcutta University." },
+    { id: "g7", type: "theme", name: "Santosh Mitra Square", area: "Central Kolkata", place: "Lebutala, near Sealdah", lat: 22.5668, lng: 88.3678,
+      theme: "Famous for grand architectural replicas, gold ornaments & high-tech illumination.",
+      metro: "Sealdah (Green Line)", exitGate: "Exit Gate 4 (Station Main)", rail: "Sealdah Railway Station", bus: "Sealdah / Rajabazar", walkMins: 8,
+      reach: "Get off at Sealdah Metro / Railway station and walk 8 minutes west towards Lebutala Park." },
+    { id: "g8", type: "popular", name: "Maddox Square", area: "South Kolkata", place: "Ballygunge, near Gariahat", lat: 22.5323, lng: 88.3638,
+      theme: "The ultimate open-air community adda puja of South Kolkata with traditional idol.",
+      metro: "Kalighat (Blue Line)", exitGate: "Exit Gate 3 (Hazra Road)", rail: "Ballygunge Junction", bus: "Ballygunge Phari", walkMins: 12,
+      reach: "Train to Ballygunge Junction and walk 12 minutes, or take exit from Kalighat metro station." },
+    { id: "g9", type: "heritage", name: "Singhi Park", area: "South Kolkata", place: "Ballygunge, near Gariahat", lat: 22.5228, lng: 88.3667,
+      theme: "Recognised for iconic traditional idols, temple architecture, and grand lighting.",
+      metro: "Kalighat (Blue Line)", exitGate: "Exit Gate 2 (Rasa Road)", rail: "Ballygunge Junction", bus: "Gariahat Crossing", walkMins: 10,
+      reach: "Train to Ballygunge Junction and walk 10 minutes towards Gariahat Road." },
+    { id: "g10", type: "popular", name: "Ekdalia Evergreen", area: "South Kolkata", place: "Ekdalia, near Gariahat", lat: 22.5204, lng: 88.3688,
+      theme: "Famous for elaborate temple replicas and world-renowned Chandannagar lighting.",
+      metro: "Kalighat (Blue Line)", exitGate: "Exit Gate 2", rail: "Ballygunge Junction", bus: "Gariahat / Ekdalia", walkMins: 8,
+      reach: "Bus or taxi to Gariahat crossing, then walk 8 minutes into Ekdalia lane." },
+    { id: "g11", type: "theme", name: "Mudiali Club", area: "South Kolkata", place: "Mudiali, near Kalighat", lat: 22.5135, lng: 88.3512,
+      theme: "Renowned theme-driven pandal with artistic lighting near Southern Avenue.",
+      metro: "Kalighat (Blue Line)", exitGate: "Exit Gate 1 (Kalighat Road)", rail: "Ballygunge Junction", bus: "Kalighat / Southern Avenue", walkMins: 7,
+      reach: "Metro to Kalighat station, take Exit 1 towards Kalighat Road, walk 7 minutes towards Southern Avenue." },
+    { id: "g12", type: "theme", name: "Bhowanipore 75 Pally", area: "South Kolkata", place: "Bhowanipore", lat: 22.5342, lng: 88.3496,
+      theme: "Known for eco-friendly conceptual themes and artistic installations.",
+      metro: "Netaji Bhavan (Blue Line)", exitGate: "Exit Gate 2", rail: "Sealdah (~5 km)", bus: "Bhowanipore Crossing", walkMins: 8,
+      reach: "Metro to Netaji Bhavan station, Exit 2, walk 8 minutes into Bhowanipore lane." },
+    { id: "g13", type: "theme", name: "Tridhara Sammilani", area: "South Kolkata", place: "Sarat Bose Road", lat: 22.5245, lng: 88.3598,
+      theme: "Massive crowd puller on Sarat Bose Road known for innovative themes.",
+      metro: "Jatin Das Park (Blue Line)", exitGate: "Exit Gate 2 (Hazra Road)", rail: "Ballygunge Junction", bus: "Sarat Bose Road / Hazra", walkMins: 9,
+      reach: "Metro to Jatin Das Park, Exit 2, walk 9 minutes along Hazra Road to Sarat Bose Road crossing." },
+    { id: "g14", type: "theme", name: "Dum Dum Park Bharat Chakra", area: "Dum Dum & Lake Town", place: "Dum Dum Park", lat: 22.6074, lng: 88.4069,
+      theme: "Famed for immersive artistic installations and huge footfall in North-East Kolkata.",
+      metro: "Dum Dum (Blue Line)", exitGate: "Exit Gate 1", rail: "Dum Dum Junction", bus: "Dum Dum Park", walkMins: 12,
+      reach: "Metro or train to Dum Dum station, take an auto/rickshaw to Dum Dum Park main circle." },
+    { id: "g15", type: "theme", name: "Sreebhumi Sporting Club", area: "Dum Dum & Lake Town", place: "Lake Town, near VIP Road", lat: 22.5995, lng: 88.4042,
+      theme: "World-famous mega-budget puja known for monumental architectural replicas & gold idols.",
+      metro: "Dum Dum (Blue Line)", exitGate: "Exit Gate 1", rail: "Dum Dum Junction", bus: "Lake Town / VIP Road", walkMins: 10,
+      reach: "Metro to Dum Dum, then take auto/bus along VIP Road to Lake Town clock tower entrance." }
   ];
 
   var AREAS = ["All", "North Kolkata", "Central Kolkata", "South Kolkata", "Dum Dum & Lake Town", "Districts", "Added by visitors"];
-  var state = { area: "All", q: "", community: [], canEdit: false, armed: null };
+
+  var state = {
+    lang: localStorage.getItem("pujo_lang") || "bn",
+    area: "All",
+    q: "",
+    community: [],
+    canEdit: false,
+    armed: null,
+    userCoords: null
+  };
+
+  /* DOM Elements */
   var list = document.getElementById("list");
   var chips = document.getElementById("chips");
   var countEl = document.getElementById("count");
+  var searchInput = document.getElementById("q");
+  var searchClearBtn = document.getElementById("search-clear");
+  var modalBackdrop = document.getElementById("modal-backdrop");
+  var siteHeader = document.getElementById("site-header");
+
+  /* Sticky Header Scroll Shadow */
+  window.addEventListener("scroll", function() {
+    siteHeader.classList.toggle("scrolled", window.scrollY > 10);
+  }, { passive: true });
+
+  function getTranslation(key, params) {
+    var dict = TRANSLATIONS[state.lang] || TRANSLATIONS.bn;
+    var val = dict[key] || TRANSLATIONS.en[key] || key;
+    if (params) {
+      Object.keys(params).forEach(function (k) { val = val.replace("{" + k + "}", params[k]); });
+    }
+    return val;
+  }
 
   function esc(s) {
     return String(s == null ? "" : s).replace(/[&<>"']/g, function (c) {
       return { "&": "&amp;", "<": "&lt;", ">": "&gt;", '"': "&quot;", "'": "&#39;" }[c];
     });
   }
+
   function dirUrl(p) {
     var q = [p.name, "Durga Puja", p.place, "West Bengal"].filter(Boolean).join(" ");
     return "https://www.google.com/maps/dir/?api=1&destination=" + encodeURIComponent(q);
   }
-  function all() { return STARTER.concat(state.community); }
+
+  function calculateDistance(lat1, lon1, lat2, lon2) {
+    if (!lat1 || !lon1 || !lat2 || !lon2) return null;
+    var R = 6371;
+    var dLat = (lat2 - lat1) * Math.PI / 180;
+    var dLon = (lon2 - lon1) * Math.PI / 180;
+    var a = Math.sin(dLat/2) * Math.sin(dLat/2) +
+            Math.cos(lat1 * Math.PI / 180) * Math.cos(lat2 * Math.PI / 180) *
+            Math.sin(dLon/2) * Math.sin(dLon/2);
+    var c = 2 * Math.atan2(Math.sqrt(a), Math.sqrt(1-a));
+    return (R * c).toFixed(1);
+  }
+
+  function allPandals() { return STARTER.concat(state.community); }
+
+  /* Language Switcher */
+  window.switchLanguage = function(lang) {
+    if (!TRANSLATIONS[lang]) return;
+    state.lang = lang;
+    localStorage.setItem("pujo_lang", lang);
+    document.body.className = "lang-" + lang;
+    document.documentElement.lang = lang;
+
+    document.querySelectorAll(".lang-btn").forEach(function(btn) {
+      btn.classList.toggle("active", btn.getAttribute("data-lang") === lang);
+    });
+
+    updateStaticLabels();
+    renderChips();
+    render();
+  };
+
+  function updateStaticLabels() {
+    document.getElementById("nav-brand-title").innerHTML = getTranslation("brandTitle");
+    document.getElementById("nav-home").textContent = getTranslation("navHome");
+    document.getElementById("nav-explore").textContent = getTranslation("navExplore");
+    document.getElementById("nav-areas").textContent = getTranslation("navAreas");
+    document.getElementById("nav-add").textContent = getTranslation("navAdd");
+
+    var totalCount = allPandals().length;
+    document.getElementById("hero-badge-text").textContent = getTranslation("heroBadgeText", { count: totalCount });
+    document.getElementById("hero-heading").innerHTML = getTranslation("heroHeading");
+    document.getElementById("hero-subheading").textContent = getTranslation("heroSubheading");
+    document.getElementById("btn-text-explore").textContent = getTranslation("btnExplore");
+    document.getElementById("btn-text-nearme").textContent = getTranslation("btnNearMe");
+    searchInput.placeholder = getTranslation("searchPlaceholder");
+
+    document.getElementById("areas-title").textContent = getTranslation("areasTitle");
+    document.getElementById("areas-subtitle").textContent = getTranslation("areasSubtitle");
+    document.getElementById("area-card-north").textContent = getTranslation("areaNorth");
+    document.getElementById("area-desc-north").textContent = getTranslation("areaNorthDesc");
+    document.getElementById("area-card-central").textContent = getTranslation("areaCentral");
+    document.getElementById("area-desc-central").textContent = getTranslation("areaCentralDesc");
+    document.getElementById("area-card-south").textContent = getTranslation("areaSouth");
+    document.getElementById("area-desc-south").textContent = getTranslation("areaSouthDesc");
+    document.getElementById("area-card-dumdum").textContent = getTranslation("areaDumdum");
+    document.getElementById("area-desc-dumdum").textContent = getTranslation("areaDumdumDesc");
+    document.getElementById("area-card-districts").textContent = getTranslation("areaDistricts");
+    document.getElementById("area-desc-districts").textContent = getTranslation("areaDistrictsDesc");
+
+    document.getElementById("add-heading").textContent = getTranslation("addHeading");
+    document.getElementById("add-subheading").textContent = getTranslation("addSubheading");
+    document.getElementById("lbl-name").textContent = getTranslation("lblName");
+    document.getElementById("lbl-area").textContent = getTranslation("lblArea");
+    document.getElementById("lbl-place").textContent = getTranslation("lblPlace");
+    document.getElementById("lbl-theme").textContent = getTranslation("lblTheme");
+    document.getElementById("lbl-metro").textContent = getTranslation("lblMetro");
+    document.getElementById("lbl-rail").textContent = getTranslation("lblRail");
+    document.getElementById("lbl-bus").textContent = getTranslation("lblBus");
+    document.getElementById("lbl-reach").textContent = getTranslation("lblReach");
+    document.getElementById("btn-submit-text").textContent = getTranslation("btnSubmitText");
+    document.getElementById("disclaimer-text").innerHTML = getTranslation("disclaimerText");
+
+    document.getElementById("footer-desc").textContent = getTranslation("footerDesc");
+    document.getElementById("fl-home").textContent = getTranslation("navHome");
+    document.getElementById("fl-explore").textContent = getTranslation("navExplore");
+    document.getElementById("fl-areas").textContent = getTranslation("navAreas");
+    document.getElementById("fl-add").textContent = getTranslation("navAdd");
+  }
 
   function renderChips() {
     chips.innerHTML = AREAS.map(function (a) {
-      return '<button type="button" class="chip" data-area="' + esc(a) + '" aria-pressed="' + (state.area === a) + '">' + esc(a) + "</button>";
+      var label = a === "All" ? getTranslation("chipAll") : (a === "Added by visitors" ? getTranslation("chipVisitor") : a);
+      return '<button type="button" class="chip-filter-btn" data-area="' + esc(a) + '" aria-pressed="' + (state.area === a) + '">' + esc(label) + "</button>";
     }).join("");
   }
 
   function card(p) {
     var comm = p.src === "community";
-    var rows = "";
-    rows += '<div class="t-metro"><dt>Metro</dt><dd>' + esc(p.metro || "Not added yet") + "</dd></div>";
-    rows += '<div class="t-rail"><dt>Train</dt><dd>' + esc(p.rail || "Not added yet") + "</dd></div>";
-    rows += '<div class="t-bus"><dt>Bus</dt><dd>' + esc(p.bus || "Not added yet") + "</dd></div>";
+    var notAddedStr = getTranslation("notAdded");
+    var distStr = "";
+    if (state.userCoords && p.lat && p.lng) {
+      var d = calculateDistance(state.userCoords.lat, state.userCoords.lng, p.lat, p.lng);
+      if (d) distStr = '<span class="distance-badge-pill">📍 ' + d + ' km</span>';
+    }
+
+    var tagClass = p.type === "heritage" ? "heritage" : (p.type === "theme" ? "theme" : "popular");
+    var tagText = comm ? getTranslation("visitorAdded") : (p.type === "heritage" ? getTranslation("tagHeritage") : (p.type === "theme" ? getTranslation("tagTheme") : getTranslation("tagPopular")));
+
     var del = comm && state.canEdit
-      ? '<button type="button" class="btn ghost" data-del="' + esc(p.id) + '">' + (state.armed === p.id ? "Tap again to remove" : "Remove") + "</button>" : "";
-    return '<article class="pandal">' +
-      '<div class="row1"><h3>' + esc(p.name) + '</h3><span class="tag' + (comm ? " community" : "") + '">' + (comm ? "Added by a visitor" : esc(p.area)) + "</span></div>" +
-      '<p class="place">' + esc(p.place) + (comm ? " · " + esc(p.area) : "") + "</p>" +
-      (p.theme ? '<p class="theme"><span class="k">Theme · </span>' + esc(p.theme) + "</p>" : "") +
-      '<dl class="transit">' + rows + "</dl>" +
-      (p.reach ? '<p class="reach"><span class="k">How to reach · </span>' + esc(p.reach) + "</p>" : "") +
-      '<div class="actions"><a class="btn" href="' + esc(dirUrl(p)) + '" target="_blank" rel="noopener">Open directions</a>' + del + "</div>" +
-      "</article>";
+      ? '<button type="button" class="btn-card-route" data-del="' + esc(p.id) + '">' + (state.armed === p.id ? getTranslation("btnConfirmRemove") : getTranslation("btnRemove")) + "</button>"
+      : "";
+
+    var metroDisplay = p.metro ? esc(p.metro) + (p.exitGate ? " • " + esc(p.exitGate) : "") : notAddedStr;
+
+    return '<article class="pandal-card card-' + tagClass + '">' +
+      '<div class="card-header-row">' +
+        '<div>' +
+          '<h3 class="card-title-text">' + esc(p.name) + distStr + '</h3>' +
+          '<p class="card-locality-text">' + esc(p.place) + '</p>' +
+        '</div>' +
+        '<span class="category-tag-badge ' + (comm ? 'community' : tagClass) + '">' + tagText + '</span>' +
+      '</div>' +
+      (p.theme ? '<p class="card-theme-box"><strong>' + getTranslation("themeLabel") + ' · </strong>' + esc(p.theme) + '</p>' : '') +
+      '<div class="street-transit-list">' +
+        '<div class="transit-row-item"><span class="transit-badge metro">🚇 ' + getTranslation("metroLabel") + '</span><span class="transit-val-text">' + metroDisplay + '</span></div>' +
+        '<div class="transit-row-item"><span class="transit-badge rail">🚆 ' + getTranslation("railLabel") + '</span><span class="transit-val-text">' + esc(p.rail || notAddedStr) + '</span></div>' +
+        '<div class="transit-row-item"><span class="transit-badge bus">🚌 ' + getTranslation("busLabel") + '</span><span class="transit-val-text">' + esc(p.bus || notAddedStr) + '</span></div>' +
+      '</div>' +
+      '<div class="card-action-bar">' +
+        '<a class="btn-card-maps" href="' + esc(dirUrl(p)) + '" target="_blank" rel="noopener noreferrer">' +
+          '<svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" aria-hidden="true"><polygon points="3 11 22 2 13 21 11 13 3 11"/></svg>' +
+          getTranslation("btnDirections") +
+        '</a>' +
+        '<button type="button" class="btn-card-route" data-detail="' + esc(p.id) + '">' + getTranslation("btnDetails") + '</button>' +
+        del +
+      '</div>' +
+    '</article>';
   }
 
   function render() {
     var q = state.q.trim().toLowerCase();
-    var items = all().filter(function (p) {
+    var items = allPandals().filter(function (p) {
       if (state.area === "Added by visitors" && p.src !== "community") return false;
       if (state.area !== "All" && state.area !== "Added by visitors" && p.area !== state.area) return false;
       if (!q) return true;
-      return [p.name, p.place, p.area, p.theme, p.metro, p.rail, p.bus, p.reach].join(" ").toLowerCase().indexOf(q) !== -1;
+      return [p.name, p.place, p.area, p.theme, p.metro, p.exitGate, p.rail, p.bus, p.reach].join(" ").toLowerCase().indexOf(q) !== -1;
     });
-    countEl.textContent = items.length + (items.length === 1 ? " pandal" : " pandals") + " shown";
+
+    if (state.userCoords) {
+      items.sort(function(a, b) {
+        var dA = calculateDistance(state.userCoords.lat, state.userCoords.lng, a.lat, a.lng) || 9999;
+        var dB = calculateDistance(state.userCoords.lat, state.userCoords.lng, b.lat, b.lng) || 9999;
+        return dA - dB;
+      });
+    }
+
+    var countText = items.length === 1 ? getTranslation("countSingle") : getTranslation("countPlural", { n: items.length });
+    countEl.textContent = countText;
+
     if (!items.length) {
-      var hint = state.area === "Districts" || state.area === "Added by visitors"
-        ? "No pandals here yet. The starter list covers Kolkata; district pandals come from visitors. Be the first to add one below."
-        : "No pandal matches your search. Try a station name or an area, or add the pandal below.";
-      list.innerHTML = '<div class="empty">' + hint + "</div>";
+      list.innerHTML =
+        '<div class="empty-results-box">' +
+          '<svg class="empty-state-svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" aria-hidden="true"><circle cx="11" cy="11" r="8"/><path d="m21 21-4.3-4.3"/><path d="M8 11h6"/></svg>' +
+          '<h3 class="empty-state-title">' + getTranslation("emptyTitle") + '</h3>' +
+          '<p class="empty-state-desc">' + getTranslation("emptyText") + '</p>' +
+          '<a href="#add" class="btn-primary">' + getTranslation("btnAddSuggest") + '</a>' +
+        '</div>';
       return;
     }
+
     list.innerHTML = items.map(card).join("");
   }
+
+  /* Filter Actions */
+  window.filterByArea = function(areaName) {
+    state.area = areaName;
+    renderChips(); render();
+    var el = document.getElementById("explore");
+    if (el) el.scrollIntoView({ behavior: "smooth" });
+  };
+
+  window.quickFilter = function(term) {
+    state.q = term;
+    searchInput.value = term;
+    searchClearBtn.classList.add("show");
+    render();
+    var el = document.getElementById("explore");
+    if (el) el.scrollIntoView({ behavior: "smooth" });
+  };
 
   chips.addEventListener("click", function (e) {
     var b = e.target.closest("[data-area]");
@@ -273,25 +1514,136 @@ textarea { resize: vertical; min-height: 76px; }
     state.area = b.getAttribute("data-area");
     renderChips(); render();
   });
-  document.getElementById("q").addEventListener("input", function (e) { state.q = e.target.value; render(); });
 
-  renderChips(); render();
+  searchInput.addEventListener("input", function (e) {
+    state.q = e.target.value;
+    searchClearBtn.classList.toggle("show", !!state.q);
+    render();
+  });
 
-  /* ---- visitor additions, stored through /api/pandals ---- */
+  window.clearSearch = function() {
+    searchInput.value = "";
+    state.q = "";
+    searchClearBtn.classList.remove("show");
+    render();
+  };
+
+  /* Geolocation Handler */
+  window.handleNearMe = function() {
+    var btnText = document.getElementById("btn-text-nearme");
+    if (!navigator.geolocation) {
+      alert(getTranslation("nearMeDenied")); return;
+    }
+    btnText.textContent = "Locating...";
+    navigator.geolocation.getCurrentPosition(
+      function(pos) {
+        state.userCoords = { lat: pos.coords.latitude, lng: pos.coords.longitude };
+        btnText.textContent = "📍 Near Me Active";
+        state.area = "All";
+        renderChips(); render();
+        var el = document.getElementById("explore");
+        if (el) el.scrollIntoView({ behavior: "smooth" });
+      },
+      function() {
+        btnText.textContent = getTranslation("btnNearMe");
+        alert(getTranslation("nearMeDenied"));
+      },
+      { timeout: 10000 }
+    );
+  };
+
+  /* Modal Details Handler */
+  list.addEventListener("click", function(e) {
+    var btnDetail = e.target.closest("[data-detail]");
+    if (btnDetail) {
+      var id = btnDetail.getAttribute("data-detail");
+      var pandal = allPandals().find(function(item) { return item.id === id; });
+      if (pandal) openModal(pandal);
+    }
+  });
+
+  function openModal(p) {
+    document.getElementById("modal-title").textContent = p.name;
+    document.getElementById("modal-subtitle").textContent = p.area + " · " + p.place;
+
+    var notAddedStr = getTranslation("notAdded");
+    var metroDetail = p.metro ? esc(p.metro) + (p.exitGate ? ' <span style="color:var(--sindoor-red);font-weight:700;">(' + esc(p.exitGate) + ')</span>' : '') : notAddedStr;
+
+    var bodyHtml =
+      (p.theme ? '<div class="route-step-box"><div class="route-step-label">' + getTranslation("themeLabel") + '</div><p style="margin:0;font-size:0.95rem;">' + esc(p.theme) + '</p></div>' : '') +
+      '<div class="route-step-box">' +
+        '<div class="route-step-label">' + getTranslation("modalHeadingHowToReach") + '</div>' +
+        '<div class="modal-transit-grid">' +
+          '<div class="modal-transit-row"><div class="modal-transit-icon metro">🚇</div><div><strong>' + getTranslation("metroLabel") + '</strong><br>' + metroDetail + '</div></div>' +
+          '<div class="modal-transit-row"><div class="modal-transit-icon rail">🚆</div><div><strong>' + getTranslation("railLabel") + '</strong><br>' + esc(p.rail || notAddedStr) + '</div></div>' +
+          '<div class="modal-transit-row"><div class="modal-transit-icon bus">🚌</div><div><strong>' + getTranslation("busLabel") + '</strong><br>' + esc(p.bus || notAddedStr) + '</div></div>' +
+        '</div>' +
+      '</div>' +
+      (p.reach ? '<div class="route-step-box"><div class="route-step-label">' + getTranslation("walkLabel") + '</div><p style="margin:0;font-size:0.95rem;line-height:1.5;">' + esc(p.reach) + '</p></div>' : '') +
+      '<div class="modal-action-row">' +
+        '<a class="btn-primary" style="flex:1" href="' + esc(dirUrl(p)) + '" target="_blank" rel="noopener noreferrer">' + getTranslation("btnDirections") + ' →</a>' +
+        '<button type="button" class="btn-secondary" onclick="copyRouteText(\'' + esc(p.name) + '\', \'' + esc(p.reach || p.place) + '\')">' + getTranslation("btnCopyDirections") + '</button>' +
+      '</div>';
+
+    document.getElementById("modal-body").innerHTML = bodyHtml;
+    modalBackdrop.classList.add("open");
+    document.body.style.overflow = "hidden";
+  }
+
+  window.copyRouteText = function(name, text) {
+    var str = name + " - Durga Puja Route Guide:\n" + text;
+    if (navigator.clipboard && navigator.clipboard.writeText) {
+      navigator.clipboard.writeText(str).then(function() {
+        alert("Route guide copied to clipboard! You can share it via WhatsApp.");
+      }).catch(function() {
+        alert(str);
+      });
+    } else {
+      alert(str);
+    }
+  };
+
+  window.closeModal = function() {
+    modalBackdrop.classList.remove("open");
+    document.body.style.overflow = "";
+  };
+  window.closeModalOnBackdrop = function(e) {
+    if (e.target === modalBackdrop) closeModal();
+  };
+  document.addEventListener("keydown", function(e) {
+    if (e.key === "Escape" && modalBackdrop.classList.contains("open")) closeModal();
+  });
+
+  /* API Community Integration */
   var form = document.getElementById("form");
   var statusEl = document.getElementById("status");
   var submitBtn = document.getElementById("submit");
 
-  function setStatus(msg, err) { statusEl.textContent = msg; statusEl.className = "status wide field" + (err ? " err" : ""); }
-  function val(id) { return document.getElementById(id).value.trim(); }
-  function toItem(o) {
-    return { id: o.id, src: "community", name: o.name || "Unnamed pandal", area: o.area || "Districts", place: o.place || "",
-      theme: o.theme || "", metro: o.metro || "", rail: o.rail || "", bus: o.bus || "", reach: o.reach || "" };
+  function setStatus(msg, err, success) {
+    statusEl.textContent = msg;
+    statusEl.className = "status-feedback-msg" + (err ? " err" : (success ? " success" : ""));
   }
-  function load() {
-    fetch("/api/pandals").then(function (r) { return r.ok ? r.json() : Promise.reject(); })
-      .then(function (d) { state.community = (d.items || []).map(toItem); render(); })
-      .catch(function () { setStatus("Pandals added by visitors could not be loaded right now.", true); });
+
+  function val(id) { return document.getElementById(id).value.trim(); }
+
+  function toItem(o) {
+    return {
+      id: o.id, src: "community", type: "popular", name: o.name || "Unnamed pandal", area: o.area || "Districts",
+      place: o.place || "", theme: o.theme || "", metro: o.metro || "", rail: o.rail || "",
+      bus: o.bus || "", reach: o.reach || ""
+    };
+  }
+
+  function loadCommunityPandals() {
+    fetch("/api/pandals")
+      .then(function (r) { return r.ok ? r.json() : Promise.reject(); })
+      .then(function (d) {
+        state.community = (d.items || []).map(toItem);
+        updateStaticLabels();
+        renderChips();
+        render();
+      })
+      .catch(function () {});
   }
 
   form.addEventListener("submit", function (e) {
@@ -299,35 +1651,54 @@ textarea { resize: vertical; min-height: 76px; }
     var name = val("f-name"), place = val("f-place");
     if (!name || !place) { setStatus("Enter the pandal name and its locality.", true); return; }
     submitBtn.disabled = true;
-    setStatus("Adding…", false);
+    setStatus("Adding...", false);
+
     fetch("/api/pandals", {
       method: "POST",
       headers: { "Content-Type": "application/json" },
       body: JSON.stringify({
-        name: name, area: document.getElementById("f-area").value, place: place,
-        theme: val("f-theme"), metro: val("f-metro"), rail: val("f-rail"), bus: val("f-bus"),
-        reach: val("f-reach"), website: val("f-web")
+        name: name,
+        area: document.getElementById("f-area").value,
+        place: place,
+        theme: val("f-theme"),
+        metro: val("f-metro"),
+        rail: val("f-rail"),
+        bus: val("f-bus"),
+        reach: val("f-reach"),
+        website: val("f-web")
       })
-    }).then(function (r) {
+    })
+    .then(function (r) {
       return r.json().catch(function () { return {}; }).then(function (d) { return { ok: r.ok, status: r.status, d: d }; });
-    }).then(function (res) {
+    })
+    .then(function (res) {
       if (!res.ok) {
         setStatus(res.status === 429 ? "Too many additions from this connection. Please try again later." : (res.d.error || "Could not add the pandal. Try again."), true);
         return;
       }
       state.community.unshift(toItem(res.d.item));
       form.reset();
-      setStatus("Added. It now shows in the list for everyone.", false);
-      state.area = "Added by visitors"; state.q = ""; document.getElementById("q").value = "";
-      renderChips(); render();
-    }).catch(function () {
+      setStatus("Added! It now shows in the list for everyone.", false, true);
+      state.area = "Added by visitors";
+      state.q = "";
+      searchInput.value = "";
+      renderChips();
+      render();
+      var el = document.getElementById("explore");
+      if (el) el.scrollIntoView({ behavior: "smooth" });
+    })
+    .catch(function () {
       setStatus("Could not add the pandal. Check your connection and try again.", true);
-    }).then(function () { submitBtn.disabled = false; });
+    })
+    .then(function () {
+      submitBtn.disabled = false;
+    });
   });
 
-  load();
+  // Init
+  switchLanguage(state.lang);
+  loadCommunityPandals();
 })();
 </script>
-
 </body>
 </html>
