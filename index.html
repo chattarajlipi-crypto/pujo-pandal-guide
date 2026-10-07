@@ -257,7 +257,8 @@ header.site-header.scrolled {
   position: relative;
   padding-block: 54px 44px;
   background: linear-gradient(90deg, rgba(18, 14, 16, 0.93) 0%, rgba(18, 14, 16, 0.85) 55%, rgba(18, 14, 16, 0.65) 100%),
-              url("images/durga-aarti-protima.jpg") center/cover no-repeat;
+              url("images/durga-aarti-protima.jpg") center/cover no-repeat,
+              url("durga-aarti-protima.jpg") center/cover no-repeat;
   color: #FFFFFF;
   border-bottom: 1px solid var(--border-line);
   overflow: hidden;
@@ -484,12 +485,12 @@ header.site-header.scrolled {
   z-index: 2;
 }
 
-/* Individual Authentic Kolkata Background Images */
-.area-zone-card.north { background-image: url("images/kumartuli-chokhdaan.jpg"); }
-.area-zone-card.central { background-image: url("images/durga-aarti-protima.jpg"); }
-.area-zone-card.south { background-image: url("images/durga-protima-sindoor.jpg"); }
-.area-zone-card.dumdum { background-image: url("images/pujo-thali-alpana.jpg"); }
-.area-zone-card.districts { background-image: url("images/shiuli-phool.jpg"); }
+/* Individual Authentic Kolkata Background Images (Supports both images/ folder & root uploads) */
+.area-zone-card.north { background-image: url("images/kumartuli-chokhdaan.jpg"), url("kumartuli-chokhdaan.jpg"); }
+.area-zone-card.central { background-image: url("images/durga-aarti-protima.jpg"), url("durga-aarti-protima.jpg"); }
+.area-zone-card.south { background-image: url("images/durga-protima-sindoor.jpg"), url("durga-protima-sindoor.jpg"); }
+.area-zone-card.dumdum { background-image: url("images/pujo-thali-alpana.jpg"), url("pujo-thali-alpana.jpg"); }
+.area-zone-card.districts { background-image: url("images/shiuli-phool.jpg"), url("shiuli-phool.jpg"); }
 
 .area-name { font-size: 1.15rem; font-weight: 700; color: #FFFFFF; margin-bottom: 4px; line-height: 1.3; }
 .area-spots-hint { font-size: 0.78rem; font-weight: 700; color: var(--kashish-gold); margin-bottom: 6px; text-transform: uppercase; letter-spacing: 0.05em; }
