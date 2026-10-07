@@ -14,7 +14,7 @@
 
 <style>
 /* ==========================================================================
-   PUJO PATH - PRODUCTION DESIGN SYSTEM & TYPOGRAPHY ENGINE
+   PUJO PATH - PRODUCTION DESIGN SYSTEM WITH CULTURAL BACKGROUND ARTWORK
    ========================================================================== */
 :root {
   /* Primary Bengali Festive Palette */
@@ -251,13 +251,14 @@ header.site-header.scrolled {
 }
 
 /* ==========================================================================
-   HERO / HOME SECTION
+   HERO / HOME SECTION WITH RICH ATMOSPHERIC BACKGROUND
    ========================================================================== */
 .hero-section {
   position: relative;
-  padding-block: 40px 36px;
-  background: radial-gradient(circle at 85% 15%, rgba(199, 154, 69, 0.12) 0%, transparent 55%),
-              radial-gradient(circle at 10% 85%, rgba(179, 38, 46, 0.08) 0%, transparent 50%);
+  padding-block: 54px 44px;
+  background: linear-gradient(90deg, rgba(18, 14, 16, 0.93) 0%, rgba(18, 14, 16, 0.85) 55%, rgba(18, 14, 16, 0.65) 100%),
+              url("images/durga-aarti-protima.jpg") center/cover no-repeat;
+  color: #FFFFFF;
   border-bottom: 1px solid var(--border-line);
   overflow: hidden;
 }
@@ -268,18 +269,19 @@ header.site-header.scrolled {
   display: inline-flex;
   align-items: center;
   gap: 8px;
-  background: var(--red-soft);
-  color: var(--sindoor-red);
-  border: 1px solid rgba(179, 38, 46, 0.22);
+  background: rgba(179, 38, 46, 0.35);
+  color: #FFD2D5;
+  backdrop-filter: blur(8px);
+  border: 1px solid rgba(255, 255, 255, 0.2);
   padding: 6px 14px;
   border-radius: var(--radius-pill);
   font-size: 0.86rem;
   font-weight: 600;
-  margin-bottom: 16px;
+  margin-bottom: 18px;
 }
 .hero-pulse-dot {
   width: 8px; height: 8px;
-  background: var(--sindoor-red);
+  background: #FF5A65;
   border-radius: 50%;
   animation: pulse-dot 2s infinite;
 }
@@ -290,16 +292,18 @@ header.site-header.scrolled {
 }
 
 .hero-heading {
-  font-size: clamp(2.3rem, 5vw, 3.6rem);
+  font-size: clamp(2.4rem, 5.5vw, 3.8rem);
   font-weight: 700;
+  color: #FFFFFF;
   letter-spacing: -0.02em;
-  margin-bottom: 12px;
+  margin-bottom: 14px;
+  text-shadow: 0 2px 10px rgba(0,0,0,0.5);
 }
-.hero-heading span.accent { color: var(--sindoor-red); }
+.hero-heading span.accent { color: var(--kashish-gold); }
 
 .hero-lead {
   font-size: clamp(1.05rem, 2vw, 1.25rem);
-  color: var(--text-muted);
+  color: rgba(255, 255, 255, 0.88);
   margin-bottom: 28px;
   max-width: 640px;
 }
@@ -311,7 +315,6 @@ header.site-header.scrolled {
   margin-bottom: 28px;
 }
 
-/* Primary & Secondary Action Buttons (Min Touch Target 44px) */
 .btn-primary {
   display: inline-flex;
   align-items: center;
@@ -326,13 +329,13 @@ header.site-header.scrolled {
   border-radius: var(--radius-md);
   border: none;
   cursor: pointer;
-  box-shadow: 0 4px 14px rgba(179, 38, 46, 0.25);
+  box-shadow: 0 4px 16px rgba(179, 38, 46, 0.4);
   transition: all 0.2s ease;
 }
 .btn-primary:hover {
   background: var(--sindoor-red-hover);
   transform: translateY(-2px);
-  box-shadow: 0 6px 18px rgba(179, 38, 46, 0.35);
+  box-shadow: 0 6px 20px rgba(179, 38, 46, 0.5);
 }
 
 .btn-secondary {
@@ -340,25 +343,25 @@ header.site-header.scrolled {
   align-items: center;
   justify-content: center;
   gap: 8px;
-  background: var(--card-bg);
-  color: var(--text-main);
+  background: rgba(255, 255, 255, 0.12);
+  color: #FFFFFF;
+  backdrop-filter: blur(8px);
   font-size: 0.98rem;
   font-weight: 600;
   padding: 12px 20px;
   min-height: 46px;
   border-radius: var(--radius-md);
-  border: 1.5px solid var(--border-line);
+  border: 1.5px solid rgba(255, 255, 255, 0.3);
   cursor: pointer;
   box-shadow: var(--shadow-sm);
   transition: all 0.2s ease;
 }
 .btn-secondary:hover {
-  border-color: var(--sindoor-red);
-  color: var(--sindoor-red);
+  border-color: #FFFFFF;
+  background: rgba(255, 255, 255, 0.25);
   transform: translateY(-2px);
 }
 
-/* Street Search Box & Quick Preset Pills */
 .search-container { max-width: 720px; }
 .search-bar-wrap { position: relative; display: flex; align-items: center; }
 .search-icon-svg {
@@ -375,12 +378,12 @@ header.site-header.scrolled {
   border-radius: var(--radius-lg);
   padding: 16px 48px 16px 48px;
   min-height: 54px;
-  box-shadow: var(--shadow-md);
+  box-shadow: var(--shadow-lg);
   transition: border-color 0.2s ease, box-shadow 0.2s ease;
 }
 .search-input-field:focus {
   border-color: var(--sindoor-red);
-  box-shadow: 0 0 0 4px rgba(179, 38, 46, 0.12);
+  box-shadow: 0 0 0 4px rgba(179, 38, 46, 0.25);
   outline: none;
 }
 .search-clear-btn {
@@ -402,23 +405,24 @@ header.site-header.scrolled {
   display: flex; flex-wrap: wrap; gap: 8px; margin-top: 14px;
 }
 .quick-pill {
-  background: var(--card-bg);
-  border: 1px solid var(--border-line);
+  background: rgba(255, 255, 255, 0.15);
+  border: 1px solid rgba(255, 255, 255, 0.25);
   border-radius: var(--radius-pill);
   padding: 6px 14px;
   min-height: 38px;
   font-size: 0.84rem; font-weight: 600;
-  color: var(--text-muted);
+  color: #FFFFFF;
+  backdrop-filter: blur(6px);
   cursor: pointer;
   transition: all 0.2s ease;
   display: inline-flex; align-items: center;
 }
-.quick-pill:hover { border-color: var(--sindoor-red); color: var(--sindoor-red); }
+.quick-pill:hover { border-color: var(--kashish-gold); background: rgba(199, 154, 69, 0.3); color: #FFFFFF; }
 
 /* ==========================================================================
-   AREA EXPLORATION SECTION
+   AREA EXPLORATION SECTION WITH CULTURAL BACKGROUND PHOTO ARTWORK
    ========================================================================== */
-.area-section { padding-block: 44px 28px; }
+.area-section { padding-block: 44px 32px; }
 .section-title-wrap { margin-bottom: 22px; }
 .section-main-title { font-size: 1.7rem; font-weight: 700; margin-bottom: 6px; }
 .section-sub-title { color: var(--text-muted); font-size: 0.95rem; }
@@ -430,39 +434,66 @@ header.site-header.scrolled {
 }
 
 .area-zone-card {
-  background: var(--card-bg);
-  border: 1px solid var(--border-line);
-  border-radius: var(--radius-md);
-  padding: 20px;
-  cursor: pointer;
-  transition: all 0.22s ease;
   position: relative;
-  box-shadow: var(--shadow-sm);
+  border-radius: var(--radius-md);
+  padding: 24px 18px 18px;
+  cursor: pointer;
+  transition: all 0.25s ease;
+  overflow: hidden;
+  box-shadow: var(--shadow-md);
   display: flex;
   flex-direction: column;
-  justify-content: space-between;
-  min-height: 124px;
+  justify-content: flex-end;
+  min-height: 165px;
+  color: #FFFFFF;
+  border: 1px solid rgba(255, 255, 255, 0.15);
+  background-size: cover;
+  background-position: center;
 }
+
 .area-zone-card::before {
   content: "";
   position: absolute;
   top: 0; left: 0; right: 0;
   height: 4px;
   background: var(--kashish-gold);
-  border-radius: var(--radius-md) var(--radius-md) 0 0;
-  opacity: 0.8;
+  z-index: 3;
   transition: background 0.2s ease;
 }
+
+.area-zone-card::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(to top, rgba(18, 14, 16, 0.94) 0%, rgba(18, 14, 16, 0.5) 60%, rgba(18, 14, 16, 0.2) 100%);
+  z-index: 1;
+  transition: background 0.25s ease;
+}
+
 .area-zone-card:hover {
-  transform: translateY(-3px);
-  border-color: var(--sindoor-red);
-  box-shadow: var(--shadow-md);
+  transform: translateY(-4px);
+  box-shadow: var(--shadow-lg);
 }
 .area-zone-card:hover::before { background: var(--sindoor-red); }
+.area-zone-card:hover::after {
+  background: linear-gradient(to top, rgba(179, 38, 46, 0.95) 0%, rgba(18, 14, 16, 0.55) 60%, rgba(18, 14, 16, 0.25) 100%);
+}
 
-.area-name { font-size: 1.15rem; font-weight: 700; margin-bottom: 4px; }
-.area-spots-hint { font-size: 0.78rem; font-weight: 700; color: var(--sindoor-red); margin-bottom: 6px; text-transform: uppercase; letter-spacing: 0.04em; }
-.area-desc { font-size: 0.88rem; color: var(--text-muted); margin: 0; line-height: 1.4; }
+.area-card-content {
+  position: relative;
+  z-index: 2;
+}
+
+/* Individual Authentic Kolkata Background Images */
+.area-zone-card.north { background-image: url("images/kumartuli-chokhdaan.jpg"); }
+.area-zone-card.central { background-image: url("images/durga-aarti-protima.jpg"); }
+.area-zone-card.south { background-image: url("images/durga-protima-sindoor.jpg"); }
+.area-zone-card.dumdum { background-image: url("images/pujo-thali-alpana.jpg"); }
+.area-zone-card.districts { background-image: url("images/shiuli-phool.jpg"); }
+
+.area-name { font-size: 1.15rem; font-weight: 700; color: #FFFFFF; margin-bottom: 4px; line-height: 1.3; }
+.area-spots-hint { font-size: 0.78rem; font-weight: 700; color: var(--kashish-gold); margin-bottom: 6px; text-transform: uppercase; letter-spacing: 0.05em; }
+.area-desc { font-size: 0.88rem; color: rgba(255, 255, 255, 0.88); margin: 0; line-height: 1.4; }
 
 /* ==========================================================================
    EXPLORE PANDALS & CARDS GRID
@@ -733,6 +764,54 @@ header.site-header.scrolled {
 }
 
 /* ==========================================================================
+   PUJO SCHEDULE & RITUAL TIMINGS SECTION
+   ========================================================================== */
+.schedule-section { padding-block: 44px 36px; border-bottom: 1px solid var(--border-line); scroll-margin-top: 76px; }
+.schedule-cards-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(min(100%, 320px), 1fr));
+  gap: 18px;
+  margin-top: 24px;
+}
+.schedule-card {
+  background: var(--card-bg);
+  border: 1.5px solid var(--border-line);
+  border-radius: var(--radius-md);
+  padding: 20px;
+  box-shadow: var(--shadow-sm);
+  display: flex; flex-direction: column; gap: 12px;
+  transition: transform 0.2s ease, box-shadow 0.2s ease, border-color 0.2s ease;
+}
+.schedule-card:hover { transform: translateY(-3px); box-shadow: var(--shadow-md); border-color: rgba(179, 38, 46, 0.45); }
+.schedule-card.highlight-card {
+  border: 2px solid var(--kashish-gold);
+  background: linear-gradient(135deg, var(--card-bg) 75%, var(--kashish-gold-soft) 100%);
+  box-shadow: 0 4px 18px rgba(199, 154, 69, 0.18);
+}
+.schedule-badge {
+  display: inline-block; font-size: 0.78rem; font-weight: 700;
+  background: var(--red-soft); color: var(--sindoor-red);
+  padding: 3px 10px; border-radius: var(--radius-pill); margin-bottom: 6px;
+}
+.schedule-badge.gold { background: var(--tag-heritage-bg); color: var(--tag-heritage-fg); border: 1px solid var(--kashish-gold); }
+.schedule-day-title { font-size: 1.2rem; font-weight: 700; color: var(--text-main); margin: 0; }
+.schedule-timing-row {
+  display: flex; justify-content: space-between; align-items: center; gap: 8px;
+  font-size: 0.88rem; padding: 7px 12px; background: var(--ivory-bg);
+  border-radius: var(--radius-sm); margin-bottom: 6px; border: 1px solid var(--border-line);
+}
+.schedule-timing-row.highlight-row {
+  background: var(--red-soft); border-left: 3px solid var(--sindoor-red); border-color: var(--border-line); font-weight: 600;
+}
+.schedule-timing-row.sandhi-row {
+  background: var(--tag-heritage-bg); border-left: 3px solid var(--kashish-gold); font-weight: 700; color: var(--tag-heritage-fg);
+}
+.timing-label { font-weight: 600; font-size: 0.86rem; }
+.timing-val { font-weight: 700; font-size: 0.88rem; color: var(--sindoor-red); }
+.schedule-timing-row.sandhi-row .timing-val { color: var(--tag-heritage-fg); }
+.schedule-desc { font-size: 0.88rem; color: var(--text-muted); margin: 0; line-height: 1.45; }
+
+/* ==========================================================================
    FOOTER
    ========================================================================== */
 footer.site-footer {
@@ -756,7 +835,7 @@ footer.site-footer {
 
 @media (max-width: 768px) {
   .nav-links-desktop { display: none; }
-  .hero-section { padding-block: 28px 24px; }
+  .hero-section { padding-block: 36px 28px; }
   .area-cards-grid { grid-template-columns: repeat(auto-fill, minmax(150px, 1fr)); }
   .pandal-grid-container { grid-template-columns: 1fr; }
   .footer-top-row { flex-direction: column; }
@@ -788,6 +867,7 @@ footer.site-footer {
         <ul class="nav-links-desktop">
           <li><a href="#hero" class="nav-item-link" id="nav-home">হোম</a></li>
           <li><a href="#explore" class="nav-item-link" id="nav-explore">প্যান্ডেলসমূহ</a></li>
+          <li><a href="#schedule" class="nav-item-link" id="nav-schedule">সময়সূচী</a></li>
           <li><a href="#areas" class="nav-item-link" id="nav-areas">অঞ্চলসমূহ</a></li>
           <li><a href="#add" class="nav-item-link" id="nav-add">প্যান্ডেল যুক্ত করুন</a></li>
         </ul>
@@ -804,7 +884,7 @@ footer.site-footer {
 </header>
 
 <main id="hero">
-  <!-- HERO SECTION -->
+  <!-- HERO SECTION WITH IMMERSIVE PUJO AARTI BACKGROUND -->
   <section class="hero-section">
     <div class="wrap">
       <div class="hero-content">
@@ -842,17 +922,17 @@ footer.site-footer {
           </div>
 
           <div class="quick-filter-pills" id="quick-pills">
-            <button type="button" class="quick-pill" onclick="quickFilter('Shobhabazar')">🚇 শোভাবাজার মেট্রো</button>
-            <button type="button" class="quick-pill" onclick="quickFilter('Kalighat')">🚇 কালীঘাট মেট্রো</button>
-            <button type="button" class="quick-pill" onclick="quickFilter('Heritage')">🏛️ সাবেকি ও রাজবাড়ি পুজো</button>
-            <button type="button" class="quick-pill" onclick="quickFilter('Theme')">🎨 সেরা থিম পুজো</button>
+            <button type="button" class="quick-pill" id="qp-shobhabazar" onclick="quickFilter('Shobhabazar')">🚇 শোভাবাজার মেট্রো</button>
+            <button type="button" class="quick-pill" id="qp-kalighat" onclick="quickFilter('Kalighat')">🚇 কালীঘাট মেট্রো</button>
+            <button type="button" class="quick-pill" id="qp-heritage" onclick="quickFilter('Heritage')">🏛️ সাবেকি ও রাজবাড়ি পুজো</button>
+            <button type="button" class="quick-pill" id="qp-theme" onclick="quickFilter('Theme')">🎨 সেরা থিম পুজো</button>
           </div>
         </div>
       </div>
     </div>
   </section>
 
-  <!-- AREA NAVIGATION CARDS -->
+  <!-- AREA NAVIGATION CARDS WITH AUTHENTIC KOLKATA BACKGROUND PHOTOGRAPHY -->
   <section class="area-section" id="areas">
     <div class="wrap">
       <div class="section-title-wrap">
@@ -861,34 +941,181 @@ footer.site-footer {
       </div>
 
       <div class="area-cards-grid">
-        <div class="area-zone-card" onclick="filterByArea('North Kolkata')">
-          <span class="area-spots-hint">উত্তর কলকাতা</span>
-          <h3 class="area-name" id="area-card-north">বাগবাজার • কুমারটুলি • শোভাবাজার</h3>
-          <p class="area-desc" id="area-desc-north">ঐতিহ্য, সাবেকি রূপ ও বিখ্যাত পারা পুজো</p>
+        <div class="area-zone-card north" onclick="filterByArea('North Kolkata')">
+          <div class="area-card-content">
+            <span class="area-spots-hint" id="area-spot-north">ঐতিহ্য ও রাজবাড়ি</span>
+            <h3 class="area-name" id="area-card-north">উত্তর কলকাতা</h3>
+            <p class="area-desc" id="area-desc-north">ঐতিহ্য, সাবেকি রূপ ও বিখ্যাত পারা পুজো</p>
+          </div>
         </div>
 
-        <div class="area-zone-card" onclick="filterByArea('Central Kolkata')">
-          <span class="area-spots-hint">মধ্য কলকাতা</span>
-          <h3 class="area-name" id="area-card-central">কলেজ স্কয়ার • শিয়ালদহ • লেবুতলা</h3>
-          <p class="area-desc" id="area-desc-central">শহরের প্রাণকেন্দ্র ও চমৎকার আলোর সজ্জা</p>
+        <div class="area-zone-card central" onclick="filterByArea('Central Kolkata')">
+          <div class="area-card-content">
+            <span class="area-spots-hint" id="area-spot-central">আলোর সজ্জা ও পার্ক</span>
+            <h3 class="area-name" id="area-card-central">মধ্য কলকাতা</h3>
+            <p class="area-desc" id="area-desc-central">শহরের প্রাণকেন্দ্র ও চমৎকার আলোর সজ্জা</p>
+          </div>
         </div>
 
-        <div class="area-zone-card" onclick="filterByArea('South Kolkata')">
-          <span class="area-spots-hint">দক্ষিণ কলকাতা</span>
-          <h3 class="area-name" id="area-card-south">গড়িয়াহাট • বালিগঞ্জ • কালীঘাট</h3>
-          <p class="area-desc" id="area-desc-south">আধুনিক থিম ও জনসমুদ্রের পুজো</p>
+        <div class="area-zone-card south" onclick="filterByArea('South Kolkata')">
+          <div class="area-card-content">
+            <span class="area-spots-hint" id="area-spot-south">আধুনিক থিম পুজো</span>
+            <h3 class="area-name" id="area-card-south">দক্ষিণ কলকাতা</h3>
+            <p class="area-desc" id="area-desc-south">আধুনিক থিম ও জনসমুদ্রের পুজো</p>
+          </div>
         </div>
 
-        <div class="area-zone-card" onclick="filterByArea('Dum Dum & Lake Town')">
-          <span class="area-spots-hint">উত্তর-পূর্ব কলকাতা</span>
-          <h3 class="area-name" id="area-card-dumdum">লেক টাউন • শ্রীভূমি • দমদম পার্ক</h3>
-          <p class="area-desc" id="area-desc-dumdum">চোখধাঁধানো রূপকার ও জমকালো প্যান্ডেল</p>
+        <div class="area-zone-card dumdum" onclick="filterByArea('Dum Dum & Lake Town')">
+          <div class="area-card-content">
+            <span class="area-spots-hint" id="area-spot-dumdum">মেগা প্যাভিলিয়ন</span>
+            <h3 class="area-name" id="area-card-dumdum">দমদম ও লেক টাউন</h3>
+            <p class="area-desc" id="area-desc-dumdum">চোখধাঁধানো রূপকার ও জমকালো প্যান্ডেল</p>
+          </div>
         </div>
 
-        <div class="area-zone-card" onclick="filterByArea('Districts')">
-          <span class="area-spots-hint">জেলাসমূহ</span>
-          <h3 class="area-name" id="area-card-districts">হাওড়া • ২৪ পরগনা • জেলা পুজো</h3>
-          <p class="area-desc" id="area-desc-districts">বাংলার ঐতিহ্যবাহী পুজো ও লোকশিল্প</p>
+        <div class="area-zone-card districts" onclick="filterByArea('Districts')">
+          <div class="area-card-content">
+            <span class="area-spots-hint" id="area-spot-districts">লোকশিল্প ও সাবেকিয়ানা</span>
+            <h3 class="area-name" id="area-card-districts">জেলাসমূহ</h3>
+            <p class="area-desc" id="area-desc-districts">বাংলার ঐতিহ্যবাহী পুজো ও লোকশিল্প</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- PUJO SCHEDULE & RITUAL TIMINGS SECTION -->
+  <section class="schedule-section" id="schedule">
+    <div class="wrap">
+      <div class="section-title-wrap">
+        <h2 class="section-main-title" id="schedule-main-title">দুর্গাপূজা পঞ্জিকা ও সময়সূচী (মহালয়া থেকে লক্ষ্মীপুজো)</h2>
+        <p class="section-sub-title" id="schedule-sub-title">বিশুদ্ধ সিদ্ধান্ত পঞ্জিকা ও বেলুর মঠ সময় নির্ঘণ্ট (২০২৬ / ১৪৩৩)</p>
+      </div>
+
+      <div class="schedule-cards-grid">
+        <!-- 1. Mahalaya -->
+        <div class="schedule-card">
+          <div class="schedule-card-header">
+            <span class="schedule-badge" id="sch-d1-date">১০ অক্টোবর ২০২৬ (শনিবার)</span>
+            <h3 class="schedule-day-title" id="sch-d1-title">🌅 মহালয়া (Mahalaya)</h3>
+          </div>
+          <div class="schedule-body">
+            <div class="schedule-timing-row">
+              <span class="timing-label" id="sch-d1-lbl">তর্পণ তিথি:</span>
+              <span class="timing-val" id="sch-d1-val">ভোর ০৪:৩০ - সকাল ০৬:১৫ (সম্প্রচার ভোর ৪:০০)</span>
+            </div>
+            <p class="schedule-desc" id="sch-d1-desc">পিতৃপক্ষের অবসান ও দেবীপক্ষের সূচনা। গঙ্গার ঘাটে পবিত্র তর্পণ ও মহিষাসুরমর্দিনী শ্রবণ।</p>
+          </div>
+        </div>
+
+        <!-- 2. Maha Shasthi -->
+        <div class="schedule-card">
+          <div class="schedule-card-header">
+            <span class="schedule-badge" id="sch-d2-date">১৭ অক্টোবর ২০২৬ (শনিবার)</span>
+            <h3 class="schedule-day-title" id="sch-d2-title">🌺 মহাষষ্ঠী (Maha Shasthi)</h3>
+          </div>
+          <div class="schedule-body">
+            <div class="schedule-timing-row">
+              <span class="timing-label" id="sch-d2-lbl">বোধন ও অধিবাস:</span>
+              <span class="timing-val" id="sch-d2-val">সন্ধ্যা ০৫:৪৫ - ০৭:১৫ (বিল্ব নিমন্ত্রণ: ১৬ অক্টো ২:৫১–৫:১১)</span>
+            </div>
+            <p class="schedule-desc" id="sch-d2-desc">দেবী দুর্গার আমন্ত্রণ, অধিবাস ও কল্পারম্ভ। দেবীর প্রাণ জাগ্রতকরণ ও প্যান্ডেল দর্শনের আনুষ্ঠানিক সূচনা।</p>
+          </div>
+        </div>
+
+        <!-- 3. Maha Saptami -->
+        <div class="schedule-card">
+          <div class="schedule-card-header">
+            <span class="schedule-badge" id="sch-d3-date">১৮ অক্টোবর ২০২৬ · ১ কার্তিক (রবিবার)</span>
+            <h3 class="schedule-day-title" id="sch-d3-title">🌾 মহাসপ্তমী (Maha Saptami)</h3>
+          </div>
+          <div class="schedule-body">
+            <div class="schedule-timing-row">
+              <span class="timing-label" id="sch-d3-l1">পূজারম্ভ (সপ্তমী):</span>
+              <span class="timing-val" id="sch-d3-v1">সকাল ০৫:৩০ মি: (স্নাত ভোর ০৫:১১–০৫:৩৪)</span>
+            </div>
+            <div class="schedule-timing-row highlight-row">
+              <span class="timing-label" id="sch-d3-l2">সপ্তমী পুষ্পাঞ্জলি:</span>
+              <span class="timing-val" id="sch-d3-v2">দেবীর ভোগারতির পর</span>
+            </div>
+            <p class="schedule-desc" id="sch-d3-desc">১ কার্তিক (১৮ অক্টোবর)। নবপত্রিকা বা কলাবৌ স্নান, ষোড়শোপচার পুজো ও দেবীর ভোগারতির পর পুষ্পাঞ্জলি।</p>
+          </div>
+        </div>
+
+        <!-- 4. Maha Ashtami (HIGHLIGHT CARD) -->
+        <div class="schedule-card highlight-card">
+          <div class="schedule-card-header">
+            <span class="schedule-badge gold" id="sch-d4-date">১৯ অক্টোবর ২০২৬ · ২ কার্তিক (সোমবার)</span>
+            <h3 class="schedule-day-title" id="sch-d4-title">🔔 মহাঅষ্টমী (Maha Ashtami)</h3>
+          </div>
+          <div class="schedule-body">
+            <div class="schedule-timing-row highlight-row">
+              <span class="timing-label" id="sch-d4-l1">পূজারম্ভ (অষ্টমী):</span>
+              <span class="timing-val" id="sch-d4-v1">সকাল ০৫:৩০ মি:</span>
+            </div>
+            <div class="schedule-timing-row">
+              <span class="timing-label" id="sch-d4-l2">কুমারী পূজা:</span>
+              <span class="timing-val" id="sch-d4-v2">পূজারম্ভ সকাল ০৯:০০ টা</span>
+            </div>
+            <div class="schedule-timing-row sandhi-row">
+              <span class="timing-label" id="sch-d4-l3">⚡ সন্ধিপূজা (Sandhi Puja):</span>
+              <span class="timing-val" id="sch-d4-v3">সকাল ১০.২৮ মি: – ১১.১৬ মি:</span>
+            </div>
+            <p class="schedule-desc" id="sch-d4-desc">২ কার্তিক (১৯ অক্টোবর)। বিশুদ্ধ সিদ্ধান্ত পঞ্জিকানুযায়ী কুমারী পূজা (সকাল ৯:০০) ও ঐতিহাসিক সন্ধিপূজা (১০:২৮–১১:১৬)।</p>
+          </div>
+        </div>
+
+        <!-- 5. Maha Navami -->
+        <div class="schedule-card">
+          <div class="schedule-card-header">
+            <span class="schedule-badge" id="sch-d5-date">২০ অক্টোবর ২০২৬ · ৩ কার্তিক (মঙ্গলবার)</span>
+            <h3 class="schedule-day-title" id="sch-d5-title">🔥 মহানবমী (Maha Navami)</h3>
+          </div>
+          <div class="schedule-body">
+            <div class="schedule-timing-row highlight-row">
+              <span class="timing-label" id="sch-d5-l1">পূজারম্ভ (নবমী):</span>
+              <span class="timing-val" id="sch-d5-v1">সকাল ০৫:৩০ মি:</span>
+            </div>
+            <div class="schedule-timing-row">
+              <span class="timing-label" id="sch-d5-l2">নবমী হোম:</span>
+              <span class="timing-val" id="sch-d5-v2">দেবীর ভোগারতির পর</span>
+            </div>
+            <p class="schedule-desc" id="sch-d5-desc">৩ কার্তিক (২০ অক্টোবর)। দেবীর মহা আরতি, ভোগারতির পর নবমী হোম, ও সন্ধ্যায় প্রদীপ-আরতি।</p>
+          </div>
+        </div>
+
+        <!-- 6. Vijaya Dashami -->
+        <div class="schedule-card">
+          <div class="schedule-card-header">
+            <span class="schedule-badge" id="sch-d6-date">২১ অক্টোবর ২০২৬ (বুধবার)</span>
+            <h3 class="schedule-day-title" id="sch-d6-title">🪔 বিজয়া দশমী (Vijaya Dashami)</h3>
+          </div>
+          <div class="schedule-body">
+            <div class="schedule-timing-row">
+              <span class="timing-label" id="sch-d6-l1">দর্পণ বিসর্জন:</span>
+              <span class="timing-val" id="sch-d6-v1">সকাল ০৯:৩০</span>
+            </div>
+            <div class="schedule-timing-row highlight-row">
+              <span class="timing-label" id="sch-d6-l2">সিঁদুর খেলা ও বিসর্জন:</span>
+              <span class="timing-val" id="sch-d6-v2">দুপুর ০১:০০ থেকে (বিজয় মুহূর্ত ০১:১৬ - ০২:০২)</span>
+            </div>
+            <p class="schedule-desc" id="sch-d6-desc">দেবী বরণ, সিঁদুর খেলা ও প্রতিমা বিসর্জন। শুভ বিজয়ার শুভেচ্ছা, কোলাকুলি ও মিষ্টিমুখ।</p>
+          </div>
+        </div>
+
+        <!-- 7. Kojagari Lakshmi Puja -->
+        <div class="schedule-card">
+          <div class="schedule-card-header">
+            <span class="schedule-badge" id="sch-d7-date">২৫ অক্টোবর ২০২৬ (রবিবার)</span>
+            <h3 class="schedule-day-title" id="sch-d7-title">🌕 কোজাগরী লক্ষ্মীপুজো (Lakshmi Puja)</h3>
+          </div>
+          <div class="schedule-body">
+            <div class="schedule-timing-row highlight-row">
+              <span class="timing-label" id="sch-d7-l1">কোজাগরী তিথি:</span>
+              <span class="timing-val" id="sch-d7-v1">সন্ধ্যা ০৫:৩০ - রাত ১১:১৫</span>
+            </div>
+            <p class="schedule-desc" id="sch-d7-desc">কোজাগরী পূর্ণিমায় ধনধান্যের দেবী লক্ষ্মীর পুজো ও ঘরে ঘরে আলপনা আঁকা।</p>
+          </div>
         </div>
       </div>
     </div>
@@ -1034,6 +1261,7 @@ footer.site-footer {
       brandTitle: "পুজো পথ",
       navHome: "হোম",
       navExplore: "প্যান্ডেলসমূহ",
+      navSchedule: "সময়সূচী",
       navAreas: "অঞ্চলসমূহ",
       navAdd: "প্যান্ডেল যুক্ত করুন",
       heroBadgeText: "{count}+ সেরা পুজো প্যান্ডেল • উত্তর থেকে দক্ষিণ কলকাতা",
@@ -1042,18 +1270,74 @@ footer.site-footer {
       btnExplore: "প্যান্ডেল খুঁজুন",
       btnNearMe: "আমার কাছের প্যান্ডেল",
       searchPlaceholder: "প্যান্ডেল, এলাকা, মেট্রো, স্টেশন বা বাস স্টপ দিয়ে খুঁজুন...",
+      quickPillShobhabazar: "🚇 শোভাবাজার মেট্রো",
+      quickPillKalighat: "🚇 কালীঘাট মেট্রো",
+      quickPillHeritage: "🏛️ সাবেকি ও রাজবাড়ি পুজো",
+      quickPillTheme: "🎨 সেরা থিম পুজো",
       areasTitle: "কলকাতা ও আশেপাশের পুজো অঞ্চল",
       areasSubtitle: "পছন্দের এলাকা বেছে নিয়ে সরাসরি প্যান্ডেলের তালিকা দেখুন",
-      areaNorth: "উত্তর কলকাতা",
+      areaSpotNorth: "ঐতিহ্য ও রাজবাড়ি",
+      areaSpotCentral: "আলোর সজ্জা ও পার্ক",
+      areaSpotSouth: "আধুনিক থিম পুজো",
+      areaSpotDumdum: "মেগা প্যাভিলিয়ন",
+      areaSpotDistricts: "লোকশিল্প ও সাবেকিয়ানা",
+      areaNorthName: "উত্তর কলকাতা",
+      areaCentralName: "মধ্য কলকাতা",
+      areaSouthName: "দক্ষিণ কলকাতা",
+      areaDumdumName: "দমদম ও লেক টাউন",
+      areaDistrictsName: "জেলাসমূহ",
       areaNorthDesc: "ঐতিহ্য, সাবেকি রূপ ও বিখ্যাত পারা পুজো",
-      areaCentral: "মধ্য কলকাতা",
       areaCentralDesc: "শহরের প্রাণকেন্দ্র ও চমৎকার আলোর সজ্জা",
-      areaSouth: "দক্ষিণ কলকাতা",
       areaSouthDesc: "আধুনিক থিম ও জনসমুদ্রের পুজো",
-      areaDumdum: "দমদম ও লেক টাউন",
       areaDumdumDesc: "চোখধাঁধানো রূপকার ও জমকালো প্যান্ডেল",
-      areaDistricts: "জেলাসমূহ",
       areaDistrictsDesc: "বাংলার ঐতিহ্যবাহী পুজো ও লোকশিল্প",
+      scheduleMainTitle: "দুর্গাপূজা পঞ্জিকা ও সময়সূচী (মহালয়া থেকে লক্ষ্মীপুজো)",
+      scheduleSubTitle: "বিশুদ্ধ সিদ্ধান্ত পঞ্জিকা ও বেলুর মঠ সময় নির্ঘণ্ট (২০২৬ / ১৪ ৩৩)",
+      schD1Date: "১০ অক্টোবর ২০২৬ (শনিবার)",
+      schD1Title: "🌅 মহালয়া (Mahalaya)",
+      schD1Lbl: "তর্পণ তিথি:",
+      schD1Val: "ভোর ০৪:৩০ - সকাল ০৬:১৫ (সম্প্রচার ভোর ৪:০০)",
+      schD1Desc: "পিতৃপক্ষের অবসান ও দেবীপক্ষের সূচনা। গঙ্গার ঘাটে পবিত্র তর্পণ ও মহিষাসুরমর্দিনী শ্রবণ।",
+      schD2Date: "১৭ অক্টোবর ২০২৬ (শনিবার)",
+      schD2Title: "🌺 মহাষষ্ঠী (Maha Shasthi)",
+      schD2Lbl: "বোধন ও অধিবাস:",
+      schD2Val: "সন্ধ্যা ০৫:৪৫ - ০৭:১৫ (বিল্ব নিমন্ত্রণ: ১৬ অক্টো ২:৫১–৫:১১)",
+      schD2Desc: "দেবী দুর্গার আমন্ত্রণ, অধিবাস ও কল্পারম্ভ। দেবীর প্রাণ জাগ্রতকরণ ও প্যান্ডেল দর্শনের আনুষ্ঠানিক সূচনা।",
+      schD3Date: "১৮ অক্টোবর ২০২৬ · ১ কার্তিক (রবিবার)",
+      schD3Title: "🌾 মহাসপ্তমী (Maha Saptami)",
+      schD3L1: "পূজারম্ভ (সপ্তমী):",
+      schD3V1: "সকাল ০৫:৩০ মি: (স্নাত ভোর ০৫:১১–০৫:৩৪)",
+      schD3L2: "সপ্তমী পুষ্পাঞ্জলি:",
+      schD3V2: "দেবীর ভোগারতির পর",
+      schD3Desc: "১ কার্তিক (১৮ অক্টোবর)। নবপত্রিকা বা কলাবৌ স্নান, ষোড়শোপচার পুজো ও দেবীর ভোগারতির পর পুষ্পাঞ্জলি।",
+      schD4Date: "১৯ অক্টোবর ২০২৬ · ২ কার্তিক (সোমবার)",
+      schD4Title: "🔔 মহাঅষ্টমী (Maha Ashtami)",
+      schD4L1: "পূজারম্ভ (অষ্টমী):",
+      schD4V1: "সকাল ০৫:৩০ মি:",
+      schD4L2: "কুমারী পূজা:",
+      schD4V2: "পূজারম্ভ সকাল ০৯:০০ টা",
+      schD4L3: "⚡ সন্ধিপূজা (Sandhi Puja):",
+      schD4V3: "সকাল ১০.২৮ মি: – ১১.১৬ মি:",
+      schD4Desc: "২ কার্তিক (১৯ অক্টোবর)। বিশুদ্ধ সিদ্ধান্ত পঞ্জিকানুযায়ী কুমারী পূজা (সকাল ৯:০০) ও ঐতিহাসিক সন্ধিপূজা (১০:২৮–১১:১৬)।",
+      schD5Date: "২০ অক্টোবর ২০২৬ · ৩ কার্তিক (মঙ্গলবার)",
+      schD5Title: "🔥 মহানবমী (Maha Navami)",
+      schD5L1: "পূজারম্ভ (নবমী):",
+      schD5V1: "সকাল ০৫:৩০ মি:",
+      schD5L2: "নবমী হোম:",
+      schD5V2: "দেবীর ভোগারতির পর",
+      schD5Desc: "৩ কার্তিক (২০ অক্টোবর)। দেবীর মহা আরতি, ভোগারতির পর নবমী হোম, ও সন্ধ্যায় প্রদীপ-আরতি।",
+      schD6Date: "২১ অক্টোবর ২০২৬ (বুধবার)",
+      schD6Title: "🪔 বিজয়া দশমী (Vijaya Dashami)",
+      schD6L1: "দর্পণ বিসর্জন:",
+      schD6V1: "সকাল ০৯:৩০",
+      schD6L2: "সিঁদুর খেলা ও বিসর্জন:",
+      schD6V2: "দুপুর ০১:০০ থেকে (বিজয় মুহূর্ত ০১:১৬ - ০২:০২)",
+      schD6Desc: "দেবী বরণ, সিঁদুর খেলা ও প্রতিমা বিসর্জন। শুভ বিজয়ার শুভেচ্ছা, কোলাকুলি ও মিষ্টিমুখ।",
+      schD7Date: "২৫ অক্টোবর ২০২৬ (রবিবার)",
+      schD7Title: "🌕 কোজাগরী লক্ষ্মীপুজো (Lakshmi Puja)",
+      schD7L1: "কোজাগরী তিথি:",
+      schD7V1: "সন্ধ্যা ০৫:৩০ - রাত ১১:১৫",
+      schD7Desc: "কোজাগরী পূর্ণিমায় ধনধান্যের দেবী লক্ষ্মীর পুজো ও ঘরে ঘরে আলপনা আঁকা।",
       chipAll: "সব প্যান্ডেল",
       chipVisitor: "দর্শনার্থীদের যুক্ত করা",
       countSingle: "১টি প্যান্ডেল পাওয়া গেছে",
@@ -1090,12 +1374,16 @@ footer.site-footer {
       tagTheme: "🎨 থিম পুজো",
       tagPopular: "⭐ জনপ্রিয়",
       modalHeadingHowToReach: "পৌঁছনোর নির্দেশিকা",
-      btnCopyDirections: "রুট কপি করুন 📋"
+      btnCopyDirections: "রুট কপি করুন 📋",
+      copySuccess: "রুট গাইড ক্লিপবোর্ডে কপি করা হয়েছে! আপনি এটি হোয়াটসঅ্যাপে শেয়ার করতে পারেন।",
+      locating: "অবস্থান খোঁজা হচ্ছে...",
+      nearMeActive: "📍 আমার কাছে সক্রিয়"
     },
     en: {
       brandTitle: "Pujo Path",
       navHome: "Home",
       navExplore: "Pandals",
+      navSchedule: "Schedule",
       navAreas: "Areas",
       navAdd: "Add Pandal",
       heroBadgeText: "{count}+ Popular Pandals • North to South Kolkata",
@@ -1104,18 +1392,74 @@ footer.site-footer {
       btnExplore: "Explore Pandals",
       btnNearMe: "Find Near Me",
       searchPlaceholder: "Search by pandal, area, metro, station or bus stop...",
+      quickPillShobhabazar: "🚇 Shobhabazar Metro",
+      quickPillKalighat: "🚇 Kalighat Metro",
+      quickPillHeritage: "🏛️ Heritage Pujas",
+      quickPillTheme: "🎨 Theme Pujas",
       areasTitle: "Puja Zones of Kolkata",
       areasSubtitle: "Select a zone to filter pandals instantly",
-      areaNorth: "North Kolkata",
+      areaSpotNorth: "HERITAGE & ROYAL HOUSES",
+      areaSpotCentral: "LIGHT ILLUMINATIONS",
+      areaSpotSouth: "MODERN CONCEPT THEMES",
+      areaSpotDumdum: "MEGA PAVILIONS",
+      areaSpotDistricts: "FOLK ART & TRADITION",
+      areaNorthName: "North Kolkata",
+      areaCentralName: "Central Kolkata",
+      areaSouthName: "South Kolkata",
+      areaDumdumName: "Dum Dum & Lake Town",
+      areaDistrictsName: "Districts",
       areaNorthDesc: "Heritage, traditional rituals & iconic para pujas",
-      areaCentral: "Central Kolkata",
       areaCentralDesc: "Heart of the city & magnificent light displays",
-      areaSouth: "South Kolkata",
       areaSouthDesc: "Modern artistic themes & massive celebrations",
-      areaDumdum: "Dum Dum & Lake Town",
       areaDumdumDesc: "Grand architectural replicas & neighbourhood pujas",
-      areaDistricts: "Districts",
       areaDistrictsDesc: "Traditional heritage pujas across Bengal",
+      scheduleMainTitle: "Durga Puja 2026 Calendar & Timings",
+      scheduleSubTitle: "Vishuddha Siddhanta Almanac & Belur Math Official Timings (2026)",
+      schD1Date: "Sat 10 Oct 2026",
+      schD1Title: "🌅 Mahalaya",
+      schD1Lbl: "Tarpan Window:",
+      schD1Val: "04:30 AM – 06:15 AM (Broadcast 4:00 AM)",
+      schD1Desc: "Pitru Paksha closes, Devi Paksha opens. Sacred Tarpan at Ganges ghats & Mahishasuramardini audio.",
+      schD2Date: "Sat 17 Oct 2026",
+      schD2Title: "🌺 Maha Shashthi",
+      schD2Lbl: "Bodhon & Adhibas:",
+      schD2Val: "05:45 PM – 07:15 PM (Bilva Nimantran: 16 Oct 2:51–5:11 PM)",
+      schD2Desc: "Kalparambha, Bodhon, Amantran and Adhibas. Goddess is awakened and invited. Pandals open.",
+      schD3Date: "Sun 18 Oct 2026 (1 Kartik)",
+      schD3Title: "🌾 Maha Saptami",
+      schD3L1: "Saptami Puja:",
+      schD3V1: "Begins at 5:30 AM (Snan 05:11–05:34 AM)",
+      schD3L2: "Pushpanjali:",
+      schD3V2: "Daily after Bhogarati",
+      schD3Desc: "Sun 18 Oct (1 Kartik). Nabapatrika Snan, Prana Pratishtha & Pushpanjali after Bhogarati.",
+      schD4Date: "Mon 19 Oct 2026 (2 Kartik)",
+      schD4Title: "🔔 Maha Ashtami",
+      schD4L1: "Ashtami Puja:",
+      schD4V1: "Begins at 5:30 AM",
+      schD4L2: "Kumari Puja:",
+      schD4V2: "Begins at 9:00 AM",
+      schD4L3: "⚡ Sandhi Puja:",
+      schD4V3: "10:28 AM to 11:16 AM",
+      schD4Desc: "Mon 19 Oct (2 Kartik). Per Belur Math & Vishuddha Siddhanta: Kumari Puja at 9:00 AM & Sandhi Puja (10:28–11:16 AM).",
+      schD5Date: "Tue 20 Oct 2026 (3 Kartik)",
+      schD5Title: "🔥 Maha Navami",
+      schD5L1: "Navami Puja:",
+      schD5V1: "Begins at 5:30 AM",
+      schD5L2: "Navami Homa:",
+      schD5V2: "After Bhogarati of Sri Sri Devi",
+      schD5Desc: "Tue 20 Oct (3 Kartik). Navami Homa after Bhogarati, evening Arati & traditional Dhunuchi Naach.",
+      schD6Date: "Wed 21 Oct 2026",
+      schD6Title: "🪔 Vijaya Dashami",
+      schD6L1: "Darpan Bisorjon:",
+      schD6V1: "Morning 09:30 AM",
+      schD6L2: "Sindoor Khela & Immersion:",
+      schD6V2: "From 01:00 PM (Vijay Muhurat 01:16–02:02 PM)",
+      schD6Desc: "Darpan Bisorjon, Sindoor Khela, idol immersion in Ganges, Bijoya greetings & sweets distribution.",
+      schD7Date: "Sun 25 Oct 2026",
+      schD7Title: "🌕 Kojagari Lakshmi Puja",
+      schD7L1: "Kojagari Tithi:",
+      schD7V1: "05:30 PM – 11:15 PM",
+      schD7Desc: "Worship of Goddess Lakshmi on Kojagari Purnima night with traditional rice-paste alpana.",
       chipAll: "All Pandals",
       chipVisitor: "Visitor Added",
       countSingle: "1 pandal found",
@@ -1152,12 +1496,16 @@ footer.site-footer {
       tagTheme: "🎨 Theme",
       tagPopular: "⭐ Popular",
       modalHeadingHowToReach: "How to Get There",
-      btnCopyDirections: "Copy Route 📋"
+      btnCopyDirections: "Copy Route 📋",
+      copySuccess: "Route guide copied to clipboard! You can share it via WhatsApp.",
+      locating: "Locating...",
+      nearMeActive: "📍 Near Me Active"
     },
     hi: {
       brandTitle: "पूजा पथ",
       navHome: "होम",
       navExplore: "पंडाल",
+      navSchedule: "समय सारणी",
       navAreas: "क्षेत्र",
       navAdd: "पंडाल जोड़ें",
       heroBadgeText: "{count}+ प्रसिद्ध पूजा पंडाल • उत्तर से दक्षिण कोलकाता",
@@ -1166,18 +1514,74 @@ footer.site-footer {
       btnExplore: "पंडाल खोजें",
       btnNearMe: "मेरे पास के पंडाल",
       searchPlaceholder: "पंडाल, क्षेत्र, मेट्रो, स्टेशन या बस स्टॉप से खोजें...",
+      quickPillShobhabazar: "🚇 शोभाबाजार मेट्रो",
+      quickPillKalighat: "🚇 कालीघाट मेट्रो",
+      quickPillHeritage: "🏛️ पारंपरिक पूजा",
+      quickPillTheme: "🎨 थीम पूजा",
       areasTitle: "कोलकाता के प्रमुख पूजा क्षेत्र",
       areasSubtitle: "पसंदीदा क्षेत्र चुनकर सीधे पंडाल सूची देखें",
-      areaNorth: "उत्तर कोलकाता",
+      areaSpotNorth: "पारंपरिक एवं राजबाड़ी",
+      areaSpotCentral: "लाइट सजावट एवं पार्क",
+      areaSpotSouth: "आधुनिक थीम पूजा",
+      areaSpotDumdum: "मेगा पंडाल",
+      areaSpotDistricts: "लोक कला एवं परंपरा",
+      areaNorthName: "उत्तर कोलकाता",
+      areaCentralName: "मध्य कोलकाता",
+      areaSouthName: "दक्षिण कोलकाता",
+      areaDumdumName: "दमदम और लेक टाउन",
+      areaDistrictsName: "ज़िले",
       areaNorthDesc: "पारंपरिक विरासत और प्रसिद्ध पारंपरिक पूजा",
-      areaCentral: "मध्य कोलकाता",
       areaCentralDesc: "शहर का दिल और अद्भुत रोशनी की सजावट",
-      areaSouth: "दक्षिण कोलकाता",
       areaSouthDesc: "आधुनिक थीम और विशाल जनसमूह",
-      areaDumdum: "दमदम और लेक टाउन",
       areaDumdumDesc: "भव्य थीम और दर्शनीय पंडाल",
-      areaDistricts: "ज़िले",
       areaDistrictsDesc: "बंगाल की पारंपरिक पूजा और लोक कला",
+      scheduleMainTitle: "दुर्गा पूजा पंचांग एवं समय सारणी 2026",
+      scheduleSubTitle: "पुष्पांजलि, संधि पूजा और प्रमुख तिथियों की सटीक समय सारणी 2026",
+      schD1Date: "शनि 10 अक्टू 2026",
+      schD1Title: "🌅 महालया (Mahalaya)",
+      schD1Lbl: "तर्पण तिथि:",
+      schD1Val: "सुबह 04:30 - 06:15 (प्रसारण सुबह 4:00)",
+      schD1Desc: "पितृपक्ष का समापन और देवीपक्ष का शुभारंभ। गंगा घाट पर पवित्र तर्पण और महिषासुरमर्दिनी।",
+      schD2Date: "शनि 17 अक्टू 2026",
+      schD2Title: "🌺 महाषष्ठी (Maha Shasthi)",
+      schD2Lbl: "बोधन एवं अधिवास:",
+      schD2Val: "शाम 05:45 - 07:15 (बिल्व निमंत्रण: 16 अक्टू 2:51–5:11 PM)",
+      schD2Desc: "कल्परंभ, बोधन, आमंत्रण एवं अधिवास। देवी का आह्वान और पंडाल दर्शन का औपचारिक शुभारंभ।",
+      schD3Date: "रवि 18 अक्टू 2026 (1 कार्तिक)",
+      schD3Title: "🌾 महासप्तमी (Maha Saptami)",
+      schD3L1: "सप्तमी पूजा:",
+      schD3V1: "सुबह 05:30 बजे से (स्नान 05:11–05:34)",
+      schD3L2: "पुष्पांजलि:",
+      schD3V2: "भोगारती के पश्चात",
+      schD3Desc: "रविवार 18 अक्टू (1 कार्तिक)। नवपत्रिका स्नान, प्राण प्रतिष्ठा एवं भोगारती के बाद पुष्पांजलि।",
+      schD4Date: "सोम 19 अक्टू 2026 (2 कार्तिक)",
+      schD4Title: "🔔 महाअष्टमी (Maha Ashtami)",
+      schD4L1: "अष्टमी पूजा:",
+      schD4V1: "सुबह 05:30 बजे से",
+      schD4L2: "कुमारी पूजा:",
+      schD4V2: "सुबह 09:00 बजे",
+      schD4L3: "⚡ संधि पूजा (Sandhi Puja):",
+      schD4V3: "सुबह 10:28 से 11:16 बजे",
+      schD4Desc: "सोमवार 19 अक्टू (2 कार्तिक)। बेलूड़ मठ एवं विशुद्ध सिद्धांत अनुसार: कुमारी पूजा (सुबह 9:00) और संधि पूजा (10:28–11:16 बजे)।",
+      schD5Date: "मंगल 20 अक्टू 2026 (3 कार्तिक)",
+      schD5Title: "🔥 महानवमी (Maha Navami)",
+      schD5L1: "नवमी पूजा:",
+      schD5V1: "सुबह 05:30 बजे से",
+      schD5L2: "नवमी होम:",
+      schD5V2: "भोगारती के पश्चात",
+      schD5Desc: "मंगलवार 20 अक्टू (3 कार्तिक)। नवमी होम (भोगारती के बाद) और शाम को महा आरती।",
+      schD6Date: "बुध 21 अक्टू 2026",
+      schD6Title: "🪔 विजया दशमी (Vijaya Dashami)",
+      schD6L1: "दर्पण विसर्जन:",
+      schD6V1: "सुबह 09:30",
+      schD6L2: "सिंदूर खेला एवं विसर्जन:",
+      schD6V2: "दोपहर 01:00 बजे से (विजय मुहूर्त 01:16 - 02:02)",
+      schD6Desc: "देवी वरण, सिंदूर खेला, प्रतिमा विसर्जन, शुभ विजया की शुभकामनाएं और मिठाई बांटना।",
+      schD7Date: "रवि 25 अक्टू 2026",
+      schD7Title: "🌕 कोजागरी लक्ष्मी पूजा (Lakshmi Puja)",
+      schD7L1: "कोजागरी तिथि:",
+      schD7V1: "शाम 05:30 - रात 11:15",
+      schD7Desc: "कोजागरी पूर्णिमा पर देवी लक्ष्मी की पूजा और घरों में सुंदर अल्पना बनाना।",
       chipAll: "सभी पंडाल",
       chipVisitor: "दर्शकों द्वारा जोड़े गए",
       countSingle: "1 पंडाल मिला",
@@ -1202,7 +1606,7 @@ footer.site-footer {
       lblTheme: "थीम या मुख्य आकर्षण",
       lblMetro: "निकटतम मेट्रो स्टेशन",
       lblRail: "निकटतम ट्रेन स्टेशन",
-      lblBus: "निकটतम बस स्टॉप",
+      lblBus: "निकटतम बस स्टॉप",
       lblReach: "पहुंचने का आसान रास्ता",
       btnSubmitText: "पंडाल जोड़ें",
       disclaimerText: "💡 <strong>महत्वपूर्ण:</strong> पूजा के दिनों में प्रमुख सड़कों पर यातायात नियंत्रित रहता है। मेट्रो सबसे सुविधाजनक है।",
@@ -1214,72 +1618,105 @@ footer.site-footer {
       tagTheme: "🎨 थीम",
       tagPopular: "⭐ प्रसिद्ध",
       modalHeadingHowToReach: "पहुंचने का मार्ग",
-      btnCopyDirections: "मार्ग कॉपी करें 📋"
+      btnCopyDirections: "मार्ग कॉपी करें 📋",
+      copySuccess: "मार्ग निर्देश क्लिपबोर्ड पर कॉपी हो गया है! आप इसे व्हाट्सएप पर शेयर कर सकते हैं।",
+      locating: "खोज रहे हैं...",
+      nearMeActive: "📍 मेरे पास सक्रिय"
     }
   };
 
-  /* ENRICHED STARTER DATASET */
+  /* MULTILINGUAL STARTER DATASET */
   var STARTER = [
-    { id: "g1", type: "theme", name: "Kumartuli Park Sarbojanin", area: "North Kolkata", place: "Kumartuli, near Ahiritola", lat: 22.5996, lng: 88.3614,
-      theme: "Sits in the idol-makers' neighbourhood; known for large artistic themed decor.",
-      metro: "Shobhabazar Sutanuti (Blue Line)", exitGate: "Exit Gate 2 (Rabindra Sarani)", rail: "Bagbazar (Circular Railway)", bus: "Shobhabazar / Bagbazar", walkMins: 10,
-      reach: "Metro to Shobhabazar Sutanuti station, take Exit 2 towards Rabindra Sarani, walk about 10 minutes through Kumartuli idol-makers lanes." },
-    { id: "g2", type: "heritage", name: "Baghbazar Sarbojanin", area: "North Kolkata", place: "Baghbazar, near Baghbazar Ghat", lat: 22.6027, lng: 88.3663,
-      theme: "Centenary-old traditional puja; iconic classic idol, dhunuchi naach and heritage decor.",
-      metro: "Shobhabazar Sutanuti (Blue Line)", exitGate: "Exit Gate 1 (Bidhan Sarani)", rail: "Bagbazar (Circular Railway)", bus: "Bagbazar Bus Stand", walkMins: 10,
-      reach: "Metro to Shobhabazar Sutanuti, take Exit 1 and walk 10 minutes north-west along Bidhan Sarani towards Baghbazar Ghat." },
-    { id: "g3", type: "heritage", name: "Sovabazar Rajbari", area: "North Kolkata", place: "Sovabazar, Raja Nabakrishna Street", lat: 22.5956, lng: 88.3621,
-      theme: "Historic household puja established in 1757 by Maharaja Nabakrishna Deb.",
-      metro: "Shobhabazar Sutanuti (Blue Line)", exitGate: "Exit Gate 2", rail: "Sealdah (~3 km)", bus: "Sovabazar Crossing", walkMins: 5,
-      reach: "Metro to Shobhabazar Sutanuti, take Exit 2 and walk 5 minutes down Raja Nabakrishna Street lane to the Rajbari courtyard." },
-    { id: "g4", type: "heritage", name: "Ahiritola Sarbojanin", area: "North Kolkata", place: "Ahiritola, near Nimtala Ghat", lat: 22.5937, lng: 88.3551,
-      theme: "Classic North Kolkata para puja famed for traditional idols and cultural heritage.",
-      metro: "Girish Park (Blue Line)", exitGate: "Exit Gate 3", rail: "Bagbazar (Circular Railway)", bus: "Ahiritola / Nimtala", walkMins: 12,
-      reach: "Metro to Girish Park station, take Exit 3 and walk 12 minutes west towards Strand Road / Nimtala Ghat." },
-    { id: "g5", type: "theme", name: "Hatibagan Nabin Pally", area: "North Kolkata", place: "Hatibagan, Bidhan Sarani", lat: 22.5958, lng: 88.3703,
-      theme: "Famed for elaborate conceptual themes and high festive footfall.",
-      metro: "Shyambazar (Blue Line)", exitGate: "Exit Gate 2 (Five Point)", rail: "Sealdah (~4 km)", bus: "Hatibagan Crossing", walkMins: 6,
-      reach: "Metro to Shyambazar station, take Exit 2 (Five Point Crossing) and walk 6 minutes south along Bidhan Sarani." },
-    { id: "g6", type: "popular", name: "College Square", area: "Central Kolkata", place: "College Street, near University", lat: 22.5739, lng: 88.3644,
-      theme: "Massive illuminated pandal reflecting over the central College Square lake.",
-      metro: "Mahatma Gandhi Road (Blue Line)", exitGate: "Exit Gate 1", rail: "Sealdah (~1.5 km)", bus: "College Street / MG Road", walkMins: 8,
-      reach: "Metro to Mahatma Gandhi Road, Exit 1, walk 8 minutes down College Street towards Calcutta University." },
-    { id: "g7", type: "theme", name: "Santosh Mitra Square", area: "Central Kolkata", place: "Lebutala, near Sealdah", lat: 22.5668, lng: 88.3678,
-      theme: "Famous for grand architectural replicas, gold ornaments & high-tech illumination.",
-      metro: "Sealdah (Green Line)", exitGate: "Exit Gate 4 (Station Main)", rail: "Sealdah Railway Station", bus: "Sealdah / Rajabazar", walkMins: 8,
-      reach: "Get off at Sealdah Metro / Railway station and walk 8 minutes west towards Lebutala Park." },
-    { id: "g8", type: "popular", name: "Maddox Square", area: "South Kolkata", place: "Ballygunge, near Gariahat", lat: 22.5323, lng: 88.3638,
-      theme: "The ultimate open-air community adda puja of South Kolkata with traditional idol.",
-      metro: "Kalighat (Blue Line)", exitGate: "Exit Gate 3 (Hazra Road)", rail: "Ballygunge Junction", bus: "Ballygunge Phari", walkMins: 12,
-      reach: "Train to Ballygunge Junction and walk 12 minutes, or take exit from Kalighat metro station." },
-    { id: "g9", type: "heritage", name: "Singhi Park", area: "South Kolkata", place: "Ballygunge, near Gariahat", lat: 22.5228, lng: 88.3667,
-      theme: "Recognised for iconic traditional idols, temple architecture, and grand lighting.",
-      metro: "Kalighat (Blue Line)", exitGate: "Exit Gate 2 (Rasa Road)", rail: "Ballygunge Junction", bus: "Gariahat Crossing", walkMins: 10,
-      reach: "Train to Ballygunge Junction and walk 10 minutes towards Gariahat Road." },
-    { id: "g10", type: "popular", name: "Ekdalia Evergreen", area: "South Kolkata", place: "Ekdalia, near Gariahat", lat: 22.5204, lng: 88.3688,
-      theme: "Famous for elaborate temple replicas and world-renowned Chandannagar lighting.",
-      metro: "Kalighat (Blue Line)", exitGate: "Exit Gate 2", rail: "Ballygunge Junction", bus: "Gariahat / Ekdalia", walkMins: 8,
-      reach: "Bus or taxi to Gariahat crossing, then walk 8 minutes into Ekdalia lane." },
-    { id: "g11", type: "theme", name: "Mudiali Club", area: "South Kolkata", place: "Mudiali, near Kalighat", lat: 22.5135, lng: 88.3512,
-      theme: "Renowned theme-driven pandal with artistic lighting near Southern Avenue.",
-      metro: "Kalighat (Blue Line)", exitGate: "Exit Gate 1 (Kalighat Road)", rail: "Ballygunge Junction", bus: "Kalighat / Southern Avenue", walkMins: 7,
-      reach: "Metro to Kalighat station, take Exit 1 towards Kalighat Road, walk 7 minutes towards Southern Avenue." },
-    { id: "g12", type: "theme", name: "Bhowanipore 75 Pally", area: "South Kolkata", place: "Bhowanipore", lat: 22.5342, lng: 88.3496,
-      theme: "Known for eco-friendly conceptual themes and artistic installations.",
-      metro: "Netaji Bhavan (Blue Line)", exitGate: "Exit Gate 2", rail: "Sealdah (~5 km)", bus: "Bhowanipore Crossing", walkMins: 8,
-      reach: "Metro to Netaji Bhavan station, Exit 2, walk 8 minutes into Bhowanipore lane." },
-    { id: "g13", type: "theme", name: "Tridhara Sammilani", area: "South Kolkata", place: "Sarat Bose Road", lat: 22.5245, lng: 88.3598,
-      theme: "Massive crowd puller on Sarat Bose Road known for innovative themes.",
-      metro: "Jatin Das Park (Blue Line)", exitGate: "Exit Gate 2 (Hazra Road)", rail: "Ballygunge Junction", bus: "Sarat Bose Road / Hazra", walkMins: 9,
-      reach: "Metro to Jatin Das Park, Exit 2, walk 9 minutes along Hazra Road to Sarat Bose Road crossing." },
-    { id: "g14", type: "theme", name: "Dum Dum Park Bharat Chakra", area: "Dum Dum & Lake Town", place: "Dum Dum Park", lat: 22.6074, lng: 88.4069,
-      theme: "Famed for immersive artistic installations and huge footfall in North-East Kolkata.",
-      metro: "Dum Dum (Blue Line)", exitGate: "Exit Gate 1", rail: "Dum Dum Junction", bus: "Dum Dum Park", walkMins: 12,
-      reach: "Metro or train to Dum Dum station, take an auto/rickshaw to Dum Dum Park main circle." },
-    { id: "g15", type: "theme", name: "Sreebhumi Sporting Club", area: "Dum Dum & Lake Town", place: "Lake Town, near VIP Road", lat: 22.5995, lng: 88.4042,
-      theme: "World-famous mega-budget puja known for monumental architectural replicas & gold idols.",
-      metro: "Dum Dum (Blue Line)", exitGate: "Exit Gate 1", rail: "Dum Dum Junction", bus: "Lake Town / VIP Road", walkMins: 10,
-      reach: "Metro to Dum Dum, then take auto/bus along VIP Road to Lake Town clock tower entrance." }
+    {
+      id: "g1", type: "theme", area: "North Kolkata", lat: 22.5996, lng: 88.3614,
+      bn: { name: "কুমারটুলি পার্ক সর্বজনীন", place: "কুমারটুলি, অহিরীটোলার কাছে", theme: "প্রতিমা শিল্পীদের পাড়া; সুবিশাল শিল্পসুষমামণ্ডিত থিম সজ্জা।", metro: "শোভাবাজার সুতানুটি (ব্লু লাইন)", exitGate: "২ নং গেট (রবীন্দ্র সরণি)", rail: "বাগবাজার (সার্কুলার রেল)", bus: "শোভাবাজার / বাগবাজার", reach: "মেট্রোতে শোভাবাজার সুতানুটি স্টেশনে নেমে ২ নম্বর গেট দিয়ে বের হন, রবীন্দ্র সরণি ধরে কুমারটুলির গলি দিয়ে ১০ মিনিট হাঁটুন।" },
+      en: { name: "Kumartuli Park Sarbojanin", place: "Kumartuli, near Ahiritola", theme: "Sits in the idol-makers' neighbourhood; known for large artistic themed decor.", metro: "Shobhabazar Sutanuti (Blue Line)", exitGate: "Exit Gate 2 (Rabindra Sarani)", rail: "Bagbazar (Circular Railway)", bus: "Shobhabazar / Bagbazar", reach: "Metro to Shobhabazar Sutanuti station, take Exit 2 towards Rabindra Sarani, walk about 10 minutes through Kumartuli idol-makers lanes." },
+      hi: { name: "कुमरटुली पार्क सार्वजनीन", place: "कुमरटुली, अहीरीटोला के पास", theme: "मूर्तिकारों के क्षेत्र में स्थित; कलात्मक थीम के लिए प्रसिद्ध।", metro: "शोभाबाजार सुतानुटी (ब्लू लाइन)", exitGate: "एग्जिट गेट 2 (रवींद्र सरणी)", rail: "बागबाजार (सर्कुलर रेलवे)", bus: "शोभाबाजार / बागबाजार", reach: "मेट्रो से शोभाबाजार सुतानुटी उतरें, एग्जिट 2 लें और कुमरटुली की गलियों से 10 मिनट पैदल चलें।" }
+    },
+    {
+      id: "g2", type: "heritage", area: "North Kolkata", lat: 22.6027, lng: 88.3663,
+      bn: { name: "বাগবাজার সর্বজনীন", place: "বাগবাজার, বাগবাজার ঘাটের কাছে", theme: "শতবর্ষ প্রাচীন সাবেকি পুজো; ঐতিহ্যবাহী প্রতিমা ও ধুনুচি নাচ।", metro: "শোভাবাজার সুতানুটি (ব্লু লাইন)", exitGate: "১ নং গেট (বিধান সরণি)", rail: "বাগবাজার (সার্কুলার রেল)", bus: "বাগবাজার বাস স্টপ", reach: "মেট্রো থেকে ১ নং গেট দিয়ে বেরিয়ে বিধান সরণি ধরে বাগবাজার ঘাটের দিকে ১০ মিনিট হেঁটে যান।" },
+      en: { name: "Baghbazar Sarbojanin", place: "Baghbazar, near Baghbazar Ghat", theme: "Centenary-old traditional puja; iconic classic idol, dhunuchi naach and heritage decor.", metro: "Shobhabazar Sutanuti (Blue Line)", exitGate: "Exit Gate 1 (Bidhan Sarani)", rail: "Bagbazar (Circular Railway)", bus: "Bagbazar Bus Stand", reach: "Metro to Shobhabazar Sutanuti, take Exit 1 and walk 10 minutes north-west along Bidhan Sarani towards Baghbazar Ghat." },
+      hi: { name: "बागबाजार सार्वजनीन", place: "बागबाजार, बागबाजार घाट के पास", theme: "100 साल पुरानी पारंपरिक पूजा; प्रसिद्ध पारंपरिक प्रतिमा और धुनुची नाच।", metro: "शोभाबाजार सुतानुटी (ब्लू लाइन)", exitGate: "एग्जिट गेट 1 (विधान सरणी)", rail: "बागबाजार (सर्कुलर रेलवे)", bus: "बागबाजार बस स्टैंड", reach: "मेट्रो से शोभाबाजार सुतानुटी उतरें, एग्जिट 1 लें और विधान सरणी से 10 मिनट पैदल चलें।" }
+    },
+    {
+      id: "g3", type: "heritage", area: "North Kolkata", lat: 22.5956, lng: 88.3621,
+      bn: { name: "শোভাবাজার রাজবাড়ি", place: "শোভাবাজার, রাজা নবকৃষ্ণ স্ট্রিট", theme: "১৭৫৭ সালে প্রতিষ্ঠিত ঐতিহাসিক রাজবাড়ির ঐতিহ্যবাহী সাবেকি পুজো।", metro: "শোভাবাজার সুতানুটি (ব্লু লাইন)", exitGate: "২ নং গেট", rail: "শিয়ালদহ (~৩ কিমি)", bus: "শোভাবাজার ক্রসিং", reach: "মেট্রো থেকে ২ নং গেট দিয়ে বেরিয়ে রাজা নবকৃষ্ণ স্ট্রিট ধরে ৫ মিনিট হাঁটলেই রাজবাড়ি।" },
+      en: { name: "Sovabazar Rajbari", place: "Sovabazar, Raja Nabakrishna Street", theme: "Historic household puja established in 1757 by Maharaja Nabakrishna Deb.", metro: "Shobhabazar Sutanuti (Blue Line)", exitGate: "Exit Gate 2", rail: "Sealdah (~3 km)", bus: "Sovabazar Crossing", reach: "Metro to Shobhabazar Sutanuti, take Exit 2 and walk 5 minutes down Raja Nabakrishna Street lane to the Rajbari courtyard." },
+      hi: { name: "शोभाबाजार राजबाड़ी", place: "शोभाबाजार, राजा नवकृष्ण स्ट्रीट", theme: "1757 में राजा नवकृष्ण देब द्वारा स्थापित ऐतिहासिक पारंपरिक पूजा।", metro: "शोभाबाजार सुतानुटी (ब्लू लाइन)", exitGate: "एग्जिट गेट 2", rail: "सियालदह (~3 किमी)", bus: "शोभाबाजार क्रॉसिंग", reach: "मेट्रो से शोभाबाजार सुतानुटी उतरें, एग्जिट 2 लें और राजा नवकृष्ण स्ट्रीट से 5 मिनट पैदल चलें।" }
+    },
+    {
+      id: "g4", type: "heritage", area: "North Kolkata", lat: 22.5937, lng: 88.3551,
+      bn: { name: "অহিরীটোলা সর্বজনীন", place: "অহিরীটোলা, নিমতলা ঘাটের কাছে", theme: "উত্তর কলকাতার ঐতিহ্যবাহী পাড়া পুজো ও সুবিখ্যাত সাবেকি রূপ।", metro: "গিরিশ পার্ক (ব্লু লাইন)", exitGate: "৩ নং গেট", rail: "বাগবাজার (সার্কুলার রেল)", bus: "অহিরীটোলা / নিমতলা", reach: "গিরিশ পার্ক মেট্রো ৩ নং গেট থেকে নেমে নিমতলা ঘাটের দিকে ১২ মিনিট হেঁটে যান।" },
+      en: { name: "Ahiritola Sarbojanin", place: "Ahiritola, near Nimtala Ghat", theme: "Classic North Kolkata para puja famed for traditional idols and cultural heritage.", metro: "Girish Park (Blue Line)", exitGate: "Exit Gate 3", rail: "Bagbazar (Circular Railway)", bus: "Ahiritola / Nimtala", reach: "Metro to Girish Park station, take Exit 3 and walk 12 minutes west towards Strand Road / Nimtala Ghat." },
+      hi: { name: "अहीरीटोला सार्वजनीन", place: "अहीरीटोला, नीमटोला घाट के पास", theme: "उत्तर कोलकाता की प्रसिद्ध पारंपरिक पूजा और सांस्कृतिक विरासत।", metro: "गिरीश पार्क (ब्लू लाइन)", exitGate: "एग्जिट गेट 3", rail: "बागबाजार (सर्कुलर रेलवे)", bus: "अहीरीटोला / नीमटोला", reach: "गिरीश पार्क मेट्रो से उतरकर एग्जिट 3 लें और नीमटोला घाट की ओर 12 मिनट पैदल चलें।" }
+    },
+    {
+      id: "g5", type: "theme", area: "North Kolkata", lat: 22.5958, lng: 88.3703,
+      bn: { name: "হাতিবাগান নবীন পল্লী", place: "হাতিবাগান, বিধান সরণি", theme: "নান্দনিক ভাবনামূলক থিম ও বিশাল দর্শনার্থীদের ভিড়ের জন্য সুপরিচিত।", metro: "শ্যামবাজার (ব্লু লাইন)", exitGate: "২ নং গেট (ফাইভ পয়েন্ট)", rail: "শিয়ালদহ (~৪ কিমি)", bus: "হাতিবাগান মোড়", reach: "শ্যামবাজার মেট্রো ২ নং গেট থেকে বেরিয়ে বিধান সরণি ধরে দক্ষিণ দিকে ৬ মিনিট হাঁটুন।" },
+      en: { name: "Hatibagan Nabin Pally", place: "Hatibagan, Bidhan Sarani", theme: "Famed for elaborate conceptual themes and high festive footfall.", metro: "Shyambazar (Blue Line)", exitGate: "Exit Gate 2 (Five Point)", rail: "Sealdah (~4 km)", bus: "Hatibagan Crossing", reach: "Metro to Shyambazar station, take Exit 2 (Five Point Crossing) and walk 6 minutes south along Bidhan Sarani." },
+      hi: { name: "हाथीबागान नवीन पल्ली", place: "हाथीबागान, विधान सरणी", theme: "अभिनव कॉन्सेप्ट थीम और भारी भीड़ के लिए प्रसिद्ध।", metro: "श्यामबाजार (ब्लू लाइन)", exitGate: "एग्जिट गेट 2 (पांच माथा मोड़)", rail: "सियालदह (~4 किमी)", bus: "हाथीबागान क्रॉसिंग", reach: "श्यामबाजार मेट्रो से निकलकर विधान सरणी के साथ 6 मिनट दक्षिण की ओर चलें।" }
+    },
+    {
+      id: "g6", type: "popular", area: "Central Kolkata", lat: 22.5739, lng: 88.3644,
+      bn: { name: "কলেজ স্কয়ার", place: "কলেজ স্ট্রিট, ইউনিভার্সিটির কাছে", theme: "কলেজ স্কয়ার দীঘির জলে প্রতিফলিত সুবিশাল ও চোখধাঁধানো আলোকসজ্জা।", metro: "মহাত্মা গান্ধী রোড (ব্লু লাইন)", exitGate: "১ নং গেট", rail: "শিয়ালদহ (~১.৫ কিমি)", bus: "কলেজ স্ট্রিট / এমজি রোড", reach: "এমজি রোড মেট্রো ১ নং গেট থেকে নেমে কলেজ স্ট্রিট ধরে ৮ মিনিট হাঁটুন।" },
+      en: { name: "College Square", place: "College Street, near University", theme: "Massive illuminated pandal reflecting over the central College Square lake.", metro: "Mahatma Gandhi Road (Blue Line)", exitGate: "Exit Gate 1", rail: "Sealdah (~1.5 km)", bus: "College Street / MG Road", reach: "Metro to Mahatma Gandhi Road, Exit 1, walk 8 minutes down College Street towards Calcutta University." },
+      hi: { name: "कॉलेज स्क्वायर", place: "कॉलेज स्ट्रीट, यूनिवर्सिटी के पास", theme: "कॉलेज स्क्वायर झील के पानी में चमकने वाली विशाल रोशनी और भव्य पंडाल।", metro: "महात्मा गांधी रोड (ब्लू लाइन)", exitGate: "एग्जिट गेट 1", rail: "सियालदह (~1.5 किमी)", bus: "कॉलेज स्ट्रीट / एमजी रोड", reach: "महात्मा गांधी रोड मेट्रो से उतरकर कॉलेज स्ट्रीट की ओर 8 मिनट पैदल चलें।" }
+    },
+    {
+      id: "g7", type: "theme", area: "Central Kolkata", lat: 22.5668, lng: 88.3678,
+      bn: { name: "সন্তোষ মিত্র স্কয়ার", place: "লেবুতলা, শিয়ালদহের কাছে", theme: "সুবিখ্যাত স্থাপত্যের মেগা রেপ্লিকা ও চোখধাঁধানো আধুনিক আলোকসজ্জা।", metro: "শিয়ালদহ (গ্রিন লাইন)", exitGate: "৪ নং গেট (স্টেশন মেন)", rail: "শিয়ালদহ রেলওয়ে স্টেশন", bus: "শিয়ালদহ / রাজাবাজার", reach: "শিয়ালদহ মেট্রো বা রেল স্টেশন থেকে নেমে লেবুতলা পার্কের দিকে ৮ মিনিট হেঁটে যান।" },
+      en: { name: "Santosh Mitra Square", place: "Lebutala, near Sealdah", theme: "Famous for grand architectural replicas, gold ornaments & high-tech illumination.", metro: "Sealdah (Green Line)", exitGate: "Exit Gate 4 (Station Main)", rail: "Sealdah Railway Station", bus: "Sealdah / Rajabazar", reach: "Get off at Sealdah Metro / Railway station and walk 8 minutes west towards Lebutala Park." },
+      hi: { name: "संतोष मित्रा स्क्वायर", place: "लेबुतला, सियालदह के पास", theme: "भव्य वास्तुकला की प्रतिकृतियों और शानदार रोशनी के लिए प्रसिद्ध।", metro: "सियालदह (ग्रीन लाइन)", exitGate: "एग्जिट गेट 4 (स्टेशन मेन)", rail: "सियालदह रेलवे स्टेशन", bus: "सियालदह / राजाबाजार", reach: "सियालदह मेट्रो या रेलवे स्टेशन से उतरकर लेबुतला पार्क की ओर 8 मिनट पैदल चलें।" }
+    },
+    {
+      id: "g8", type: "popular", area: "South Kolkata", lat: 22.5323, lng: 88.3638,
+      bn: { name: "ম্যাডক্স স্কয়ার", place: "বালিগঞ্জ, গড়িয়াহাটের কাছে", theme: "দক্ষিণ কলকাতার জনপ্রিয় খোলা মাঠের আড্ডা ও ঐতিহ্যবাহী রূপ।", metro: "কালীঘাট (ব্লু লাইন)", exitGate: "৩ নং গেট (হাজরা রোড)", rail: "বালিগঞ্জ জংশন", bus: "বালিগঞ্জ ফাঁড়ি", reach: "বালিগঞ্জ জংশন থেকে ১২ মিনিট হাঁটাপথ, অথবা কালীঘাট মেট্রোর হাজরা রোড এক্সিট থেকে অটো।" },
+      en: { name: "Maddox Square", place: "Ballygunge, near Gariahat", theme: "The ultimate open-air community adda puja of South Kolkata with traditional idol.", metro: "Kalighat (Blue Line)", exitGate: "Exit Gate 3 (Hazra Road)", rail: "Ballygunge Junction", bus: "Ballygunge Phari", reach: "Train to Ballygunge Junction and walk 12 minutes, or take exit from Kalighat metro station." },
+      hi: { name: "मैडॉक्स स्क्वायर", place: "बालीगंज, गड़ियाहाट के पास", theme: "दक्षिण कोलकाता का प्रसिद्ध खुला मैदान और पारंपरिक प्रतिमा की पूजा।", metro: "कालीघाट (ब्लू लाइन)", exitGate: "एग्जिट गेट 3 (हाजरा रोड)", rail: "बालीगंज जंक्शन", bus: "बालीगंज फाड़ी", reach: "बालीगंज जंक्शन से 12 मिनट पैदल, या कालीघाट मेट्रो स्टेशन से हाजरा रोड एग्जिट लें।" }
+    },
+    {
+      id: "g9", type: "heritage", area: "South Kolkata", lat: 22.5228, lng: 88.3667,
+      bn: { name: "সিংহী পার্ক", place: "বালিগঞ্জ, গড়িয়াহাটের কাছে", theme: "বিখ্যাত মন্দিরের আদলে তৈরি প্যান্ডেল, সাবেকি প্রতিমা ও আলো।", metro: "কালীঘাট (ব্লু লাইন)", exitGate: "২ নং গেট (রাসাবিহারী)", rail: "বালিগঞ্জ জংশন", bus: "গড়িয়াহাট মোড়", reach: "বালিগঞ্জ জংশন ট্রেন স্টেশন থেকে গড়িয়াহাট রোডের দিকে ১০ মিনিট হেঁটে যান।" },
+      en: { name: "Singhi Park", place: "Ballygunge, near Gariahat", theme: "Recognised for iconic traditional idols, temple architecture, and grand lighting.", metro: "Kalighat (Blue Line)", exitGate: "Exit Gate 2 (Rasa Road)", rail: "Ballygunge Junction", bus: "Gariahat Crossing", reach: "Train to Ballygunge Junction and walk 10 minutes towards Gariahat Road." },
+      hi: { name: "सिंघी पार्क", place: "बालीगंज, गड़ियाहाट के पास", theme: "मंदिर वास्तुकला, पारंपरिक प्रतिमाओं और भव्य रोशनी के लिए प्रसिद्ध।", metro: "कालीघाट (ब्लू लाइन)", exitGate: "एग्जिट गेट 2", rail: "बालीगंज जंक्शन", bus: "गड़ियाहाट क्रॉसिंग", reach: "बालीगंज जंक्शन से उतरकर गड़ियाहाट रोड की ओर 10 मिनट पैदल चलें।" }
+    },
+    {
+      id: "g10", type: "popular", area: "South Kolkata", lat: 22.5204, lng: 88.3688,
+      bn: { name: "একডালিয়া এভারগ্রিন", place: "একডালিয়া, গড়িয়াহাটের কাছে", theme: "চন্দননগরের বিশ্বখ্যাত আলোকসজ্জা ও সুবিশাল মন্দির রেপ্লিকা।", metro: "কালীঘাট (ব্লু লাইন)", exitGate: "২ নং গেট", rail: "বালিগঞ্জ জংশন", bus: "গড়িয়াহাট / একডালিয়া", reach: "গড়িয়াহাট মোড় থেকে একডালিয়া গলির দিকে ৮ মিনিট হেঁটে যান।" },
+      en: { name: "Ekdalia Evergreen", place: "Ekdalia, near Gariahat", theme: "Famous for elaborate temple replicas and world-renowned Chandannagar lighting.", metro: "Kalighat (Blue Line)", exitGate: "Exit Gate 2", rail: "Ballygunge Junction", bus: "Gariahat / Ekdalia", reach: "Bus or taxi to Gariahat crossing, then walk 8 minutes into Ekdalia lane." },
+      hi: { name: "एकडालिया एवरग्रीन", place: "एकडालिया, गड़ियाहाट के पास", theme: "भव्य मंदिर प्रतिकृतियों और प्रसिद्ध चंदननगर की रोशनी के लिए विख्यात।", metro: "कालीघाट (ब्लू लाइन)", exitGate: "एग्जिट गेट 2", rail: "बालीगंज जंक्शन", bus: "गड़ियाहाट / एकडालिया", reach: "गड़ियाहाट क्रॉसिंग से एकडालिया गली में 8 मिनट पैदल चलें।" }
+    },
+    {
+      id: "g11", type: "theme", area: "South Kolkata", lat: 22.5135, lng: 88.3512,
+      bn: { name: "মুদ্রিয়ালী ক্লাব", place: "মুদ্রিয়ালী, কালীঘাটের কাছে", theme: "আর্ট অ্যান্ড কালচার থিম নির্ভর প্যান্ডেল ও সাউদার্ন অ্যাভিনিউ সংলগ্ন স্থান।", metro: "কালীঘাট (ব্লু লাইন)", exitGate: "১ নং গেট (কালীঘাট রোড)", rail: "বালিগঞ্জ জংশন", bus: "কালীঘাট / সাউদার্ন অ্যাভিনিউ", reach: "কালীঘাট মেট্রো ১ নং গেট থেকে বেরিয়ে সাউদার্ন অ্যাভিনিউয়ের দিকে ৭ মিনিট হাঁটুন।" },
+      en: { name: "Mudiali Club", place: "Mudiali, near Kalighat", theme: "Renowned theme-driven pandal with artistic lighting near Southern Avenue.", metro: "Kalighat (Blue Line)", exitGate: "Exit Gate 1 (Kalighat Road)", rail: "Ballygunge Junction", bus: "Kalighat / Southern Avenue", reach: "Metro to Kalighat station, take Exit 1 towards Kalighat Road, walk 7 minutes towards Southern Avenue." },
+      hi: { name: "मुदियाली क्लब", place: "मुदियाली, कालीघाट के पास", theme: "कलात्मक थीम और दक्षिणी एवेन्यू के पास खूबसूरत प्रकाश व्यवस्था।", metro: "कालीघाट (ब्लू लाइन)", exitGate: "एग्जिट गेट 1 (कालीघाट रोड)", rail: "बालीगंज जंक्शन", bus: "कालीघाट / साउदर्न एवेन्यू", reach: "कालीघाट मेट्रो से निकलकर साउदर्न एवेन्यू की ओर 7 मिनट पैदल चलें।" }
+    },
+    {
+      id: "g12", type: "theme", area: "South Kolkata", lat: 22.5342, lng: 88.3496,
+      bn: { name: "ভবানীপুর ৭৫ পল্লী", place: "ভবানীপুর", theme: "পরিবেশবান্ধব ভাবনামূলক শিল্পকলা ও নান্দনিক সাজসজ্জা।", metro: "নেতাজী ভবন (ব্লু লাইন)", exitGate: "২ নং গেট", rail: "শিয়ালদহ (~৫ কিমি)", bus: "ভবানীপুর মোড়", reach: "নেতাজী ভবন মেট্রো ২ নং গেট থেকে নামার পর ভবানীপুর গলির দিকে ৮ মিনিট হাঁটুন।" },
+      en: { name: "Bhowanipore 75 Pally", place: "Bhowanipore", theme: "Known for eco-friendly conceptual themes and artistic installations.", metro: "Netaji Bhavan (Blue Line)", exitGate: "Exit Gate 2", rail: "Sealdah (~5 km)", bus: "Bhowanipore Crossing", reach: "Metro to Netaji Bhavan station, Exit 2, walk 8 minutes into Bhowanipore lane." },
+      hi: { name: "भवानीपुर 75 पल्ली", place: "भवानीपुर", theme: "पर्यावरण-अनुकूल कलात्मक थीम और सजावट के लिए जाना जाता है।", metro: "नेताजी भवन (ब्लू लाइन)", exitGate: "एग्जिट गेट 2", rail: "सियालदह (~5 किमी)", bus: "भवानीपुर क्रॉसिंग", reach: "नेताजी भवन मेट्रो से उतरकर भवानीपुर गली में 8 मिनट पैदल चलें।" }
+    },
+    {
+      id: "g13", type: "theme", area: "South Kolkata", lat: 22.5245, lng: 88.3598,
+      bn: { name: "ত্রিধারা সম্মেলন", place: "রাসবিহারী / শরৎ বোস রোড", theme: "শরৎ বোস রোডের সুপরিচিত মেগা থিম প্যান্ডেল ও বিশেষ আকর্ষণ।", metro: "যতীন দাস পার্ক (ব্লু লাইন)", exitGate: "২ নং গেট (হাজরা রোড)", rail: "বালিগঞ্জ জংশন", bus: "শরৎ বোস রোড মোড়", reach: "যতীন দাস পার্ক মেট্রো ২ নং গেট থেকে হাজরা রোড ধরে শরৎ বোস রোড মোড় পর্যন্ত ৯ মিনিট হাঁটুন।" },
+      en: { name: "Tridhara Sammilani", place: "Sarat Bose Road", theme: "Massive crowd puller on Sarat Bose Road known for innovative themes.", metro: "Jatin Das Park (Blue Line)", exitGate: "Exit Gate 2 (Hazra Road)", rail: "Ballygunge Junction", bus: "Sarat Bose Road / Hazra", reach: "Metro to Jatin Das Park, Exit 2, walk 9 minutes along Hazra Road to Sarat Bose Road crossing." },
+      hi: { name: "त्रिधारा सम्मेलनी", place: "शरत बोस रोड", theme: "शरत बोस रोड पर अभिनव थीम के लिए प्रसिद्ध विशाल पूजा पंडाल।", metro: "जतिन दास पार्क (ब्लू लाइन)", exitGate: "एग्जिट गेट 2", rail: "बालीगंज जंक्शन", bus: "शरत बोस रोड मोड़", reach: "जतिन दास पार्क मेट्रो से उतरकर शरत बोस रोड क्रॉसिंग तक 9 मिनट पैदल चलें।" }
+    },
+    {
+      id: "g14", type: "theme", area: "Dum Dum & Lake Town", lat: 22.6074, lng: 88.4069,
+      bn: { name: "দমদম পার্ক ভারত চক্র", place: "দমদম পার্ক", theme: "উত্তর-পূর্ব কলকাতার অন্যতম জনপ্রিয় আর্ট থিম ও সুবিশাল প্যাভিলিয়ন।", metro: "দমদম (ব্লু লাইন)", exitGate: "১ নং গেট", rail: "দমদম জংশন", bus: "দমদম পার্ক", reach: "দমদম মেট্রো/ট্রেন স্টেশন থেকে অটো বা রিকশা নিয়ে দমদম পার্ক মোড়ে পৌঁছান।" },
+      en: { name: "Dum Dum Park Bharat Chakra", place: "Dum Dum Park", theme: "Famed for immersive artistic installations and huge footfall in North-East Kolkata.", metro: "Dum Dum (Blue Line)", exitGate: "Exit Gate 1", rail: "Dum Dum Junction", bus: "Dum Dum Park", reach: "Metro or train to Dum Dum station, take an auto/rickshaw to Dum Dum Park main circle." },
+      hi: { name: "दमदम पार्क भारत चक्र", place: "दमदम पार्क", theme: "उत्तर-पूर्व कोलकाता की प्रसिद्ध कलात्मक थीम और विशाल पंडाल।", metro: "दमदम (ब्लू लाइन)", exitGate: "एग्जिट गेट 1", rail: "दमदम जंक्शन", bus: "दमदम पार्क", reach: "दमदम स्टेशन से ऑटो या रिक्शा लेकर दमदम पार्क मुख्य चक्र तक पहुंचें।" }
+    },
+    {
+      id: "g15", type: "theme", area: "Dum Dum & Lake Town", lat: 22.5995, lng: 88.4042,
+      bn: { name: "শ্রীভূমি স্পোর্টিং ক্লাব", place: "লেক টাউন, ভিআইপি রোডের কাছে", theme: "বিশ্বখ্যাত মেগা বাজেট পুজো; সুবিশাল প্রাসাদসম রেপ্লিকা ও সোনার অলঙ্কার।", metro: "দমদম (ব্লু লাইন)", exitGate: "১ নং গেট", rail: "দমদম জংশন", bus: "লেক টাউন / ভিআইপি রোড", reach: "দমদম মেট্রো থেকে নেমে ভিআইপি রোডমুখী বাস/অটো ধরে ক্লক টাওয়ার মোড়ে নামুন।" },
+      en: { name: "Sreebhumi Sporting Club", place: "Lake Town, near VIP Road", theme: "World-famous mega-budget puja known for monumental architectural replicas & gold idols.", metro: "Dum Dum (Blue Line)", exitGate: "Exit Gate 1", rail: "Dum Dum Junction", bus: "Lake Town / VIP Road", reach: "Metro to Dum Dum, then take auto/bus along VIP Road to Lake Town clock tower entrance." },
+      hi: { name: "श्रीभूमि स्पोर्टिंग क्लब", place: "लेक टाउन, वीआईपी रोड के पास", theme: "विश्व प्रसिद्ध मेगा-बजट पूजा; भव्य महल की प्रतिकृतियों और सोने के गहनों के लिए प्रसिद्ध।", metro: "दमदम (ब्लू लाइन)", exitGate: "एग्जिट गेट 1", rail: "दमदम जंक्शन", bus: "लेक टाउन / वीआईपी रोड", reach: "दमदम मेट्रो से वीआईपी रोड बस/ऑटो लेकर लेक टाउन क्लॉक टॉवर पर उतरें।" }
+    }
   ];
 
   var AREAS = ["All", "North Kolkata", "Central Kolkata", "South Kolkata", "Dum Dum & Lake Town", "Districts", "Added by visitors"];
@@ -1315,6 +1752,24 @@ footer.site-footer {
       Object.keys(params).forEach(function (k) { val = val.replace("{" + k + "}", params[k]); });
     }
     return val;
+  }
+
+  function getPandalLocalized(p, lang) {
+    if (p[lang]) {
+      var localized = p[lang];
+      return {
+        id: p.id, src: p.src, type: p.type, area: p.area, lat: p.lat, lng: p.lng,
+        name: localized.name || p.name || "",
+        place: localized.place || p.place || "",
+        theme: localized.theme || p.theme || "",
+        metro: localized.metro || p.metro || "",
+        exitGate: localized.exitGate || p.exitGate || "",
+        rail: localized.rail || p.rail || "",
+        bus: localized.bus || p.bus || "",
+        reach: localized.reach || p.reach || ""
+      };
+    }
+    return p;
   }
 
   function esc(s) {
@@ -1363,6 +1818,8 @@ footer.site-footer {
     document.getElementById("nav-brand-title").innerHTML = getTranslation("brandTitle");
     document.getElementById("nav-home").textContent = getTranslation("navHome");
     document.getElementById("nav-explore").textContent = getTranslation("navExplore");
+    var navSch = document.getElementById("nav-schedule");
+    if (navSch) navSch.textContent = getTranslation("navSchedule");
     document.getElementById("nav-areas").textContent = getTranslation("navAreas");
     document.getElementById("nav-add").textContent = getTranslation("navAdd");
 
@@ -1374,18 +1831,90 @@ footer.site-footer {
     document.getElementById("btn-text-nearme").textContent = getTranslation("btnNearMe");
     searchInput.placeholder = getTranslation("searchPlaceholder");
 
+    document.getElementById("qp-shobhabazar").textContent = getTranslation("quickPillShobhabazar");
+    document.getElementById("qp-kalighat").textContent = getTranslation("quickPillKalighat");
+    document.getElementById("qp-heritage").textContent = getTranslation("quickPillHeritage");
+    document.getElementById("qp-theme").textContent = getTranslation("quickPillTheme");
+
     document.getElementById("areas-title").textContent = getTranslation("areasTitle");
     document.getElementById("areas-subtitle").textContent = getTranslation("areasSubtitle");
-    document.getElementById("area-card-north").textContent = getTranslation("areaNorth");
+    document.getElementById("area-spot-north").textContent = getTranslation("areaSpotNorth");
+    document.getElementById("area-card-north").textContent = getTranslation("areaNorthName");
     document.getElementById("area-desc-north").textContent = getTranslation("areaNorthDesc");
-    document.getElementById("area-card-central").textContent = getTranslation("areaCentral");
+
+    document.getElementById("area-spot-central").textContent = getTranslation("areaSpotCentral");
+    document.getElementById("area-card-central").textContent = getTranslation("areaCentralName");
     document.getElementById("area-desc-central").textContent = getTranslation("areaCentralDesc");
-    document.getElementById("area-card-south").textContent = getTranslation("areaSouth");
+
+    document.getElementById("area-spot-south").textContent = getTranslation("areaSpotSouth");
+    document.getElementById("area-card-south").textContent = getTranslation("areaSouthName");
     document.getElementById("area-desc-south").textContent = getTranslation("areaSouthDesc");
-    document.getElementById("area-card-dumdum").textContent = getTranslation("areaDumdum");
+
+    document.getElementById("area-spot-dumdum").textContent = getTranslation("areaSpotDumdum");
+    document.getElementById("area-card-dumdum").textContent = getTranslation("areaDumdumName");
     document.getElementById("area-desc-dumdum").textContent = getTranslation("areaDumdumDesc");
-    document.getElementById("area-card-districts").textContent = getTranslation("areaDistricts");
+
+    document.getElementById("area-spot-districts").textContent = getTranslation("areaSpotDistricts");
+    document.getElementById("area-card-districts").textContent = getTranslation("areaDistrictsName");
     document.getElementById("area-desc-districts").textContent = getTranslation("areaDistrictsDesc");
+
+    /* Schedule Section Multilingual Dynamic Update */
+    var schTitle = document.getElementById("schedule-main-title");
+    if (schTitle) schTitle.textContent = getTranslation("scheduleMainTitle");
+    var schSub = document.getElementById("schedule-sub-title");
+    if (schSub) schSub.textContent = getTranslation("scheduleSubTitle");
+
+    var schD1Date = document.getElementById("sch-d1-date"); if (schD1Date) schD1Date.textContent = getTranslation("schD1Date");
+    var schD1Title = document.getElementById("sch-d1-title"); if (schD1Title) schD1Title.textContent = getTranslation("schD1Title");
+    var schD1Lbl = document.getElementById("sch-d1-lbl"); if (schD1Lbl) schD1Lbl.textContent = getTranslation("schD1Lbl");
+    var schD1Val = document.getElementById("sch-d1-val"); if (schD1Val) schD1Val.textContent = getTranslation("schD1Val");
+    var schD1Desc = document.getElementById("sch-d1-desc"); if (schD1Desc) schD1Desc.textContent = getTranslation("schD1Desc");
+
+    var schD2Date = document.getElementById("sch-d2-date"); if (schD2Date) schD2Date.textContent = getTranslation("schD2Date");
+    var schD2Title = document.getElementById("sch-d2-title"); if (schD2Title) schD2Title.textContent = getTranslation("schD2Title");
+    var schD2Lbl = document.getElementById("sch-d2-lbl"); if (schD2Lbl) schD2Lbl.textContent = getTranslation("schD2Lbl");
+    var schD2Val = document.getElementById("sch-d2-val"); if (schD2Val) schD2Val.textContent = getTranslation("schD2Val");
+    var schD2Desc = document.getElementById("sch-d2-desc"); if (schD2Desc) schD2Desc.textContent = getTranslation("schD2Desc");
+
+    var schD3Date = document.getElementById("sch-d3-date"); if (schD3Date) schD3Date.textContent = getTranslation("schD3Date");
+    var schD3Title = document.getElementById("sch-d3-title"); if (schD3Title) schD3Title.textContent = getTranslation("schD3Title");
+    var schD3L1 = document.getElementById("sch-d3-l1"); if (schD3L1) schD3L1.textContent = getTranslation("schD3L1");
+    var schD3V1 = document.getElementById("sch-d3-v1"); if (schD3V1) schD3V1.textContent = getTranslation("schD3V1");
+    var schD3L2 = document.getElementById("sch-d3-l2"); if (schD3L2) schD3L2.textContent = getTranslation("schD3L2");
+    var schD3V2 = document.getElementById("sch-d3-v2"); if (schD3V2) schD3V2.textContent = getTranslation("schD3V2");
+    var schD3Desc = document.getElementById("sch-d3-desc"); if (schD3Desc) schD3Desc.textContent = getTranslation("schD3Desc");
+
+    var schD4Date = document.getElementById("sch-d4-date"); if (schD4Date) schD4Date.textContent = getTranslation("schD4Date");
+    var schD4Title = document.getElementById("sch-d4-title"); if (schD4Title) schD4Title.textContent = getTranslation("schD4Title");
+    var schD4L1 = document.getElementById("sch-d4-l1"); if (schD4L1) schD4L1.textContent = getTranslation("schD4L1");
+    var schD4V1 = document.getElementById("sch-d4-v1"); if (schD4V1) schD4V1.textContent = getTranslation("schD4V1");
+    var schD4L2 = document.getElementById("sch-d4-l2"); if (schD4L2) schD4L2.textContent = getTranslation("schD4L2");
+    var schD4V2 = document.getElementById("sch-d4-v2"); if (schD4V2) schD4V2.textContent = getTranslation("schD4V2");
+    var schD4L3 = document.getElementById("sch-d4-l3"); if (schD4L3) schD4L3.textContent = getTranslation("schD4L3");
+    var schD4V3 = document.getElementById("sch-d4-v3"); if (schD4V3) schD4V3.textContent = getTranslation("schD4V3");
+    var schD4Desc = document.getElementById("sch-d4-desc"); if (schD4Desc) schD4Desc.textContent = getTranslation("schD4Desc");
+
+    var schD5Date = document.getElementById("sch-d5-date"); if (schD5Date) schD5Date.textContent = getTranslation("schD5Date");
+    var schD5Title = document.getElementById("sch-d5-title"); if (schD5Title) schD5Title.textContent = getTranslation("schD5Title");
+    var schD5L1 = document.getElementById("sch-d5-l1"); if (schD5L1) schD5L1.textContent = getTranslation("schD5L1");
+    var schD5V1 = document.getElementById("sch-d5-v1"); if (schD5V1) schD5V1.textContent = getTranslation("schD5V1");
+    var schD5L2 = document.getElementById("sch-d5-l2"); if (schD5L2) schD5L2.textContent = getTranslation("schD5L2");
+    var schD5V2 = document.getElementById("sch-d5-v2"); if (schD5V2) schD5V2.textContent = getTranslation("schD5V2");
+    var schD5Desc = document.getElementById("sch-d5-desc"); if (schD5Desc) schD5Desc.textContent = getTranslation("schD5Desc");
+
+    var schD6Date = document.getElementById("sch-d6-date"); if (schD6Date) schD6Date.textContent = getTranslation("schD6Date");
+    var schD6Title = document.getElementById("sch-d6-title"); if (schD6Title) schD6Title.textContent = getTranslation("schD6Title");
+    var schD6L1 = document.getElementById("sch-d6-l1"); if (schD6L1) schD6L1.textContent = getTranslation("schD6L1");
+    var schD6V1 = document.getElementById("sch-d6-v1"); if (schD6V1) schD6V1.textContent = getTranslation("schD6V1");
+    var schD6L2 = document.getElementById("sch-d6-l2"); if (schD6L2) schD6L2.textContent = getTranslation("schD6L2");
+    var schD6V2 = document.getElementById("sch-d6-v2"); if (schD6V2) schD6V2.textContent = getTranslation("schD6V2");
+    var schD6Desc = document.getElementById("sch-d6-desc"); if (schD6Desc) schD6Desc.textContent = getTranslation("schD6Desc");
+
+    var schD7Date = document.getElementById("sch-d7-date"); if (schD7Date) schD7Date.textContent = getTranslation("schD7Date");
+    var schD7Title = document.getElementById("sch-d7-title"); if (schD7Title) schD7Title.textContent = getTranslation("schD7Title");
+    var schD7L1 = document.getElementById("sch-d7-l1"); if (schD7L1) schD7L1.textContent = getTranslation("schD7L1");
+    var schD7V1 = document.getElementById("sch-d7-v1"); if (schD7V1) schD7V1.textContent = getTranslation("schD7V1");
+    var schD7Desc = document.getElementById("sch-d7-desc"); if (schD7Desc) schD7Desc.textContent = getTranslation("schD7Desc");
 
     document.getElementById("add-heading").textContent = getTranslation("addHeading");
     document.getElementById("add-subheading").textContent = getTranslation("addSubheading");
@@ -1400,21 +1929,44 @@ footer.site-footer {
     document.getElementById("btn-submit-text").textContent = getTranslation("btnSubmitText");
     document.getElementById("disclaimer-text").innerHTML = getTranslation("disclaimerText");
 
+    var areaSelect = document.getElementById("f-area");
+    if (areaSelect) {
+      areaSelect.options[0].text = getTranslation("areaNorthName");
+      areaSelect.options[1].text = getTranslation("areaCentralName");
+      areaSelect.options[2].text = getTranslation("areaSouthName");
+      areaSelect.options[3].text = getTranslation("areaDumdumName");
+      areaSelect.options[4].text = getTranslation("areaDistrictsName");
+    }
+
     document.getElementById("footer-desc").textContent = getTranslation("footerDesc");
     document.getElementById("fl-home").textContent = getTranslation("navHome");
     document.getElementById("fl-explore").textContent = getTranslation("navExplore");
+    var flSch = document.getElementById("fl-schedule");
+    if (flSch) flSch.textContent = getTranslation("navSchedule");
     document.getElementById("fl-areas").textContent = getTranslation("navAreas");
     document.getElementById("fl-add").textContent = getTranslation("navAdd");
   }
 
+  function getAreaLabel(areaKey) {
+    if (areaKey === "All") return getTranslation("chipAll");
+    if (areaKey === "Added by visitors") return getTranslation("chipVisitor");
+    if (areaKey === "North Kolkata") return getTranslation("areaNorthName");
+    if (areaKey === "Central Kolkata") return getTranslation("areaCentralName");
+    if (areaKey === "South Kolkata") return getTranslation("areaSouthName");
+    if (areaKey === "Dum Dum & Lake Town") return getTranslation("areaDumdumName");
+    if (areaKey === "Districts") return getTranslation("areaDistrictsName");
+    return areaKey;
+  }
+
   function renderChips() {
     chips.innerHTML = AREAS.map(function (a) {
-      var label = a === "All" ? getTranslation("chipAll") : (a === "Added by visitors" ? getTranslation("chipVisitor") : a);
+      var label = getAreaLabel(a);
       return '<button type="button" class="chip-filter-btn" data-area="' + esc(a) + '" aria-pressed="' + (state.area === a) + '">' + esc(label) + "</button>";
     }).join("");
   }
 
-  function card(p) {
+  function card(rawP) {
+    var p = getPandalLocalized(rawP, state.lang);
     var comm = p.src === "community";
     var notAddedStr = getTranslation("notAdded");
     var distStr = "";
@@ -1459,7 +2011,8 @@ footer.site-footer {
 
   function render() {
     var q = state.q.trim().toLowerCase();
-    var items = allPandals().filter(function (p) {
+    var items = allPandals().filter(function (rawP) {
+      var p = getPandalLocalized(rawP, state.lang);
       if (state.area === "Added by visitors" && p.src !== "community") return false;
       if (state.area !== "All" && state.area !== "Added by visitors" && p.area !== state.area) return false;
       if (!q) return true;
@@ -1534,11 +2087,11 @@ footer.site-footer {
     if (!navigator.geolocation) {
       alert(getTranslation("nearMeDenied")); return;
     }
-    btnText.textContent = "Locating...";
+    btnText.textContent = getTranslation("locating");
     navigator.geolocation.getCurrentPosition(
       function(pos) {
         state.userCoords = { lat: pos.coords.latitude, lng: pos.coords.longitude };
-        btnText.textContent = "📍 Near Me Active";
+        btnText.textContent = getTranslation("nearMeActive");
         state.area = "All";
         renderChips(); render();
         var el = document.getElementById("explore");
@@ -1562,9 +2115,10 @@ footer.site-footer {
     }
   });
 
-  function openModal(p) {
+  function openModal(rawP) {
+    var p = getPandalLocalized(rawP, state.lang);
     document.getElementById("modal-title").textContent = p.name;
-    document.getElementById("modal-subtitle").textContent = p.area + " · " + p.place;
+    document.getElementById("modal-subtitle").textContent = getAreaLabel(p.area) + " · " + p.place;
 
     var notAddedStr = getTranslation("notAdded");
     var metroDetail = p.metro ? esc(p.metro) + (p.exitGate ? ' <span style="color:var(--sindoor-red);font-weight:700;">(' + esc(p.exitGate) + ')</span>' : '') : notAddedStr;
@@ -1594,7 +2148,7 @@ footer.site-footer {
     var str = name + " - Durga Puja Route Guide:\n" + text;
     if (navigator.clipboard && navigator.clipboard.writeText) {
       navigator.clipboard.writeText(str).then(function() {
-        alert("Route guide copied to clipboard! You can share it via WhatsApp.");
+        alert(getTranslation("copySuccess"));
       }).catch(function() {
         alert(str);
       });

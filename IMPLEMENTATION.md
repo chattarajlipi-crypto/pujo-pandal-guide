@@ -62,6 +62,17 @@ The design eliminates AI-generated template tropes (such as generic cards, blue/
   - `GET /api/pandals`: Loads community visitor-added pandals from Upstash Redis.
   - `POST /api/pandals`: Submits visitor pandals with honeypot security (`website`), IP rate-limiting (10 posts/hr), and HTML string cleaning.
 
+### 5. Official Durga Puja 2026 Panjika Schedule & Belur Math Program:
+- **Official Belur Math & Vishuddha Siddhanta Calendar**: Updated ritual dates and exact timings per Ramakrishna Math (Belur Math) official notice:
+  - **Mahalaya**: Sat 10 Oct 2026 (Tarpan dawn 04:30–06:15 AM, Mahishasuramardini 04:00 AM)
+  - **Maha Shashthi**: Sat 17 Oct 2026 (Bodhon & Adhibas 05:45–07:15 PM, Bilva Nimantran: 16 Oct 2:51–5:11 PM)
+  - **Maha Saptami (১ কার্তিক / Sun 18 Oct 2026)**: Saptami Puja Begins **05:30 AM**, Nabapatrika Snan dawn 05:11–05:34 AM, Pushpanjali after Bhogarati
+  - **Maha Ashtami (২ কার্তিক / Mon 19 Oct 2026)**: Ashtami Puja Begins **05:30 AM**, **Kumari Puja 09:00 AM**, **Sandhi Puja 10:28 AM to 11:16 AM**
+  - **Maha Navami (৩ কার্তিক / Tue 20 Oct 2026)**: Navami Puja Begins **05:30 AM**, Navami Homa after Bhogarati of Sri Sri Devi
+  - **Bijoya Dashami**: Wed 21 Oct 2026 (Darpan Bisorjon 09:30 AM, Sindoor Khela & Bisorjon 01:00 PM onwards)
+  - **Kojagari Lakshmi Puja**: Sun 25 Oct 2026 (05:30–11:15 PM)
+- **Dynamic Multilingual Binding**: Integrated full DOM bindings into `updateStaticLabels()` and expanded `TRANSLATIONS` for `bn`, `en`, and `hi` so the entire schedule seamlessly translates when switching languages.
+
 ---
 
 ## QA Verification Matrix
@@ -69,7 +80,8 @@ The design eliminates AI-generated template tropes (such as generic cards, blue/
 | Feature | Audit Finding | Result |
 | :--- | :--- | :---: |
 | **Street Directions Modal** | Displays Metro Exit Gate, Train, Bus, Walk Mins, and copyable WhatsApp route text | ✅ Pass |
-| **Language Switcher** | Instant switching between Bengali, English, Hindi with localStorage persistence | ✅ Pass |
+| **Language Switcher** | Instant switching between Bengali, English, Hindi with localStorage persistence & full schedule translation | ✅ Pass |
+| **2026 Puja Schedule** | Accurate 2026 Panjika dates (Sat Oct 17 Shashthi to Wed Oct 21 Dashami) & Sandhi Puja (10:27-11:15 AM) | ✅ Pass |
 | **Visual Hierarchy** | Distinct badges for Heritage, Theme, and Popular pujas; high-contrast reading outdoors | ✅ Pass |
 | **Search & Quick Pills** | Real-time search across pandal name, metro, exit gate, bus stop, area, theme | ✅ Pass |
 | **Near Me Geolocation** | Computes Haversine distance, displays distance badges, sorts nearest-first | ✅ Pass |
